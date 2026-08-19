@@ -1,25 +1,35 @@
 'use client'
 
 import preguntas from '@/data/preguntas.json';
-import {useState} from 'react';
+import {useEffect, useState} from 'react';
+import {storage} from '@/lib/storage';
 
 export default function Test() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [respuestas, setRespuestas] = useState({});
 
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect
+    setCurrentIndex(storage.get(storage.keys.INDICE) || 0);
+    setRespuestas(storage.get(storage.keys.RESPUESTAS) || {});
+  }, []);
+
   const preguntaActual = preguntas[currentIndex];
 
   const handleNext = () => {
     if (currentIndex < preguntas.length - 1) {
-      setCurrentIndex(currentIndex + 1);
+      const nuevoIndice = currentIndex + 1;
+      setCurrentIndex(nuevoIndice);
+      storage.set(storage.keys.INDICE, nuevoIndice);
     } else {
       console.log('Test completado');
     }
   };
 
   const handleResponder = (preguntaId, valor) => {
-    setRespuestas((prev) => ({...prev, [preguntaId]: valor}));
-    console.log(`Respuesta para la pregunta ${preguntaId}: ${valor}`);
+    const nuevaRespuesta = {...respuestas, [preguntaId]: valor};
+    setRespuestas(nuevaRespuesta);
+    storage.set(storage.keys.RESPUESTAS, nuevaRespuesta);
   };
 
   return (
