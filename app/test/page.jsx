@@ -3,8 +3,10 @@
 import preguntas from '@/data/preguntas.json';
 import {useEffect, useState} from 'react';
 import {storage} from '@/lib/storage';
+import PreguntaLikert from '@/components/test/PreguntaLikert';
+import PreguntaOpciones from '@/components/test/PreguntaOpciones';
 
-export default function Test() {
+export default function TestVocacional() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [respuestas, setRespuestas] = useState({});
 
@@ -32,14 +34,23 @@ export default function Test() {
     storage.set(storage.keys.RESPUESTAS, nuevaRespuesta);
   };
 
+  let campoPregunta;
+
+  if (preguntaActual.tipo === 'likert') {
+    campoPregunta = <PreguntaLikert pregunta={preguntaActual} respuesta={respuestas[preguntaActual.id]} onResponder={handleResponder} />        
+  } else if (preguntaActual.tipo === 'aptitud' || preguntaActual.tipo === 'eleccion_forzada') {
+    campoPregunta = <PreguntaOpciones pregunta={preguntaActual} respuesta={respuestas[preguntaActual.id]} onResponder={handleResponder} />
+  } else {    
+    campoPregunta = <p>Tipo de pregunta desconocido {preguntaActual.tipo}</p>;
+  }
+
   return (
     <div>
       <p>{preguntaActual.tipo}</p>
       <p>Pregunta {currentIndex+1} de {preguntas.length}</p>
       <p>{preguntaActual.texto}</p>
-      {[1,2,3,4,5].map((e) => <button key={e} onClick={() => handleResponder(preguntaActual.id, e)}>{e}</button>)}
+      {campoPregunta}
       <button onClick={handleNext}>Siguiente</button>
-      <p>Tu respuesta: {respuestas[preguntaActual.id]}</p>
     </div>
   )
 }
