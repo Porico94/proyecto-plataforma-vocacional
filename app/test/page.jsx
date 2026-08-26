@@ -9,6 +9,7 @@ import PreguntaOpciones from '@/components/test/PreguntaOpciones';
 export default function TestVocacional() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [respuestas, setRespuestas] = useState({});
+  const [error, setError] = useState('');
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect
@@ -18,7 +19,23 @@ export default function TestVocacional() {
 
   const preguntaActual = preguntas[currentIndex];
 
-  const handleNext = () => {
+  const handleAnterior = () => {
+    if (currentIndex > 0) {
+      const nuevoIndice = currentIndex - 1;
+      setCurrentIndex(nuevoIndice);
+      storage.set(storage.keys.INDICE, nuevoIndice);
+      setError('');
+    }
+  };
+
+  const handleSiguiente = () => {
+    if (respuestas[preguntaActual.id] === undefined) {
+      setError('Debes responder la pregunta antes de continuar');
+      return;
+    }
+    
+    setError('');
+
     if (currentIndex < preguntas.length - 1) {
       const nuevoIndice = currentIndex + 1;
       setCurrentIndex(nuevoIndice);
@@ -50,7 +67,9 @@ export default function TestVocacional() {
       <p>Pregunta {currentIndex+1} de {preguntas.length}</p>
       <p>{preguntaActual.texto}</p>
       {campoPregunta}
-      <button onClick={handleNext}>Siguiente</button>
+      <p>{error}</p>
+      {currentIndex > 0 && <button onClick={handleAnterior}>Anterior</button>}
+      <button onClick={handleSiguiente}>Siguiente</button>      
     </div>
   )
 }
