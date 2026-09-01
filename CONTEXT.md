@@ -36,14 +36,14 @@ PreguntaOpciones.jsx → ✅ Completo y probado (reusado para tipos aptitud y el
 /lib
 /storage.js → ✅ Completo
 /scoring/
-engine.ts → vacío, pendiente (siguiente feature)
-types.ts → vacío, pendiente
+engine.ts → ✅ Completo (Fase 5 — Parte 4): scoreEngineLikert, scoreEngineAptitud, scoreEngineEleccionForzada, scoreEnginePerfil
+types.ts → ✅ Completo (Fase 5 — Parte 4): interface Pregunta con campos opcionales por tipo
 /data
 preguntas.json → ✅ 106 preguntas reales, cargado y validado (3 tipos confirmados: likert, aptitud, eleccion_forzada)
 carreras.json → ✅ 33 carreras reales, cargado
 /public
 
-- Stack confirmado para este proyecto: Next.js 16.3.0 (App Router, Turbopack), React 19.2.8, Tailwind CSS v4, React Hook Form 7.85 + Zod 4.4 + @hookform/resolvers 5.7, TypeScript solo en `/lib/scoring` (aún no iniciado), JS en el resto de la UI, ESLint, Playwright (aún no configurado), Vercel (aún no desplegado). Sin Auth.js ni PostgreSQL/Prisma en el MVP. React Compiler: desactivado por decisión. Node local: v20.17.0.
+- Stack confirmado para este proyecto: Next.js 16.3.0 (App Router, Turbopack), React 19.2.8, Tailwind CSS v4, React Hook Form 7.85 + Zod 4.4 + @hookform/resolvers 5.7, TypeScript en `/lib/scoring` (ya iniciado y funcional), JS en el resto de la UI, ESLint, Playwright (aún no configurado), Vercel (aún no desplegado). Sin Auth.js ni PostgreSQL/Prisma en el MVP. React Compiler: desactivado por decisión. Node local: v20.17.0.
 - Decisiones técnicas importantes y por qué:
   - Sin registro/login en el MVP; TypeScript limitado a `/lib/scoring`; sin base de datos en el MVP.
   - Persistencia vía `sessionStorage` con helper `lib/storage.js` (privacidad en computadoras compartidas de colegio).
@@ -51,26 +51,34 @@ carreras.json → ✅ 33 carreras reales, cargado
   - Lectura inicial desde sessionStorage en `useEffect` vacío, para evitar mismatch de hidratación SSR/cliente.
   - Arquitectura de componentes de pregunta: `test/page.jsx` es el orquestador único — mantiene `currentIndex`, `respuestas` y `error` como estado, y decide qué componente hijo renderizar con `if/else if` sobre `let campoPregunta`. Los componentes hijos NO tienen estado propio — reciben `pregunta`, `respuesta` (valor ya extraído) y `onResponder`, y solo capturan/muestran, nunca califican.
   - Reuso de componente por forma de dato, no por significado psicométrico: `aptitud` y `eleccion_forzada` comparten `PreguntaOpciones.jsx` porque tienen la misma forma en el JSON, aunque miden cosas distintas — la diferencia real se resuelve solo en el motor de scoring.
-  - **Validación de "Siguiente" (Fase 5 — Parte 3, nueva decisión):** Opción A elegida — el botón permanece clickeable (nunca `disabled`); al hacer click, `handleSiguiente` valida contra `respuestas[preguntaActual.id]`. Si es `undefined`, hace `setError('mensaje')` y `return` temprano (guard clause), sin tocar `currentIndex`. Si hay respuesta, hace `setError('')` antes de avanzar. Se prefirió sobre `disabled` porque un botón deshabilitado no comunica _por qué_ está bloqueado a tecnologías asistivas; el patrón clickeable + validación sí permite dar feedback explícito.
-  - **Botón "Anterior" (Fase 5 — Parte 3):** Se oculta por completo con `{currentIndex > 0 && <button>...}` en vez de mostrarse `disabled` en la primera pregunta — se consideró un caso conceptualmente distinto al de "Siguiente": no hay nada que el usuario deba corregir para "desbloquearlo", simplemente la acción no aplica en `currentIndex === 0`. `handleAnterior` decrementa `currentIndex`, actualiza `storage` y también hace `setError('')`, para evitar que un mensaje de error de la pregunta anterior quede visible al navegar a una pregunta distinta (regla general: el error solo debe seguir vivo si sigue siendo relevante al contexto actual; cualquier navegación lo limpia).
-  - ⚠️ Stack nuevo detectado, pendiente de aprender en proyecto de Estudio antes de aplicarlo aquí: generación de PDF (jsPDF / @react-pdf/renderer); fundamentos de scoring psicométrico (inversión de ítems likert, agregación por subdimensión, normalización entre escalas distintas) antes de escribir `/lib/scoring/engine.ts`.
+  - **Validación de "Siguiente" (Fase 5 — Parte 3):** Opción A elegida — el botón permanece clickeable (nunca `disabled`); al hacer click, `handleSiguiente` valida contra `respuestas[preguntaActual.id]`. Si es `undefined`, hace `setError('mensaje')` y `return` temprano (guard clause), sin tocar `currentIndex`. Si hay respuesta, hace `setError('')` antes de avanzar. Se prefirió sobre `disabled` porque un botón deshabilitado no comunica _por qué_ está bloqueado a tecnologías asistivas.
+  - **Botón "Anterior" (Fase 5 — Parte 3):** Se oculta por completo con `{currentIndex > 0 && <button>...}` en vez de mostrarse `disabled` en la primera pregunta. `handleAnterior` decrementa `currentIndex`, actualiza `storage` y hace `setError('')`.
+  - **Motor de scoring (Fase 5 — Parte 4, nuevo):** `interface Pregunta` en `types.ts` centraliza la forma de una pregunta, con campos específicos por tipo marcados como opcionales (`escala?`, `invertida?`, `opciones?`, `respuestaCorrecta?`), porque una sola pregunta nunca tiene todos los campos a la vez (dependen de `tipo`).
+  - **Patrón de dos pasos (reduce doble) para likert y aptitud:** primer `reduce` agrupa por `subdimension` acumulando valores crudos (`{suma, count}` en likert, `{aciertos, count}` en aptitud); un segundo `reduce` sobre `Object.entries(...)` calcula la métrica final (promedio o porcentaje) por subdimensión. Se necesitan dos pasos separados porque el cálculo final requiere haber visto **todas** las preguntas de una subdimensión antes de poder calcularlo — no se puede resolver en una sola pasada.
+  - **`eleccion_forzada` usa un solo `reduce`:** no hay agregación matemática (no hay promedio ni porcentaje), solo transcripción directa de la respuesta elegida por subdimensión — por eso no necesita el segundo paso.
+  - **Inversión de ítems likert:** se calcula en una única variable (`valorRespuesta`) **antes** del `if/else` de agrupación, usando la fórmula `(min + max) - x`, para no duplicar la lógica del ternario en ambas ramas del if/else.
+  - **Tipos TS en `respuestas`:** el objeto real es compartido entre las tres funciones de scoring y mezcla `number` (likert) y `string` (aptitud, eleccion_forzada) según el `id` de pregunta — tipado como `Record<string, number | string>`. Dentro de cada función se usa `as number` o `as string` para afirmar el tipo puntual esperado en ese contexto, ya que TS no puede inferir automáticamente cuál de las dos alternativas del union aplica según el `tipo` de pregunta ya filtrado previamente.
+  - **`escala!` (non-null assertion):** usado en `scoreEngineLikert` porque el dataset es estático, propio y ya validado (106 preguntas) — se optó por la afirmación directa en vez de un `if` de validación redundante.
+  - **`scoreEnginePerfil`:** función combinadora que ejecuta las tres funciones de scoring y fusiona sus resultados en un solo objeto plano con spread (`{...resultadoLikert, ...resultadoAptitud, ...resultadoEleccionForzada}`), ya que las claves (subdimensiones) no se repiten entre los tres grupos. No hace ningún cálculo propio — solo orquesta y fusiona. **Este perfil combinado es la entrada para un futuro motor de recomendación (no implementado aún) que lo comparará contra `carreras.json`.**
+  - ⚠️ Stack nuevo aprendido en proyecto de Estudio antes de aplicarlo aquí: fundamentos de scoring psicométrico (inversión de ítems, agregación por subdimensión) — ya aplicado con éxito. Generación de PDF (jsPDF / @react-pdf/renderer) — pendiente de estudiar.
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
 - Feature: Test vocacional (flujo completo: preguntas → resultado → descarga PDF)
-- Fase actual: Desarrollo (Fase 5) — Parte 3 cerrada, Parte 4 por iniciar
-- En lo que estaba trabajando (Parte 3, ✅ cerrada):
-  - Validación de input en `handleSiguiente`: bloqueo por click (no `disabled`) + mensaje inline (`error` en estado, mostrado con `<p>{error}</p>`) + limpieza de error al corregir o al navegar.
-  - Botón "Anterior": oculto condicionalmente con `&&`, con su propio `handleAnterior` (mismo patrón estructural que `handleSiguiente`, sin validación de respuesta porque no aplica).
-  - `test/page.jsx` queda funcionalmente completo para la navegación de preguntas (sin estilos, eso se deja para el cierre de todas las pantallas del test juntas).
-- ❌ Pendiente (Parte 4, próxima):
-  - Estudio aislado de scoring psicométrico (fundamentos: inversión de ítems likert, agregación por subdimensión, normalización entre escalas) en proyecto de Estudio, antes o en paralelo a iniciar `/lib/scoring/engine.ts`.
-  - Implementación de `/lib/scoring/engine.ts`: lógica de scoring distinta para `likert` (agregación con inversión), `aptitud` (comparación contra `respuestaCorrecta`) y `eleccion_forzada` (filtro/peso, sin puntaje numérico).
+- Fase actual: Desarrollo (Fase 5) — Parte 4 cerrada, Parte 5 por iniciar
+- En lo que estaba trabajando (Parte 4, ✅ cerrada):
+  - `types.ts`: `interface Pregunta` completa, con campos comunes obligatorios y campos específicos por tipo marcados opcionales (`?`).
+  - `engine.ts`: 4 funciones completas y exportadas — `scoreEngineLikert`, `scoreEngineAptitud`, `scoreEngineEleccionForzada`, `scoreEnginePerfil`. Sin errores de TypeScript.
+  - Motor de scoring probado conceptualmente con trace manual (ejemplo de subdimensión `apertura` con ítems invertidos, resultado coherente).
+- ❌ Pendiente (Parte 5, próxima):
+  - Conectar `scoreEnginePerfil` con datos reales: llamarlo desde donde corresponda (ej. `resultado/page.jsx` o una función intermedia) usando las `respuestas` reales guardadas en `sessionStorage` y las `preguntas` importadas del JSON.
+  - Diseñar el **motor de recomendación** (feature nuevo, no iniciado): cómo comparar el perfil combinado (`scoreEnginePerfil`) contra `carreras.json` para generar un ranking de carreras sugeridas. Incluye lógica de ponderación con `disponibilidadPeru` y restricciones personales (ya definida como regla de negocio: pondera/reordena, nunca filtra duro).
   - Aún sin resolver: sendero de progreso visual y estilos Tailwind del test (se aplican al final, junto con `resultado/page.jsx`).
+  - Estudio aislado de generación de PDF (jsPDF o @react-pdf/renderer) — pendiente, antes de implementar la descarga de resultados.
 
 ## Features completados ✅
 
-(ninguno completo al 100% todavía — "Test vocacional" sigue en curso, Fase 5 avanzada; la pantalla de preguntas [`test/page.jsx`] ya está cerrada como sub-hito funcional)
+(ninguno completo al 100% todavía — "Test vocacional" sigue en curso, Fase 5 avanzada; la pantalla de preguntas [`test/page.jsx`] y el motor de scoring [`lib/scoring/engine.ts`] ya están cerrados como sub-hitos funcionales)
 
 ## Reglas de negocio definidas
 
@@ -86,12 +94,14 @@ carreras.json → ✅ 33 carreras reales, cargado
 - El botón "Siguiente" nunca se deshabilita (`disabled`); se valida al hacer click, mostrando feedback inline explícito si falta respuesta.
 - El botón "Anterior" no se muestra en la primera pregunta (`currentIndex === 0`), en vez de mostrarse deshabilitado.
 - Cualquier navegación entre preguntas (Anterior o Siguiente exitoso) limpia el mensaje de error activo, sin importar si la nueva pregunta tiene o no respuesta.
+- El motor de scoring nunca decide recomendación de carrera — solo produce un perfil numérico/categórico del usuario (`scoreEnginePerfil`). La comparación contra `carreras.json` es responsabilidad de un motor de recomendación separado, aún no implementado.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 4: estudio de fundamentos de scoring psicométrico e inicio de `/lib/scoring/engine.ts`.
+Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 5: conectar `scoreEnginePerfil` con datos reales y comenzar a diseñar el motor de recomendación contra `carreras.json`.
 
 ## Dudas o problemas pendientes
 
-- Definir si el estudio del motor de scoring se hace en un proyecto de Estudio aparte antes de tocar `engine.ts` en este proyecto, o si se estudia y aplica en paralelo — pendiente de decidir al abrir la Parte 4.
+- Definir dónde y cuándo se invoca `scoreEnginePerfil` en el flujo real de la app (¿al terminar el test, en `resultado/page.jsx`? ¿en un `useEffect`?).
+- Diseñar el algoritmo de comparación perfil-usuario vs. carreras: ¿qué método de similitud o ponderación se usará? Aún no discutido.
 - Aún sin resolver el diseño visual del sendero de progreso del test (se decidirá en la fase de estilos, junto con `resultado/page.jsx`).

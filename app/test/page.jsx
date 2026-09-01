@@ -3,10 +3,12 @@
 import preguntas from '@/data/preguntas.json';
 import {useEffect, useState} from 'react';
 import {storage} from '@/lib/storage';
+import {useRouter} from 'next/navigation';
 import PreguntaLikert from '@/components/test/PreguntaLikert';
 import PreguntaOpciones from '@/components/test/PreguntaOpciones';
 
 export default function TestVocacional() {
+  const router = useRouter();
   const [currentIndex, setCurrentIndex] = useState(0);
   const [respuestas, setRespuestas] = useState({});
   const [error, setError] = useState('');
@@ -41,6 +43,7 @@ export default function TestVocacional() {
       setCurrentIndex(nuevoIndice);
       storage.set(storage.keys.INDICE, nuevoIndice);
     } else {
+      router.push('/resultado');
       console.log('Test completado');
     }
   };
@@ -69,7 +72,7 @@ export default function TestVocacional() {
       {campoPregunta}
       <p>{error}</p>
       {currentIndex > 0 && <button onClick={handleAnterior}>Anterior</button>}
-      <button onClick={handleSiguiente}>Siguiente</button>      
+      <button onClick={handleSiguiente}> {currentIndex < preguntas.length - 1 ? 'Siguiente' : 'Ver resultado'}</button>
     </div>
   )
 }
