@@ -1,464 +1,1177 @@
 [
   {
-    "id": "ing-sistemas",
-    "nombre": "Ingeniería de Sistemas",
-    "tipo": "universitaria",
-    "riasec": { "R": 3, "I": 9, "A": 3, "S": 2, "E": 5, "C": 6 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 8, "espacial": 6, "logica": 10 },
-    "inteligenciasClave": ["logico-matematica", "espacial"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 7, "extraversion": 3, "amabilidad": 4, "estabilidad": 6 },
-    "valoresAsociados": ["innovacion", "resolucion_problemas", "autonomia"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible/remoto frecuente" },
-    "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "ing-industrial",
-    "nombre": "Ingeniería Industrial",
-    "tipo": "universitaria",
-    "riasec": { "R": 4, "I": 7, "A": 2, "S": 4, "E": 8, "C": 7 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 8, "espacial": 5, "logica": 8 },
-    "inteligenciasClave": ["logico-matematica", "interpersonal"],
-    "rasgosFavorables": { "apertura": 6, "responsabilidad": 9, "extraversion": 6, "amabilidad": 5, "estabilidad": 7 },
-    "valoresAsociados": ["eficiencia", "liderazgo", "optimizacion"],
-    "estiloVida": { "entornoTrabajo": "mixto", "trabajoEquipo": true, "horarioTipico": "oficina/planta, horario fijo" },
-    "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "ing-civil",
-    "nombre": "Ingeniería Civil",
-    "tipo": "universitaria",
-    "riasec": { "R": 8, "I": 7, "A": 2, "S": 2, "E": 5, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 8, "espacial": 8, "logica": 8 },
-    "inteligenciasClave": ["espacial", "logico-matematica"],
-    "rasgosFavorables": { "apertura": 5, "responsabilidad": 9, "extraversion": 4, "amabilidad": 4, "estabilidad": 7 },
-    "valoresAsociados": ["seguridad", "impacto_tangible", "estabilidad_laboral"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": true, "horarioTipico": "obra, horarios extendidos" },
-    "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "ing-mecatronica",
+    "id": "ingenieria-mecatronica",
     "nombre": "Ingeniería Mecatrónica",
     "tipo": "universitaria",
-    "riasec": { "R": 8, "I": 8, "A": 3, "S": 1, "E": 3, "C": 4 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 8, "espacial": 8, "logica": 9 },
-    "inteligenciasClave": ["logico-matematica", "espacial", "corporal-cinestesica"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 7, "extraversion": 3, "amabilidad": 4, "estabilidad": 6 },
-    "valoresAsociados": ["innovacion", "precision_tecnica"],
-    "estiloVida": { "entornoTrabajo": "mixto", "trabajoEquipo": true, "horarioTipico": "planta/laboratorio, horario fijo" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "alto",
-    "disponibilidadPeru": ["Lima", "Arequipa", "Trujillo"]
+    "vocacionRelacionada": null,
+    "riasec": { "R": 9, "I": 8, "A": 4, "S": 2, "E": 5, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 9,
+      "logica": 9,
+      "numerica": 8,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 9,
+      "apertura": 7,
+      "estabilidad": 7,
+      "extraversion": 4,
+      "amabilidad": 4
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "espacial",
+      "corporal-cinestesica"
+    ],
+    "valoresAsociados": ["autonomia", "creatividad"],
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Ricardo Palma", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UTEC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UTP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
+      { "nombre": "UPN", "region": "Trujillo", "tipoGestion": "particular" },
+      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Minería (instrumentación y control)",
+      "Energía",
+      "Automatización industrial",
+      "Robótica",
+      "Ingeniería clínica / equipos médicos",
+      "Manufactura industrial"
+    ]
   },
   {
-    "id": "medicina-humana",
-    "nombre": "Medicina Humana",
+    "id": "terapia-ocupacional",
+    "nombre": "Terapia Ocupacional",
     "tipo": "universitaria",
-    "riasec": { "R": 3, "I": 9, "A": 2, "S": 9, "E": 3, "C": 4 },
-    "aptitudesRequeridas": { "verbal": 8, "numerica": 6, "espacial": 5, "logica": 8 },
-    "inteligenciasClave": ["logico-matematica", "interpersonal", "naturalista"],
-    "rasgosFavorables": { "apertura": 6, "responsabilidad": 10, "extraversion": 5, "amabilidad": 8, "estabilidad": 8 },
-    "valoresAsociados": ["servicio_a_otros", "vocacion", "estabilidad_laboral"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "guardias, horarios rotativos extendidos" },
-    "duracionAnios": 7,
-    "costoAproximadoRango": "alto",
-    "disponibilidadPeru": ["nacional"]
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": { "R": 5, "I": 6, "A": 6, "S": 9, "E": 4, "C": 5 },
+    "aptitudesRequeridas": {
+      "espacial": 6,
+      "logica": 7,
+      "numerica": 4,
+      "verbal": 7
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 7,
+      "estabilidad": 7,
+      "extraversion": 5,
+      "amabilidad": 9
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "corporal-cinestesica",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["impacto_social", "creatividad", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Rehabilitación física y clínica",
+      "Salud mental",
+      "Terapia pediátrica",
+      "Geriatría / adulto mayor",
+      "Educación especial e inclusiva",
+      "Consulta privada / emprendimiento"
+    ]
   },
   {
-    "id": "enfermeria",
-    "nombre": "Enfermería",
+    "id": "ingenieria-geologica",
+    "nombre": "Ingeniería Geológica",
     "tipo": "universitaria",
-    "riasec": { "R": 3, "I": 5, "A": 2, "S": 10, "E": 2, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 5, "espacial": 4, "logica": 5 },
-    "inteligenciasClave": ["interpersonal", "corporal-cinestesica"],
-    "rasgosFavorables": { "apertura": 4, "responsabilidad": 9, "extraversion": 6, "amabilidad": 9, "estabilidad": 7 },
-    "valoresAsociados": ["servicio_a_otros", "vocacion", "estabilidad_laboral"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "guardias, horarios rotativos" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": null,
+    "riasec": { "R": 8, "I": 9, "A": 3, "S": 3, "E": 5, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 9,
+      "logica": 8,
+      "numerica": 7,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 8,
+      "estabilidad": 7,
+      "extraversion": 4,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "espacial",
+      "naturalista"
+    ],
+    "valoresAsociados": ["autonomia", "sostenibilidad"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
+      { "nombre": "UNP", "region": "Piura", "tipoGestion": "nacional" },
+      { "nombre": "UNAP", "region": "Puno", "tipoGestion": "nacional" },
+      { "nombre": "UNC", "region": "Cajamarca", "tipoGestion": "nacional" },
+      { "nombre": "UNDAC", "region": "Pasco", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPN", "region": "La Libertad", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Exploración minera",
+      "Geotecnia y consultoría de ingeniería",
+      "Hidrocarburos",
+      "Gestión de riesgos geológicos (sector público, ej. INGEMMET)",
+      "Consultoría ambiental"
+    ]
+  },
+  {
+    "id": "administracion",
+    "nombre": "Administración de Empresas",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "administracion-tecnica",
+    "riasec": { "R": 2, "I": 5, "A": 4, "S": 6, "E": 9, "C": 7 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 6,
+      "numerica": 7,
+      "verbal": 7
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 6,
+      "estabilidad": 6,
+      "extraversion": 7,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "logico-matematica",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["autonomia", "reconocimiento", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "Universidad del Pacífico", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "ESAN", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UPAO", "region": "Trujillo", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Peruana Unión", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Gestión empresarial (cualquier sector)",
+      "Recursos humanos",
+      "Marketing y ventas",
+      "Finanzas corporativas",
+      "Consultoría de gestión",
+      "Emprendimiento propio",
+      "Gestión pública"
+    ]
   },
   {
     "id": "psicologia",
     "nombre": "Psicología",
     "tipo": "universitaria",
-    "riasec": { "R": 1, "I": 7, "A": 4, "S": 9, "E": 3, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 8, "numerica": 3, "espacial": 2, "logica": 6 },
-    "inteligenciasClave": ["interpersonal", "intrapersonal", "verbal-linguistica"],
-    "rasgosFavorables": { "apertura": 7, "responsabilidad": 7, "extraversion": 6, "amabilidad": 9, "estabilidad": 6 },
-    "valoresAsociados": ["servicio_a_otros", "comprension_humana", "vocacion"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "consulta/oficina, horario regular" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": null,
+    "riasec": { "R": 1, "I": 7, "A": 5, "S": 9, "E": 3, "C": 4 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 6,
+      "numerica": 5,
+      "verbal": 8
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 7,
+      "apertura": 7,
+      "estabilidad": 7,
+      "extraversion": 5,
+      "amabilidad": 8
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "intrapersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["impacto_social", "autonomia", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Andina del Cusco", "region": "Cusco", "tipoGestion": "particular" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
+      { "nombre": "UNICA", "region": "Ica", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UNCP", "region": "Huancayo", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Salud mental clínica (hospitales, clínicas, consultorio propio)",
+      "Psicología organizacional / RRHH",
+      "Educación (colegios, universidades)",
+      "Psicología forense / jurídica",
+      "Investigación y docencia",
+      "Trabajo social-comunitario / ONG"
+    ]
   },
   {
-    "id": "derecho",
-    "nombre": "Derecho",
+    "id": "ingenieria-civil",
+    "nombre": "Ingeniería Civil",
     "tipo": "universitaria",
-    "riasec": { "R": 1, "I": 6, "A": 3, "S": 6, "E": 8, "C": 6 },
-    "aptitudesRequeridas": { "verbal": 9, "numerica": 3, "espacial": 1, "logica": 8 },
-    "inteligenciasClave": ["verbal-linguistica", "logico-matematica", "interpersonal"],
-    "rasgosFavorables": { "apertura": 6, "responsabilidad": 8, "extraversion": 7, "amabilidad": 5, "estabilidad": 6 },
-    "valoresAsociados": ["justicia", "liderazgo", "reconocimiento"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "oficina, horario extendido frecuente" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "administracion-empresas",
-    "nombre": "Administración de Empresas",
-    "tipo": "universitaria",
-    "riasec": { "R": 1, "I": 5, "A": 2, "S": 5, "E": 9, "C": 7 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 6, "espacial": 2, "logica": 6 },
-    "inteligenciasClave": ["interpersonal", "logico-matematica"],
-    "rasgosFavorables": { "apertura": 6, "responsabilidad": 7, "extraversion": 8, "amabilidad": 6, "estabilidad": 6 },
-    "valoresAsociados": ["liderazgo", "logro_economico", "reconocimiento"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "oficina, horario regular" },
-    "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "gestion-construccion-civil",
+    "riasec": { "R": 8, "I": 8, "A": 3, "S": 4, "E": 5, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 8,
+      "logica": 8,
+      "numerica": 8,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 9,
+      "apertura": 6,
+      "estabilidad": 7,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "espacial",
+      "interpersonal"
+    ],
+    "valoresAsociados": ["autonomia", "trabajo_en_equipo", "sostenibilidad"],
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional de Trujillo", "region": "Trujillo", "tipoGestion": "nacional" },
+      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional de Huancavelica", "region": "Huancavelica", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Construcción de edificaciones",
+      "Infraestructura vial y transporte",
+      "Diseño estructural",
+      "Geotecnia",
+      "Hidráulica y saneamiento",
+      "Gestión de proyectos / consultoría",
+      "Obras públicas (sector estatal)"
+    ]
   },
   {
     "id": "contabilidad",
     "nombre": "Contabilidad",
     "tipo": "universitaria",
-    "riasec": { "R": 1, "I": 4, "A": 1, "S": 2, "E": 5, "C": 10 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 8, "espacial": 1, "logica": 6 },
-    "inteligenciasClave": ["logico-matematica"],
-    "rasgosFavorables": { "apertura": 3, "responsabilidad": 9, "extraversion": 3, "amabilidad": 4, "estabilidad": 8 },
-    "valoresAsociados": ["estabilidad_laboral", "precision", "orden"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "oficina, horario regular" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "contabilidad-tecnica",
+    "riasec": { "R": 1, "I": 5, "A": 2, "S": 4, "E": 5, "C": 9 },
+    "aptitudesRequeridas": {
+      "espacial": 2,
+      "logica": 6,
+      "numerica": 9,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 9,
+      "apertura": 5,
+      "estabilidad": 6,
+      "extraversion": 4,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "interpersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UNCP", "region": "Huancayo", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Contabilidad y controlling financiero (empresas privadas)",
+      "Auditoría (firmas de auditoría, incluyendo Big Four)",
+      "Sector público (SUNAT, MEF, SBS, BCRP)",
+      "Consultoría tributaria y financiera",
+      "Ejercicio independiente / estudio contable propio",
+      "Perito contable-judicial"
+    ]
   },
   {
-    "id": "arquitectura",
-    "nombre": "Arquitectura",
+    "id": "diseno-grafico",
+    "nombre": "Diseño Gráfico",
     "tipo": "universitaria",
-    "riasec": { "R": 5, "I": 5, "A": 10, "S": 2, "E": 4, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 5, "espacial": 10, "logica": 6 },
-    "inteligenciasClave": ["espacial", "corporal-cinestesica"],
-    "rasgosFavorables": { "apertura": 10, "responsabilidad": 7, "extraversion": 5, "amabilidad": 4, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "impacto_tangible", "estetica"],
-    "estiloVida": { "entornoTrabajo": "mixto", "trabajoEquipo": true, "horarioTipico": "estudio/obra, horario extendido frecuente" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "alto",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "diseno-grafico-tecnico",
+    "riasec": { "R": 2, "I": 4, "A": 9, "S": 3, "E": 5, "C": 4 },
+    "aptitudesRequeridas": {
+      "espacial": 8,
+      "logica": 4,
+      "numerica": 2,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 6,
+      "apertura": 9,
+      "estabilidad": 5,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "espacial",
+      "interpersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["creatividad", "autonomia"],
+    "universidades": [
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCAL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Agencias de publicidad y comunicación",
+      "Diseño editorial y branding",
+      "Diseño digital / UX-UI",
+      "Animación y multimedia",
+      "Medios y entretenimiento",
+      "Freelance / estudio propio"
+    ]
   },
   {
-    "id": "comunicacion-audiovisual",
-    "nombre": "Comunicación Audiovisual / Diseño Gráfico",
+    "id": "enfermeria",
+    "nombre": "Enfermería",
     "tipo": "universitaria",
-    "riasec": { "R": 2, "I": 3, "A": 10, "S": 4, "E": 6, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 2, "espacial": 8, "logica": 4 },
-    "inteligenciasClave": ["espacial", "verbal-linguistica"],
-    "rasgosFavorables": { "apertura": 10, "responsabilidad": 6, "extraversion": 7, "amabilidad": 5, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "expresion_personal", "innovacion"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible, freelance frecuente" },
-    "duracionAnios": 4,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "educacion",
-    "nombre": "Educación (docencia)",
-    "tipo": "universitaria",
-    "riasec": { "R": 1, "I": 4, "A": 4, "S": 10, "E": 3, "C": 4 },
-    "aptitudesRequeridas": { "verbal": 7, "numerica": 3, "espacial": 2, "logica": 4 },
-    "inteligenciasClave": ["interpersonal", "verbal-linguistica"],
-    "rasgosFavorables": { "apertura": 6, "responsabilidad": 8, "extraversion": 7, "amabilidad": 9, "estabilidad": 7 },
-    "valoresAsociados": ["servicio_a_otros", "vocacion", "impacto_social"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "oficina, horario regular" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "enfermeria-tecnica",
+    "riasec": { "R": 4, "I": 6, "A": 2, "S": 9, "E": 3, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 6,
+      "numerica": 5,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 9,
+      "apertura": 6,
+      "estabilidad": 8,
+      "extraversion": 5,
+      "amabilidad": 8
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "corporal-cinestesica",
+      "intrapersonal"
+    ],
+    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Norbert Wiener", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNAC", "region": "Callao", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Andina del Cusco", "region": "Cusco", "tipoGestion": "particular" },
+      { "nombre": "UNPRG", "region": "Lambayeque", "tipoGestion": "nacional" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional de Barranca", "region": "Lima (provincias)", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Hospitales y clínicas (asistencial)",
+      "Salud comunitaria / primer nivel de atención",
+      "Salud pública (MINSA, EsSalud)",
+      "Salud ocupacional (empresas)",
+      "Docencia e investigación en salud",
+      "Gestión y liderazgo en servicios de salud"
+    ]
   },
   {
-    "id": "economia",
-    "nombre": "Economía",
+    "id": "ingenieria-software",
+    "nombre": "Ingeniería de Software",
     "tipo": "universitaria",
-    "riasec": { "R": 1, "I": 9, "A": 2, "S": 3, "E": 6, "C": 7 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 9, "espacial": 2, "logica": 8 },
-    "inteligenciasClave": ["logico-matematica"],
-    "rasgosFavorables": { "apertura": 7, "responsabilidad": 8, "extraversion": 5, "amabilidad": 4, "estabilidad": 6 },
-    "valoresAsociados": ["analisis", "logro_economico", "impacto_social"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "oficina, horario regular" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "computacion-informatica-tecnica",
+    "riasec": { "R": 2, "I": 8, "A": 6, "S": 3, "E": 4, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 9,
+      "numerica": 6,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 7,
+      "apertura": 8,
+      "estabilidad": 6,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "intrapersonal",
+      "interpersonal"
+    ],
+    "valoresAsociados": ["autonomia", "creatividad", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UTEC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Desarrollo de software (empresas de cualquier sector)",
+      "Consultoras y outsourcing de TI",
+      "Startups tecnológicas",
+      "Trabajo remoto para empresas extranjeras",
+      "Freelance / desarrollo independiente"
+    ]
   },
   {
-    "id": "enfermeria-tecnica",
-    "nombre": "Enfermería Técnica",
-    "tipo": "tecnica",
-    "riasec": { "R": 3, "I": 4, "A": 1, "S": 10, "E": 1, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 4, "espacial": 3, "logica": 4 },
-    "inteligenciasClave": ["interpersonal", "corporal-cinestesica"],
-    "rasgosFavorables": { "apertura": 3, "responsabilidad": 9, "extraversion": 5, "amabilidad": 9, "estabilidad": 7 },
-    "valoresAsociados": ["servicio_a_otros", "vocacion", "estabilidad_laboral"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "guardias, horarios rotativos" },
-    "duracionAnios": 3,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
+    "id": "ingenieria-sistemas",
+    "nombre": "Ingeniería de Sistemas",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": { "R": 2, "I": 7, "A": 4, "S": 4, "E": 6, "C": 7 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 8,
+      "numerica": 6,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 7,
+      "apertura": 7,
+      "estabilidad": 6,
+      "extraversion": 6,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "interpersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["autonomia", "reconocimiento", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Norbert Wiener", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCSS", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "USMP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "UPN", "region": "Trujillo", "tipoGestion": "particular" },
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Consultoría de TI",
+      "Dirección/gerencia de sistemas y tecnología",
+      "Auditoría de sistemas y seguridad informática",
+      "Arquitectura empresarial y gestión de procesos",
+      "Administración de redes y centros de datos",
+      "Sector público (TI institucional)"
+    ]
   },
   {
     "id": "diseno-grafico-tecnico",
     "nombre": "Diseño Gráfico (técnico)",
     "tipo": "tecnica",
-    "riasec": { "R": 2, "I": 2, "A": 10, "S": 3, "E": 4, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 2, "espacial": 8, "logica": 3 },
-    "inteligenciasClave": ["espacial"],
-    "rasgosFavorables": { "apertura": 9, "responsabilidad": 6, "extraversion": 5, "amabilidad": 5, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "expresion_personal"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible, freelance frecuente" },
     "duracionAnios": 3,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "diseno-grafico",
+    "riasec": { "R": 3, "I": 3, "A": 9, "S": 3, "E": 5, "C": 4 },
+    "aptitudesRequeridas": {
+      "espacial": 8,
+      "logica": 3,
+      "numerica": 2,
+      "verbal": 4
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 6,
+      "apertura": 9,
+      "estabilidad": 5,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "espacial",
+      "corporal-cinestesica"
+    ],
+    "valoresAsociados": ["creatividad", "autonomia"],
+    "universidades": [
+      { "nombre": "ISIL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Toulouse Lautrec", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Instituto Continental (Diseño Gráfico Publicitario)", "region": "Huancayo", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Agencias de publicidad y comunicación",
+      "Diseño editorial y branding",
+      "Diseño digital / redes sociales",
+      "Producción gráfica para imprenta",
+      "Freelance / estudio propio"
+    ]
   },
   {
-    "id": "administracion-negocios-tecnico",
-    "nombre": "Administración de Negocios (técnico)",
-    "tipo": "tecnica",
-    "riasec": { "R": 1, "I": 3, "A": 1, "S": 5, "E": 8, "C": 7 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 5, "espacial": 1, "logica": 5 },
-    "inteligenciasClave": ["interpersonal", "logico-matematica"],
-    "rasgosFavorables": { "apertura": 5, "responsabilidad": 7, "extraversion": 7, "amabilidad": 6, "estabilidad": 6 },
-    "valoresAsociados": ["logro_economico", "practicidad"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "oficina, horario regular" },
-    "duracionAnios": 3,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "mecanica-automotriz",
-    "nombre": "Mecánica Automotriz",
-    "tipo": "tecnica",
-    "riasec": { "R": 10, "I": 5, "A": 1, "S": 2, "E": 3, "C": 4 },
-    "aptitudesRequeridas": { "verbal": 2, "numerica": 4, "espacial": 6, "logica": 6 },
-    "inteligenciasClave": ["corporal-cinestesica", "espacial"],
-    "rasgosFavorables": { "apertura": 4, "responsabilidad": 7, "extraversion": 4, "amabilidad": 4, "estabilidad": 6 },
-    "valoresAsociados": ["practicidad", "trabajo_manual", "resolucion_problemas"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": false, "horarioTipico": "taller, horario regular" },
-    "duracionAnios": 2,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "electricidad-industrial",
-    "nombre": "Electricidad Industrial",
-    "tipo": "tecnica",
-    "riasec": { "R": 10, "I": 6, "A": 1, "S": 1, "E": 2, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 2, "numerica": 6, "espacial": 5, "logica": 7 },
-    "inteligenciasClave": ["corporal-cinestesica", "logico-matematica"],
-    "rasgosFavorables": { "apertura": 4, "responsabilidad": 9, "extraversion": 3, "amabilidad": 3, "estabilidad": 7 },
-    "valoresAsociados": ["practicidad", "estabilidad_laboral", "precision_tecnica"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": false, "horarioTipico": "planta/campo, horario regular" },
-    "duracionAnios": 2,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "gastronomia",
-    "nombre": "Gastronomía",
-    "tipo": "tecnica",
-    "riasec": { "R": 7, "I": 3, "A": 8, "S": 4, "E": 5, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 3, "numerica": 3, "espacial": 4, "logica": 4 },
-    "inteligenciasClave": ["corporal-cinestesica", "espacial"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 7, "extraversion": 5, "amabilidad": 5, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "trabajo_manual", "expresion_personal"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": true, "horarioTipico": "cocina, horarios rotativos extendidos" },
-    "duracionAnios": 3,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "computacion-informatica-tecnico",
-    "nombre": "Computación e Informática (técnico)",
-    "tipo": "tecnica",
-    "riasec": { "R": 4, "I": 8, "A": 2, "S": 2, "E": 3, "C": 6 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 6, "espacial": 4, "logica": 8 },
-    "inteligenciasClave": ["logico-matematica"],
-    "rasgosFavorables": { "apertura": 7, "responsabilidad": 6, "extraversion": 3, "amabilidad": 4, "estabilidad": 5 },
-    "valoresAsociados": ["practicidad", "resolucion_problemas"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "oficina, horario regular" },
-    "duracionAnios": 3,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "cosmetologia-estetica",
-    "nombre": "Cosmetología / Estética",
-    "tipo": "tecnica",
-    "riasec": { "R": 6, "I": 1, "A": 8, "S": 6, "E": 5, "C": 2 },
-    "aptitudesRequeridas": { "verbal": 3, "numerica": 1, "espacial": 5, "logica": 2 },
-    "inteligenciasClave": ["corporal-cinestesica", "interpersonal"],
-    "rasgosFavorables": { "apertura": 7, "responsabilidad": 6, "extraversion": 7, "amabilidad": 7, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "servicio_a_otros", "expresion_personal"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "atención al público, horario regular/fines de semana" },
-    "duracionAnios": 2,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "produccion-audiovisual-tecnico",
-    "nombre": "Producción Audiovisual (técnico)",
-    "tipo": "tecnica",
-    "riasec": { "R": 4, "I": 3, "A": 10, "S": 3, "E": 6, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 2, "espacial": 7, "logica": 4 },
-    "inteligenciasClave": ["espacial", "corporal-cinestesica"],
-    "rasgosFavorables": { "apertura": 9, "responsabilidad": 6, "extraversion": 7, "amabilidad": 5, "estabilidad": 4 },
-    "valoresAsociados": ["creatividad", "expresion_personal", "innovacion"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": true, "horarioTipico": "rodajes, horario variable/freelance" },
-    "duracionAnios": 3,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "enfermeria-veterinaria-agropecuario",
-    "nombre": "Enfermería Veterinaria / Técnico Agropecuario",
-    "tipo": "tecnica",
-    "riasec": { "R": 9, "I": 5, "A": 1, "S": 6, "E": 2, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 3, "numerica": 3, "espacial": 3, "logica": 4 },
-    "inteligenciasClave": ["naturalista", "corporal-cinestesica"],
-    "rasgosFavorables": { "apertura": 5, "responsabilidad": 8, "extraversion": 4, "amabilidad": 8, "estabilidad": 6 },
-    "valoresAsociados": ["servicio_a_otros", "vocacion", "trabajo_manual"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": false, "horarioTipico": "campo, horario variable" },
-    "duracionAnios": 2,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
-  },
-  {
-    "id": "desarrollo-software",
-    "nombre": "Desarrollo de Software (técnico/bootcamp)",
-    "tipo": "tecnica",
-    "riasec": { "R": 2, "I": 9, "A": 4, "S": 2, "E": 4, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 7, "espacial": 5, "logica": 10 },
-    "inteligenciasClave": ["logico-matematica"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 6, "extraversion": 3, "amabilidad": 4, "estabilidad": 5 },
-    "valoresAsociados": ["autonomia", "resolucion_problemas", "aprendizaje_continuo"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible/remoto frecuente" },
-    "duracionAnios": 1,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional (mucho contenido online/bootcamp)"]
-  },
-  {
-    "id": "ciencia-datos",
-    "nombre": "Ciencia de Datos / Analítica de Datos",
+    "id": "ingenieria-industrial",
+    "nombre": "Ingeniería Industrial",
     "tipo": "universitaria",
-    "riasec": { "R": 2, "I": 10, "A": 3, "S": 2, "E": 4, "C": 6 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 9, "espacial": 3, "logica": 10 },
-    "inteligenciasClave": ["logico-matematica"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 7, "extraversion": 3, "amabilidad": 4, "estabilidad": 6 },
-    "valoresAsociados": ["analisis", "resolucion_problemas", "innovacion"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible/remoto frecuente" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "alto",
-    "disponibilidadPeru": ["Lima", "Arequipa"]
+    "vocacionRelacionada": "produccion-industrial-senati",
+    "riasec": { "R": 4, "I": 8, "A": 2, "S": 5, "E": 8, "C": 8 },
+    "aptitudesRequeridas": {
+      "espacial": 5,
+      "logica": 8,
+      "numerica": 8,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 6,
+      "estabilidad": 6,
+      "extraversion": 6,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "interpersonal",
+      "espacial"
+    ],
+    "valoresAsociados": ["trabajo_en_equipo", "reconocimiento", "sostenibilidad"],
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad de Lima", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
+      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
+      { "nombre": "UARM", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Autónoma del Perú", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Manufactura y producción",
+      "Seguridad y salud ocupacional (SSOMA)",
+      "Logística y almacén",
+      "Mejora de procesos / calidad",
+      "Minería (planificación de operaciones)",
+      "Consultoría de gestión"
+    ]
   },
   {
-    "id": "ciberseguridad",
-    "nombre": "Ciberseguridad",
+    "id": "produccion-industrial-senati",
+    "nombre": "Ingeniería de Producción Industrial",
     "tipo": "tecnica",
-    "riasec": { "R": 3, "I": 9, "A": 1, "S": 2, "E": 3, "C": 7 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 6, "espacial": 3, "logica": 9 },
-    "inteligenciasClave": ["logico-matematica"],
-    "rasgosFavorables": { "apertura": 7, "responsabilidad": 8, "extraversion": 2, "amabilidad": 3, "estabilidad": 6 },
-    "valoresAsociados": ["resolucion_problemas", "precision_tecnica", "estabilidad_laboral"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": false, "horarioTipico": "flexible/remoto frecuente" },
-    "duracionAnios": 2,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional (mucho contenido online/bootcamp)"]
+    "duracionAnios": 4,
+    "vocacionRelacionada": "ingenieria-industrial",
+    "riasec": { "R": 6, "I": 6, "A": 2, "S": 4, "E": 6, "C": 8 },
+    "aptitudesRequeridas": {
+      "espacial": 5,
+      "logica": 7,
+      "numerica": 7,
+      "verbal": 4
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 5,
+      "estabilidad": 6,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "corporal-cinestesica",
+      "espacial"
+    ],
+    "valoresAsociados": ["trabajo_en_equipo", "sostenibilidad"],
+    "universidades": [
+      { "nombre": "SENATI (Escuela Superior de Tecnología)", "region": "nacional", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Planificación y control de producción",
+      "Gestión de calidad en planta",
+      "Logística industrial",
+      "Supervisión de manufactura"
+    ]
   },
   {
-    "id": "diseno-ux-ui",
-    "nombre": "Diseño UX/UI",
-    "tipo": "tecnica",
-    "riasec": { "R": 1, "I": 5, "A": 9, "S": 5, "E": 4, "C": 3 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 2, "espacial": 8, "logica": 5 },
-    "inteligenciasClave": ["espacial", "interpersonal"],
-    "rasgosFavorables": { "apertura": 9, "responsabilidad": 6, "extraversion": 5, "amabilidad": 6, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "resolucion_problemas", "empatia_usuario"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible/remoto frecuente" },
-    "duracionAnios": 1,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional (mucho contenido online/bootcamp)"]
+    "id": "medicina-humana",
+    "nombre": "Medicina Humana",
+    "tipo": "universitaria",
+    "duracionAnios": 7,
+    "vocacionRelacionada": null,
+    "riasec": { "R": 3, "I": 9, "A": 2, "S": 9, "E": 3, "C": 5 },
+    "aptitudesRequeridas": {
+      "espacial": 5,
+      "logica": 8,
+      "numerica": 5,
+      "verbal": 8
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 10,
+      "apertura": 6,
+      "estabilidad": 8,
+      "extraversion": 5,
+      "amabilidad": 8
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "interpersonal",
+      "naturalista"
+    ],
+    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Ricardo Palma", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "USMP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Andina del Cusco", "region": "Cusco", "tipoGestion": "particular" },
+      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
+      { "nombre": "UNCP", "region": "Huancayo", "tipoGestion": "nacional" },
+      { "nombre": "UPN", "region": "Trujillo", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Existen más facultades de Medicina, incluidas varias nuevas surgidas tras la Ley 31520 (2023) que limitó las facultades de licenciamiento de SUNEDU para esta carrera; se listan solo programas con trayectoria histórica establecida.",
+    "sectoresEmpleo": [
+      "Hospitales y clínicas (MINSA, EsSalud, sector privado)",
+      "Consulta privada / especialización médica",
+      "Docencia e investigación en ciencias de la salud",
+      "Gestión y dirección de servicios de salud",
+      "Salud pública y cooperación internacional"
+    ]
   },
   {
-    "id": "marketing-digital",
-    "nombre": "Marketing Digital",
+    "id": "derecho",
+    "nombre": "Derecho",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": { "R": 1, "I": 7, "A": 2, "S": 6, "E": 8, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 2,
+      "logica": 8,
+      "numerica": 4,
+      "verbal": 9
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 6,
+      "estabilidad": 6,
+      "extraversion": 7,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "verbal-linguistica",
+      "interpersonal",
+      "intrapersonal"
+    ],
+    "valoresAsociados": ["impacto_social", "reconocimiento", "autonomia"],
+    "universidades": [
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "USMP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad del Pacífico", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
+      { "nombre": "UNAP", "region": "Puno", "tipoGestion": "nacional" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Estudios de abogados / litigio privado",
+      "Gerencias legales corporativas",
+      "Poder Judicial y Ministerio Público (fiscalía)",
+      "Notarías",
+      "Arbitraje y resolución de conflictos",
+      "Sector público (asesoría legal institucional)",
+      "Docencia e investigación jurídica"
+    ]
+  },
+  {
+    "id": "educacion",
+    "nombre": "Educación",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "auxiliar-educacion",
+    "riasec": { "R": 2, "I": 5, "A": 5, "S": 9, "E": 4, "C": 5 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 5,
+      "numerica": 3,
+      "verbal": 8
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 6,
+      "estabilidad": 7,
+      "extraversion": 6,
+      "amabilidad": 8
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "verbal-linguistica",
+      "intrapersonal"
+    ],
+    "valoresAsociados": ["impacto_social", "trabajo_en_equipo", "sostenibilidad"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNE Enrique Guzmán y Valle (La Cantuta)", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UARM", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCSS", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "UNFV", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades del Perú, con múltiples especialidades (Inicial, Primaria, Secundaria con menciones); se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Docencia en instituciones públicas y privadas (MINEDU)",
+      "Gestión y dirección de instituciones educativas",
+      "Diseño curricular y materiales educativos",
+      "Educación especial e inclusiva",
+      "Capacitación corporativa / formación de adultos",
+      "Investigación y políticas educativas"
+    ]
+  },
+  {
+    "id": "auxiliar-educacion",
+    "nombre": "Auxiliar de Educación",
     "tipo": "tecnica",
-    "riasec": { "R": 1, "I": 4, "A": 6, "S": 4, "E": 9, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 4, "espacial": 3, "logica": 5 },
-    "inteligenciasClave": ["interpersonal", "verbal-linguistica"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 6, "extraversion": 8, "amabilidad": 6, "estabilidad": 5 },
-    "valoresAsociados": ["creatividad", "logro_economico", "innovacion"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "flexible/remoto frecuente" },
-    "duracionAnios": 1,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional (mucho contenido online/bootcamp)"]
+    "duracionAnios": 3,
+    "vocacionRelacionada": "educacion",
+    "riasec": { "R": 4, "I": 2, "A": 4, "S": 9, "E": 2, "C": 5 },
+    "aptitudesRequeridas": {
+      "espacial": 4,
+      "logica": 3,
+      "numerica": 2,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 5,
+      "estabilidad": 7,
+      "extraversion": 5,
+      "amabilidad": 9
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "corporal-cinestesica",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "Instituto Superior Pedagógico Nicolás Copérnico", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Formación ofrecida por Institutos Superiores Pedagógicos (ISP) públicos y privados a nivel nacional (mínimo 3 años). Se excluyen intencionalmente los cursos cortos de 6-10 meses de institutos no pedagógicos, señalados en investigación académica (PUCP) como formación incompleta que no garantiza las competencias necesarias para el puesto.",
+    "sectoresEmpleo": [
+      "Apoyo en aula (educación inicial y primaria)",
+      "Programas no escolarizados de atención a la infancia",
+      "Instituciones de educación especial (rol de apoyo)",
+      "Guarderías y nidos privados"
+    ]
   },
   {
     "id": "ingenieria-ambiental",
-    "nombre": "Ingeniería Ambiental / Sostenibilidad",
+    "nombre": "Ingeniería Ambiental",
     "tipo": "universitaria",
-    "riasec": { "R": 6, "I": 8, "A": 2, "S": 5, "E": 4, "C": 5 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 7, "espacial": 4, "logica": 7 },
-    "inteligenciasClave": ["naturalista", "logico-matematica"],
-    "rasgosFavorables": { "apertura": 8, "responsabilidad": 8, "extraversion": 4, "amabilidad": 6, "estabilidad": 6 },
-    "valoresAsociados": ["impacto_social", "sostenibilidad", "servicio_a_otros"],
-    "estiloVida": { "entornoTrabajo": "mixto", "trabajoEquipo": true, "horarioTipico": "oficina/campo, horario regular" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "tecnologias-ambientales-senati",
+    "riasec": { "R": 6, "I": 8, "A": 2, "S": 5, "E": 6, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 5,
+      "logica": 8,
+      "numerica": 7,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 8,
+      "estabilidad": 6,
+      "extraversion": 6,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "naturalista",
+      "interpersonal"
+    ],
+    "valoresAsociados": ["sostenibilidad", "impacto_social", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Autónoma del Perú", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
+      { "nombre": "UNALM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" }
+    ],
+    "notaCobertura": "Carrera en crecimiento, ofrecida en un número creciente de universidades del Perú; se listan algunas representativas.",
+    "sectoresEmpleo": [
+      "Consultoría ambiental",
+      "Evaluación y gestión de impacto ambiental (EIA)",
+      "Sector público (OEFA, MINAM, gobiernos regionales)",
+      "Minería (área de sostenibilidad y medio ambiente)",
+      "Tratamiento de agua y residuos",
+      "Energías renovables"
+    ]
   },
   {
-    "id": "ingenieria-minas-geologia",
-    "nombre": "Ingeniería de Minas / Geología",
+    "id": "tecnologias-ambientales-senati",
+    "nombre": "Tecnologías Ambientales (SENATI)",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "ingenieria-ambiental",
+    "riasec": { "R": 7, "I": 5, "A": 2, "S": 3, "E": 3, "C": 7 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 5,
+      "numerica": 6,
+      "verbal": 4
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 5,
+      "estabilidad": 6,
+      "extraversion": 4,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "naturalista",
+      "logico-matematica",
+      "corporal-cinestesica"
+    ],
+    "valoresAsociados": ["sostenibilidad", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "SENATI (Instituto)", "region": "nacional", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Laboratorios de análisis ambiental",
+      "Industria (agroindustria, química, metalmecánica, minería) - área ambiental",
+      "ONGs ambientales",
+      "Sector público (MINAM, DIGESA)",
+      "Plantas de tratamiento de aguas residuales"
+    ]
+  },
+  {
+    "id": "arquitectura",
+    "nombre": "Arquitectura",
     "tipo": "universitaria",
-    "riasec": { "R": 9, "I": 8, "A": 1, "S": 1, "E": 4, "C": 4 },
-    "aptitudesRequeridas": { "verbal": 4, "numerica": 8, "espacial": 6, "logica": 7 },
-    "inteligenciasClave": ["logico-matematica", "naturalista"],
-    "rasgosFavorables": { "apertura": 5, "responsabilidad": 8, "extraversion": 4, "amabilidad": 3, "estabilidad": 7 },
-    "valoresAsociados": ["estabilidad_laboral", "logro_economico", "impacto_tangible"],
-    "estiloVida": { "entornoTrabajo": "campo", "trabajoEquipo": true, "horarioTipico": "campamento minero, horarios extendidos/rotativos" },
     "duracionAnios": 5,
-    "costoAproximadoRango": "medio",
-    "disponibilidadPeru": ["Lima", "Arequipa", "Cajamarca", "Cusco", "Puno"]
+    "vocacionRelacionada": null,
+    "riasec": { "R": 5, "I": 6, "A": 9, "S": 4, "E": 5, "C": 5 },
+    "aptitudesRequeridas": {
+      "espacial": 9,
+      "logica": 7,
+      "numerica": 6,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 7,
+      "apertura": 9,
+      "estabilidad": 6,
+      "extraversion": 6,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "espacial",
+      "logico-matematica",
+      "corporal-cinestesica"
+    ],
+    "valoresAsociados": ["creatividad", "sostenibilidad", "impacto_social"],
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad de Lima", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
+      { "nombre": "UTP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
+      { "nombre": "UCAL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades del Perú; se listan solo algunas representativas.",
+    "sectoresEmpleo": [
+      "Estudios de arquitectura",
+      "Dirección y gestión de proyectos de construcción",
+      "Planificación urbana y territorial (sector público)",
+      "Diseño de interiores",
+      "Docencia e investigación",
+      "Consultoría en sostenibilidad edificatoria"
+    ]
   },
   {
-    "id": "gestion-rrhh",
-    "nombre": "Gestión de Recursos Humanos",
+    "id": "diseno-interiores",
+    "nombre": "Diseño de Interiores",
     "tipo": "tecnica",
-    "riasec": { "R": 1, "I": 3, "A": 2, "S": 9, "E": 6, "C": 6 },
-    "aptitudesRequeridas": { "verbal": 6, "numerica": 3, "espacial": 1, "logica": 4 },
-    "inteligenciasClave": ["interpersonal"],
-    "rasgosFavorables": { "apertura": 5, "responsabilidad": 7, "extraversion": 7, "amabilidad": 8, "estabilidad": 6 },
-    "valoresAsociados": ["servicio_a_otros", "liderazgo", "trabajo_en_equipo"],
-    "estiloVida": { "entornoTrabajo": "oficina", "trabajoEquipo": true, "horarioTipico": "oficina, horario regular" },
     "duracionAnios": 3,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": null,
+    "riasec": { "R": 4, "I": 3, "A": 8, "S": 5, "E": 5, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 8,
+      "logica": 4,
+      "numerica": 4,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 6,
+      "apertura": 8,
+      "estabilidad": 5,
+      "extraversion": 6,
+      "amabilidad": 6
+    },
+    "inteligenciasClave": [
+      "espacial",
+      "corporal-cinestesica",
+      "interpersonal"
+    ],
+    "valoresAsociados": ["creatividad", "autonomia"],
+    "universidades": [
+      { "nombre": "ISIL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Toulouse Lautrec", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Instituto CERTUS", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Chio Lecca", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Estudios de diseño de interiores",
+      "Inmobiliarias y desarrollo de proyectos residenciales",
+      "Freelance / emprendimiento propio",
+      "Retail y visual merchandising",
+      "Producción de eventos y escenografía"
+    ]
   },
   {
-    "id": "logistica-comercio-exterior",
-    "nombre": "Logística y Comercio Exterior",
+    "id": "administracion-tecnica",
+    "nombre": "Administración de Empresas (técnico)",
     "tipo": "tecnica",
-    "riasec": { "R": 3, "I": 5, "A": 1, "S": 3, "E": 8, "C": 8 },
-    "aptitudesRequeridas": { "verbal": 5, "numerica": 6, "espacial": 3, "logica": 6 },
-    "inteligenciasClave": ["logico-matematica", "interpersonal"],
-    "rasgosFavorables": { "apertura": 6, "responsabilidad": 8, "extraversion": 6, "amabilidad": 5, "estabilidad": 6 },
-    "valoresAsociados": ["eficiencia", "logro_economico", "organizacion"],
-    "estiloVida": { "entornoTrabajo": "mixto", "trabajoEquipo": true, "horarioTipico": "oficina/almacén, horario regular" },
     "duracionAnios": 3,
-    "costoAproximadoRango": "bajo",
-    "disponibilidadPeru": ["nacional"]
+    "vocacionRelacionada": "administracion",
+    "riasec": { "R": 2, "I": 3, "A": 3, "S": 6, "E": 6, "C": 8 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 5,
+      "numerica": 6,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 7,
+      "apertura": 5,
+      "estabilidad": 6,
+      "extraversion": 6,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "logico-matematica",
+      "intrapersonal"
+    ],
+    "valoresAsociados": ["trabajo_en_equipo", "autonomia"],
+    "universidades": [
+      { "nombre": "SENATI", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Áreas administrativas y comerciales",
+      "Recursos humanos (soporte operativo)",
+      "Logística y operaciones",
+      "Emprendimiento propio",
+      "Asistencia en gestión financiera"
+    ]
+  },
+  {
+    "id": "gestion-construccion-civil",
+    "nombre": "Gestión de la Construcción Civil",
+    "tipo": "tecnica",
+    "duracionAnios": 2,
+    "vocacionRelacionada": "ingenieria-civil",
+    "riasec": { "R": 7, "I": 4, "A": 1, "S": 3, "E": 4, "C": 7 },
+    "aptitudesRequeridas": {
+      "espacial": 7,
+      "logica": 5,
+      "numerica": 5,
+      "verbal": 3
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 5,
+      "estabilidad": 6,
+      "extraversion": 5,
+      "amabilidad": 4
+    },
+    "inteligenciasClave": [
+      "espacial",
+      "corporal-cinestesica",
+      "logico-matematica"
+    ],
+    "valoresAsociados": ["trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "SENCICO", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Instituto José Pardo", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "CAPECO", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Supervisión y gestión de obras",
+      "Topografía y dibujo técnico",
+      "Elaboración de expedientes técnicos",
+      "Logística de materiales de construcción",
+      "Apoyo a ingenieros y arquitectos en campo"
+    ]
+  },
+  {
+    "id": "contabilidad-tecnica",
+    "nombre": "Contabilidad (técnico)",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "contabilidad",
+    "riasec": { "R": 1, "I": 3, "A": 1, "S": 4, "E": 3, "C": 9 },
+    "aptitudesRequeridas": {
+      "espacial": 2,
+      "logica": 5,
+      "numerica": 8,
+      "verbal": 4
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 4,
+      "estabilidad": 6,
+      "extraversion": 3,
+      "amabilidad": 4
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "intrapersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": ["autonomia"],
+    "universidades": [
+      { "nombre": "SENATI", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Asistencia contable en empresas",
+      "Registro y control de operaciones financieras",
+      "Apoyo en auditoría y tributación",
+      "Estudio contable propio (asistente / independiente)",
+      "Departamentos de costos y finanzas"
+    ]
+  },
+  {
+    "id": "enfermeria-tecnica",
+    "nombre": "Enfermería Técnica",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "enfermeria",
+    "riasec": { "R": 6, "I": 2, "A": 1, "S": 9, "E": 2, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 2,
+      "logica": 3,
+      "numerica": 4,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 4,
+      "estabilidad": 8,
+      "extraversion": 5,
+      "amabilidad": 9
+    },
+    "inteligenciasClave": [
+      "interpersonal",
+      "corporal-cinestesica",
+      "intrapersonal"
+    ],
+    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "Instituto San Fernando", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "IESTP Arturo Sabroso Montoya", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "IESTP José María Arguedas", "region": "Apurímac", "tipoGestion": "nacional" }
+    ],
+    "notaCobertura": "Existen numerosos Institutos de Educación Superior Tecnológica Pública (IESTP) en todo el país que ofrecen esta carrera de forma estatal, además de institutos privados; se listan solo algunos representativos.",
+    "sectoresEmpleo": [
+      "Hospitales y clínicas (atención asistencial bajo supervisión)",
+      "Centros y puestos de salud (atención primaria)",
+      "Campañas de prevención y vacunación",
+      "Emergencias y tópicos industriales (empresas)",
+      "Cuidado domiciliario"
+    ]
+  },
+  {
+    "id": "computacion-informatica-tecnica",
+    "nombre": "Computación e Informática (técnico)",
+    "tipo": "tecnica",
+    "duracionAnios": 2,
+    "vocacionRelacionada": "ingenieria-software",
+    "riasec": { "R": 2, "I": 6, "A": 4, "S": 3, "E": 4, "C": 6 },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 7,
+      "numerica": 5,
+      "verbal": 4
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 6,
+      "apertura": 6,
+      "estabilidad": 6,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "intrapersonal",
+      "interpersonal"
+    ],
+    "valoresAsociados": ["autonomia", "creatividad"],
+    "universidades": [
+      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Desarrollo de aplicaciones web, móviles y cloud",
+      "Soporte y mantenimiento de sistemas",
+      "Freelance / desarrollo independiente",
+      "Outsourcing de TI",
+      "Ciberseguridad aplicada (nivel básico)"
+    ]
   }
 ]
