@@ -8,25 +8,25 @@
 - MVP (alcance inicial): Test completo (personalidad, RIASEC, aptitudes cognitivas, inteligencias múltiples, valores, motivaciones, estilo de aprendizaje, preferencias de estilo de vida, restricciones personales) → motor de recomendación contra dataset estático de carreras → resultado descargable en PDF. Sin registro/login. Usuarios: grupo cerrado de beta testers.
 - Qué NO incluye el MVP: Registro/login/autenticación, persistencia de resultados en base de datos, integración de datos de mercado laboral **en tiempo real** (sí se permite investigación puntual y estática para construir el dataset), análisis de foros con IA, apertura a público general.
 - Objetivos corto/mediano plazo:
-  - Corto plazo: MVP funcional de punta a punta para que el familiar del creador y 3-5 beta testers más lo prueben y den feedback real. **Retrasado conscientemente para reconstruir `carreras.json` con evidencia trazable — decisión del creador, priorizando solidez del dataset sobre velocidad.**
-  - Mediano plazo: Iterar el motor de recomendación según feedback recibido, luego iniciar primer feature post-MVP (probablemente mercado laboral).
+  - Corto plazo: MVP funcional de punta a punta para que el familiar del creador y 3-5 beta testers más lo prueben y den feedback real.
+  - Mediano plazo: Iterar el motor de recomendación según feedback recibido, luego iniciar primer feature post-MVP (probablemente mercado laboral). El catálogo de `carreras.json` seguirá creciendo post-MVP con las carreras que falten — no es bloqueante para el lanzamiento del MVP.
 
 ## Investigación (Fase 2 — fija, no cambia)
 
 - Competidores/referencias analizados: Ponte en Carrera (MTPE/Minedu), Mi Carrera (Ministerio de Trabajo), tests de universidades privadas (UCV/ISIL/UPN), EstudiaPerú, TestVocacional.app.
 - Lo bueno (para aprender): Combinar varias metodologías psicométricas en un solo perfil da más solidez que un test único. Integrar datos reales de mercado laboral aporta valor concreto. Sin registro / fricción mínima al inicio mejora la conversión. Resultado descargable como alternativa a cuentas de usuario.
-- Lo malo (para evitar): Fragmentar el test en varias pruebas sueltas y desconectadas. Sesgo de negocio disfrazado de orientación objetiva (universidades privadas) — confirmado repetidamente durante la reconstrucción de `carreras.json`: las páginas de universidades son fuente parcial/marketing, útiles solo para evidencia cualitativa, nunca para cifras. Profundidad sacrificada por velocidad. UX anticuada en plataformas del Estado.
+- Lo malo (para evitar): Fragmentar el test en varias pruebas sueltas y desconectadas. Sesgo de negocio disfrazado de orientación objetiva (universidades privadas) — las páginas de universidades son fuente parcial/marketing, útiles solo para evidencia cualitativa, nunca para cifras. Profundidad sacrificada por velocidad. UX anticuada en plataformas del Estado.
 - Oportunidad de diferenciación: Ninguna referencia analizada cubre estilo de vida y restricciones personales como parte del algoritmo. Ninguna combina test multidimensional completo + mercado laboral peruano + experiencias reales de profesionales, en una sola plataforma con UX moderna.
 
 ## Arquitectura y stack (Fase 3 — fija salvo cambio de alcance)
 
-- Estructura de carpetas:
+- Estructura de carpetas (actualizada):
 
 /app
 /page.js → Landing (pendiente de personalizar)
 /perfil/page.jsx → ✅ Completo
 /test/page.jsx → ✅ Completo
-/resultado/page.jsx → ✅ Completo (Fase 5 — Parte 5); PENDIENTE: agregar bloque de texto fijo (consejo genérico sobre estabilidad laboral/logro económico dependiendo de factores individuales, no del perfil del usuario) — aún sin redactar
+/resultado/page.jsx → ✅ Completo (Fase 5 — Parte 5); PENDIENTE: agregar bloque de texto fijo (consejo genérico sobre estabilidad laboral/logro económico dependiendo de factores individuales, no del perfil del usuario)
 /components
 /test/
 PreguntaLikert.jsx → ✅ Completo
@@ -36,83 +36,89 @@ PreguntaOpciones.jsx → ✅ Completo
 /lib
 /storage.js → ✅ Completo
 /scoring/
-engine.ts → ✅ Reestructurado (Parte 6): forma de dos niveles (dimension → subdimension). Pendiente de código: funciones de normalización de escalas.
-types.ts → ✅ Completo — PENDIENTE: actualizar tipos para reflejar `duracionAnios` y `vocacionRelacionada` (nuevos en Parte 8).
+engine.ts → ✅ Completo (Parte 10): scoreEngineLikert, scoreEngineAptitud y scoreEngineEleccionForzada devuelven forma de dos niveles (dimension → subdimension). Normalización de escalas integrada y cerrada.
+normalizar.ts → ✅ Nuevo (Parte 10): normalizarScore(score, min, max, contexto?), reescalamiento lineal a ESCALA_DESTINO. Incluye guard (max <= min lanza Error con contexto "dimension > subdimension") para evitar inversiones silenciosas de escala.
+constants.ts → ✅ Nuevo (Parte 10): ESCALA_DESTINO = 9.
+types.ts → ✅ Completo, sin cambios en Parte 10.
 /data
-preguntas.json → ✅ 104 preguntas reales. 9 dimensiones, valores con 6 subdimensiones activas: impacto_social, creatividad, autonomia, reconocimiento, trabajo_en_equipo, sostenibilidad.
-carreras.json → ⚠️ EN RECONSTRUCCIÓN — **27 carreras completas** (17 universitarias + 10 técnicas). Ver detalle completo abajo en "Feature actual".
-carreras-tecnicas-notas.json → ⚠️ Semilla original de Parte 7, usada como insumo en Parte 8 para investigar y resolver la mayoría de sus casos "sí/no_verificado" pendientes. Con el nuevo esquema `vocacionRelacionada` dentro de `carreras.json`, este archivo va camino a quedar obsoleto — no se ha borrado todavía, pero ya no es la fuente de verdad para las carreras que ya tienen su técnica vinculada directamente en `carreras.json`.
+preguntas.json → ✅ 104 preguntas reales. 9 dimensiones, valores con 6 subdimensiones activas: impacto_social, creatividad, autonomia, reconocimiento, trabajo_en_equipo, sostenibilidad. Likert confirmado en escala 1-5.
+carreras.json → 🔶 EN CRECIMIENTO CONTINUO (46 entradas confirmadas a la fecha, archivo subido y verificado en Parte 10). Cada versión técnica se modela como entrada completa e independiente en el mismo archivo, con su propio perfil psicométrico, vinculada a la universitaria vía el campo `vocacionRelacionada` (bidireccional). Campo `tipo`: `"universitaria"` | `"tecnica"`. Escala confirmada: 0-9 en todos los campos comparables (riasec, aptitudesRequeridas, rasgosFavorables).
 /public
 
 - Stack confirmado: Next.js 16.3.0 (App Router, Turbopack), React 19.2.8, Tailwind CSS v4, React Hook Form 7.85 + Zod 4.4 + @hookform/resolvers 5.7, TypeScript en `/lib/scoring`, JS en el resto, ESLint, Playwright (aún no configurado), Vercel (aún no desplegado). Sin Auth.js ni PostgreSQL/Prisma en el MVP.
-- Decisiones técnicas importantes y por qué (heredadas de sesiones previas, sin cambios en Parte 8): arquitectura de componentes de pregunta, patrón sincronización estado↔sessionStorage, validación "Siguiente"/"Anterior", motor de scoring de dos niveles, nomenclatura separada entre `preguntas.json` y `carreras.json`, normalización de escalas (fórmulas definidas, código pendiente).
-- **(NUEVO — Parte 8) Decisión arquitectónica resuelta: relación técnica-universitaria.** El problema pospuesto desde Parte 7 (cómo modelar y presentar la relación entre una carrera universitaria y su equivalente técnico) se resolvió así:
-  - Cada carrera en `carreras.json` es una **entrada independiente** con su propio perfil psicométrico completo (no un array `modalidades[]` anidado), porque la evidencia (ej. SENATI Producción Industrial vs. Ingeniería Industrial) mostró que los perfiles RIASEC realmente difieren entre modalidad técnica y universitaria — anidarlos forzaría al motor de recomendación a promediar o elegir un solo perfil, perdiendo precisión.
-  - Dos campos nuevos, aplican a **todas** las entradas (retroactivo, ya migrado a las 27 actuales):
-    - `duracionAnios` (número): puramente informativo, **no entra al motor de recomendación** — mismo criterio que `costoAproximadoRango`. Permite al estudiante comparar años de estudio entre rutas.
-    - `vocacionRelacionada` (string | null): `id` de la entrada contraparte (universitaria ↔ técnica) de la misma vocación. El vínculo es **bidireccional** — se actualiza en ambos lados cuando existe relación real.
-  - Regla de rigor aplicada: **`vocacionRelacionada` solo se llena cuando el mapeo es 1 a 1 razonablemente preciso**, verificado con fuente oficial del instituto/universidad (no agregadores). Si dos vocaciones están relacionadas pero tienen alcance claramente distinto (ver casos abajo), se mantienen como carreras separadas sin forzar el vínculo — se deja en `null` antes que introducir una comparación imprecisa.
-  - `carreras-tecnicas-notas.json` queda en camino a obsoleto: su función se está migrando al propio dataset principal.
+- Decisiones técnicas importantes y por qué (sin cambios salvo lo agregado):
+  - Arquitectura de componentes de pregunta, patrón sincronización estado↔sessionStorage, validación "Siguiente"/"Anterior", motor de scoring de dos niveles, nomenclatura separada entre `preguntas.json` y `carreras.json`.
+  - **(NUEVO — Parte 10) Escala destino de normalización: 9, no 10.** Decisión explícita para matchear la escala real de `carreras.json` (0-9, ya con 46 carreras verificadas) en vez de migrar el dataset existente a 0-10. Fórmula: `((score - min) / (max - min)) * 9`, aplicada sobre el promedio final (matemáticamente equivalente a aplicarla antes de promediar, por ser transformación lineal).
+  - **(NUEVO — Parte 10) `scoreEngineAptitud` normaliza con `normalizarScore(valor, 0, 1)` en vez de `valor * 9` directo**, por consistencia (DRY): toda normalización pasa por una sola función, aunque el atajo directo hubiera sido matemáticamente equivalente y más corto.
+  - **(NUEVO — Parte 10) `scoreEngineLikert` guarda `escalaMin`/`escalaMax` dentro del acumulador del primer `reduce`** (junto a `suma`/`count`), porque en el segundo `reduce` (por `Object.entries`) ya no hay acceso al objeto `Pregunta` original — se asume que todas las preguntas de una misma subdimensión comparten la misma escala (caso real confirmado en `preguntas.json`).
+  - **(NUEVO — Parte 10) Guard de escala inválida vive dentro de `normalizarScore`, no en `engine.ts`**, y solo se usa con contexto (`dimension > subdimension`) en `scoreEngineLikert` — en `scoreEngineAptitud` el `min=0, max=1` es literal fijo en código, nunca puede fallar por datos corruptos de `preguntas.json`, así que no aplica pasar contexto ahí.
+- **Esquema exacto de cada entrada de `carreras.json`** (sin cambios desde Parte 9):
+
+id, nombre, tipo ("universitaria"|"tecnica"), duracionAnios,
+vocacionRelacionada (id de la entrada pareja, o null),
+riasec { R, I, A, S, E, C } (escala 0-9),
+aptitudesRequeridas { espacial, logica, numerica, verbal } (escala 0-9),
+rasgosFavorables { responsabilidad, apertura, estabilidad, extraversion, amabilidad } (escala 0-9),
+inteligenciasClave [ ] (subset de: logico-matematica, verbal-linguistica, espacial,
+corporal-cinestesica, interpersonal, intrapersonal, naturalista, musical),
+valoresAsociados [ ] (subset de las 6 subdimensiones activas de valores),
+notaCobertura (opcional, string — solo si es carrera masiva con >10 universidades),
+universidades [ { nombre, region, tipoGestion ("nacional"|"particular") } ],
+sectoresEmpleo [ ]
+
+- Flujo de trabajo para carreras nuevas (sin cambios desde Parte 9): Claude solo muestra el bloque JSON de la carrera nueva en el chat, Pool lo copia manualmente a su `carreras.json` local. Confirmado en Parte 10 que la copia manual de todo lo generado en Parte 9 se completó correctamente.
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
-- Feature: Reconstrucción de `carreras.json` con evidencia trazable (27/33+ completas, contando universitarias + técnicas) + resolución completa de la arquitectura técnica-vs-universitaria
-- Fase actual: Desarrollo (Fase 5) — Parte 8 cerrada, continúa en Parte 9
-- En lo que se trabajó en Parte 8 (sesión de hoy):
-
-  **1. Nuevas carreras universitarias reconstruidas con evidencia (8 nuevas):**
-  - **Ingeniería Industrial** (5 años) — perfil RIASEC con fuerte componente Investigativo/Emprendedor/Convencional (diseño y mejora de procesos, liderazgo, calidad). 10 universidades verificadas (UNI, PUCP, UPC, U. Lima, UDEP, UNT, UARM, Universidad Autónoma, UPCH, UCSP).
-  - **Medicina Humana** (7 años) — se identificó y documentó un dato regulatorio relevante: la Ley 31520 (2023) le quitó a SUNEDU la facultad de licenciar programas de Medicina específicamente, lo que abrió la puerta a nuevas facultades sin el mismo filtro de calidad histórico. Se listaron solo universidades con trayectoria establecida.
-  - **Derecho** (5 años) — perfil con `E` (Emprendedor) alto por litigio/negociación/liderazgo. Se corrigió en el camino un error propio: se había puesto `logico-matematica` como inteligencia clave sin evidencia real (la única fuente que lo mencionaba era texto de plantilla genérica); se reemplazó por `intrapersonal` (juicio ético, tema repetido en todos los perfiles de egreso revisados).
-  - **Educación** (5 años) — se decidió mantenerla como una sola entrada (no separar por Inicial/Primaria/Secundaria) porque el perfil psicométrico de fondo es el mismo entre especialidades; la diferencia es de contenido/edad, no de tipo de persona.
-  - **Ingeniería Ambiental** (5 años) — fuerte presencia de `sostenibilidad` en todos los perfiles revisados (UNI, UPC, Autónoma, UNSA, UNT).
-  - **Arquitectura** (5 años) — perfil dominado por `A` (Artístico) en RIASEC; `sostenibilidad` e `impacto_social` aparecen explícitos y repetidos en las fuentes oficiales (UPC, UDEP, UTP).
-
-  **2. Nuevas carreras técnicas reconstruidas y vinculadas (9 nuevas), todas con evidencia de fuente oficial del instituto:**
-  - **Ingeniería de Producción Industrial (SENATI)** — 4 años (Escuela Superior, caso híbrido: título de "Ingeniería" desde un instituto, no técnico clásico de 3 años). Vinculada a Ingeniería Industrial.
-  - **Auxiliar de Educación** — 3 años vía Institutos Superiores Pedagógicos (ISP) legítimos. Se descubrió y documentó explícitamente que existen también cursos cortos de 6-10 meses en institutos no pedagógicos, señalados por una tesis de la PUCP como formación incompleta — **se excluyen intencionalmente del dataset** por criterio de calidad. Vinculada a Educación.
-  - **Tecnologías Ambientales (SENATI)** — 3 años, rol operativo (monitoreo, tratamiento de aguas, gestión de residuos) bajo normativa, sin el componente de liderazgo/diseño estratégico de la universitaria. Vinculada a Ingeniería Ambiental.
-  - **Diseño de Interiores** (ISIL, Toulouse Lautrec, Instituto CERTUS, Chio Lecca) — 3 años. **Se decidió NO vincularla a Arquitectura** como técnica equivalente: es una vocación relacionada pero de alcance distinto (espacios interiores, sin diseño estructural/urbanismo). Queda como carrera independiente sin `vocacionRelacionada`.
-  - **Administración de Empresas (técnico)** — 3 años, mapeo 1 a 1 limpio (mismo nombre en SENATI/Idat/Cibertec). Vinculada a Administración.
-  - **Gestión de la Construcción Civil** (Cibertec) — 2 años (duración corregida desde una fuente oficial directa, no un agregador que decía 3). Vinculada a Ingeniería Civil. Incluye SENCICO (organismo público del sector construcción, clasificado como `particular` por criterio del creador: cobra matrícula y mensualidad).
-  - **Contabilidad (técnico)** — 3 años, mapeo 1 a 1 limpio. Vinculada a Contabilidad.
-  - **Enfermería Técnica** — 3 años. Se documentó que existen tanto institutos privados (Instituto San Fernando, Idat, Cibertec) como IESTP públicos (Instituto de Educación Superior Tecnológico Público) — reflejado en el dataset con ambos tipos de gestión. Vinculada a Enfermería.
-  - **Computación e Informática (técnico)** (Idat/Cibertec) — 2 años. **Corrección importante sobre la nota original de Parte 7:** se pensaba que era más afín a Ingeniería de Sistemas (generalista), pero la investigación de Parte 8 mostró que el currículo real está fuertemente orientado a desarrollo de software (programación, Git, Docker, SQL, apps web/cloud/mobile) — se vinculó a **Ingeniería de Software**, no a Sistemas. Ingeniería de Sistemas queda sin técnica vinculada (`null`).
-
-  **3. Corrección de un error de nomenclatura heredado:** se detectó que ISIL estaba incluido en el listado `universidades[]` de Diseño Gráfico universitaria, cuando en realidad ISIL ofrece Diseño Gráfico como programa técnico de 3 años (no universitario de 5). Se corrigió: ISIL se movió a la nueva entrada `diseno-grafico-tecnico`, junto con Toulouse Lautrec e Instituto Continental (confirmado como "Diseño Gráfico Publicitario", misma vocación con nombre comercial distinto, por decisión del creador).
-
-  **4. Casos donde se decidió conscientemente NO forzar un vínculo `vocacionRelacionada`** (documentado para evitar repetir la investigación sin necesidad, pero dejando la puerta abierta si aparece mejor evidencia):
-  - Terapia Ocupacional, Ingeniería Geológica (confirmado "no" en la nota original)
-  - Ingeniería Mecatrónica, Psicología (nunca verificado a fondo)
-  - Arquitectura ↔ Diseño de Interiores (vocaciones relacionadas pero de alcance distinto)
-  - Ingeniería de Sistemas (la técnica más cercana terminó vinculándose a Software, no a Sistemas)
+- Feature: Motor de recomendación — normalización de escalas (cerrado) + comparación categórica (próximo)
+- Fase actual: Desarrollo (Fase 5) — Parte 10 cerrada
+- En lo que se trabajó en Parte 10 (sesión de hoy):
+  - Se implementó la normalización de escalas pendiente desde Parte 6: `constants.ts` (ESCALA_DESTINO=9), `normalizar.ts` (normalizarScore con guard defensivo), integración en `engine.ts`.
+  - Se confirmó y corrigió una inconsistencia real: la fórmula documentada apuntaba a escala 0-10, pero `carreras.json` usa 0-9. Se resolvió ajustando la fórmula a 9 en vez de migrar las 46 carreras existentes.
+  - Se verificó el archivo `carreras.json` subido por Pool: 46 entradas, escala 0-9 confirmada en campos comparables.
+  - Pendiente de commit: mensaje acordado, push aún no confirmado como hecho.
+- ❌ Pendiente (continúa en la próxima sesión — Parte 11):
+  - Diseñar estrategia de comparación para `estilo_vida` y `restricciones_personales` (categóricos) en el motor de recomendación.
+  - Redactar e implementar el bloque de texto fijo (consejo genérico sobre estabilidad laboral/logro económico) en `resultado/page.jsx`.
+  - Seguir agregando carreras según prioridad (ver lista abajo).
+  - Sendero de progreso visual y estilos Tailwind del test; diseño real de `resultado/page.jsx`.
+  - Estudio aislado de generación de PDF (jsPDF o @react-pdf/renderer).
 
 ## Features completados ✅
 
-(ninguno al 100% todavía — "Test vocacional" sigue en curso; `test/page.jsx`, `lib/scoring/engine.ts` y `resultado/page.jsx` con datos reales conectados ya cerrados como sub-hitos funcionales; metodología de reconstrucción de `carreras.json` validada y aplicada — 27 carreras completas, incluyendo la primera ronda completa de vínculos técnica-universitaria)
+- [x] Normalización de escalas en el motor de scoring — Parte 10: `constants.ts`, `normalizar.ts`, integración en `engine.ts` con guard defensivo contra escalas inválidas.
+      (pendiente al 100%: "Test vocacional" sigue en curso; `test/page.jsx`, `lib/scoring/engine.ts` y `resultado/page.jsx` con datos reales conectados ya cerrados como sub-hitos funcionales; metodología de reconstrucción de `carreras.json` validada y aplicada, con arquitectura técnica/universitaria ya resuelta)
 
 ## Reglas de negocio definidas
 
-(Se mantienen todas las reglas de sesiones previas — normalización de escalas, estructura `universidades[]`, campo `sectoresEmpleo`, exclusiones verificadas carrera por carrera, eliminación de `estabilidad_laboral`/`logro_economico`, patrón `notaCobertura`, prohibición de codificar sesgos de contratación, verificación obligatoria de nomenclatura — y se agregan:)
+(Se mantienen todas las reglas de sesiones previas — normalización de escalas [ahora implementada], campo `sectoresEmpleo`, `notaCobertura` para carreras masivas, prohibición de codificar sesgos sociales, verificación obligatoria de nomenclatura, arquitectura técnica/universitaria resuelta, meta de "33 carreras" descartada, fuentes confiables Tecsup/SENATI/Cibertec, no se agregan bootcamps/certificaciones sin programa formal de 2-3 años, flujo de guardado manual de `carreras.json` — y se agregan:)
 
-- **(NUEVO — Parte 8) Campos `duracionAnios` y `vocacionRelacionada` obligatorios en toda entrada de `carreras.json`.** Ver detalle completo en "Arquitectura y stack" arriba.
-- **(NUEVO — Parte 8) Criterio de calidad para técnicas "informales":** cuando una vocación tiene tanto una ruta formal (institutos/ISP reconocidos, duración estándar) como cursos cortos de dudosa calidad (6-10 meses, sin respaldo académico), **el dataset solo modela la ruta formal** — los cursos cortos se excluyen intencionalmente y se documenta la exclusión en `notaCobertura`. Precedente: Auxiliar de Educación.
-- **(NUEVO — Parte 8) Criterio de rigor para `vocacionRelacionada`:** el vínculo solo se establece cuando el mapeo entre técnica y universitaria es razonablemente 1 a 1, verificado con fuente oficial. Si dos vocaciones están relacionadas pero tienen alcance claramente distinto (ej. Arquitectura vs. Diseño de Interiores), se mantienen separadas sin vínculo forzado — mismo criterio ya usado en Parte 7 para no fusionar carreras con nombres parecidos.
-- **(NUEVO — Parte 8) `tipoGestion: "particular"` aplica también a organismos públicos sectoriales que cobran matrícula/mensualidad** (ej. SENATI, SENCICO) — decisión del creador: el criterio de clasificación es si el estudiante paga, no la naturaleza jurídica de la institución.
-- **(NUEVO — Parte 8) Instituciones de educación superior tecnológica pública (IESTP) se clasifican como `tipoGestion: "nacional"`**, distinto de SENATI/SENCICO — reflejan diversidad real del sistema (hay carreras técnicas verdaderamente gratuitas/estatales junto a las de pago).
+- **(NUEVO — Parte 10) Escala destino de normalización confirmada en 9, no 10.** Toda futura pregunta o dato numérico que deba compararse contra `carreras.json` debe normalizarse a este rango usando `normalizarScore` de `lib/scoring/normalizar.ts` — nunca reimplementar la fórmula en otro archivo.
+- **(NUEVO — Parte 10) Manejo de errores: fallar rápido y visible, no silencioso.** Cuando un dato de configuración (como `escala.min`/`escala.max` en `preguntas.json`) pudiera estar corrupto y producir un resultado matemáticamente válido pero incorrecto (ej. inversión de escala), se prefiere lanzar una excepción explícita con contexto de debugging, en vez de devolver un número plausible pero equivocado — especialmente mientras el proyecto no tiene tests automatizados.
+- **(NUEVO — Parte 10) Separación constante/lógica en `/lib/scoring`:** valores de configuración van en `constants.ts` (sin lógica), funciones puras van en archivos propios como `normalizar.ts` — para facilitar tests unitarios aislados en Fase 8 y evitar que otros módulos (motor de recomendación, `resultado/page.jsx`) tengan que importar todo `engine.ts` para acceder a un valor o función.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 9: continuar la reconstrucción de las carreras universitarias restantes del esqueleto original (Economía, Comunicación Audiovisual, Ingeniería de Minas, Gestión de RRHH, Logística y Comercio Exterior) y las de tendencia emergente (Ciencia de Datos, Ciberseguridad, Diseño UX/UI, Marketing Digital), aplicando la plantilla ya establecida (incluyendo el registro de `duracionAnios` y evaluación honesta de `vocacionRelacionada` para cada una nueva).
+Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 11: diseñar la estrategia de comparación categórica (`estilo_vida`, `restricciones_personales`) para el motor de recomendación.
 
 ## Dudas o problemas pendientes
 
-- Redacción exacta del mensaje genérico fijo sobre estabilidad laboral/logro económico para `resultado/page.jsx` — aún no escrito, solo aprobado el concepto (pendiente desde Parte 7).
-- Implementar en código las funciones de normalización de escalas en `/lib/scoring` (pendiente desde Parte 6).
-- Diseñar estrategia de comparación para `estilo_vida` y `restricciones_personales` (categóricos) en el motor de recomendación.
-- Actualizar `types.ts` en `/lib/scoring` para reflejar los campos nuevos `duracionAnios` y `vocacionRelacionada`.
-- Decidir el destino final de `carreras-tecnicas-notas.json` (¿se elimina cuando todas las carreras tengan su `vocacionRelacionada` evaluado, o se conserva como bitácora histórica?).
-- Sendero de progreso visual y estilos Tailwind del test; diseño real de `resultado/page.jsx`.
-- Estudio aislado de generación de PDF (jsPDF o @react-pdf/renderer).
-- Diseñar cómo `resultado/page.jsx` presentará al estudiante el par universitaria/técnica cuando ambas existan (ej. "también te podría interesar la ruta técnica de X, más corta") — la arquitectura de datos ya está resuelta, pero la UI/UX de esa presentación sigue sin diseñar.
-- Pendiente confirmar mensaje de commit real usado y hacer el push correspondiente (incluye las 16 carreras nuevas de Parte 8: 8 universitarias + 9 técnicas, más las correcciones a Diseño Gráfico y las 11 carreras previas migradas al nuevo esquema).
+- **Carreras candidatas restantes para seguir agregando:**
+  - Comunicación Audiovisual / Ciencias de la Comunicación
+  - Gestión de Recursos Humanos
+  - Logística y Comercio Exterior
+  - Marketing Digital _(verificar si tiene el mismo problema que UI/UX antes de asumir que es carrera completa)_
+  - Ingeniería Química
+  - Agronomía / Ingeniería Agronómica
+  - Medicina Veterinaria
+  - Farmacia y Bioquímica
+  - Trabajo Social
+  - Turismo y Hotelería
+  - Relaciones Internacionales / Ciencias Políticas
+  - Traducción e Interpretación
+  - Publicidad
+- Diseño de la estrategia de comparación para `estilo_vida` (categórico mixto) — aún no discutido en detalle. **Próximo tema de Parte 11.**
+- Cómo comparar `restricciones_personales.economia` del usuario contra `universidades[].tipoGestion` de cada carrera dentro del motor de recomendación — mecánica exacta aún no diseñada. **Próximo tema de Parte 11.**
+- Redacción exacta del mensaje genérico fijo sobre estabilidad laboral/logro económico para `resultado/page.jsx` — aún no escrito, solo aprobado el concepto.
+- Diseño visual del sendero de progreso del test, ni la UI real de `resultado/page.jsx` — pendiente.
+- Pendiente confirmar mensaje de commit real (acordado en Parte 10: `feat(scoring): normalizar scores de Likert y Aptitud a escala 0-9`) y hacer el push correspondiente — incluye `constants.ts`, `normalizar.ts`, `engine.ts` modificado, y todas las carreras agregadas en Parte 9 (guardadas por Claude y copiadas manualmente por Pool, confirmado sincronizado en Parte 10).

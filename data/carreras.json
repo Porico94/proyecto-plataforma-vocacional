@@ -5,7 +5,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 9, "I": 8, "A": 4, "S": 2, "E": 5, "C": 6 },
+    "riasec": {
+      "R": 9,
+      "I": 8,
+      "A": 4,
+      "S": 2,
+      "E": 5,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 9,
       "logica": 9,
@@ -24,18 +31,61 @@
       "espacial",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": ["autonomia", "creatividad"],
+    "valoresAsociados": [
+      "autonomia",
+      "creatividad"
+    ],
     "universidades": [
-      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Ricardo Palma", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UTEC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UTP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
-      { "nombre": "UPN", "region": "Trujillo", "tipoGestion": "particular" },
-      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" }
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Ricardo Palma",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UTEC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UTP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNT",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPN",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSM",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSP",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Minería (instrumentación y control)",
@@ -52,7 +102,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 5, "I": 6, "A": 6, "S": 9, "E": 4, "C": 5 },
+    "riasec": {
+      "R": 5,
+      "I": 6,
+      "A": 6,
+      "S": 9,
+      "E": 4,
+      "C": 5
+    },
     "aptitudesRequeridas": {
       "espacial": 6,
       "logica": 7,
@@ -71,10 +128,22 @@
       "corporal-cinestesica",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["impacto_social", "creatividad", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "impacto_social",
+      "creatividad",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Rehabilitación física y clínica",
@@ -91,7 +160,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 8, "I": 9, "A": 3, "S": 3, "E": 5, "C": 6 },
+    "riasec": {
+      "R": 8,
+      "I": 9,
+      "A": 3,
+      "S": 3,
+      "E": 5,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 9,
       "logica": 8,
@@ -110,18 +186,61 @@
       "espacial",
       "naturalista"
     ],
-    "valoresAsociados": ["autonomia", "sostenibilidad"],
+    "valoresAsociados": [
+      "autonomia",
+      "sostenibilidad"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
-      { "nombre": "UNP", "region": "Piura", "tipoGestion": "nacional" },
-      { "nombre": "UNAP", "region": "Puno", "tipoGestion": "nacional" },
-      { "nombre": "UNC", "region": "Cajamarca", "tipoGestion": "nacional" },
-      { "nombre": "UNDAC", "region": "Pasco", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPN", "region": "La Libertad", "tipoGestion": "particular" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNP",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNAP",
+        "region": "Puno",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNC",
+        "region": "Cajamarca",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNDAC",
+        "region": "Pasco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPN",
+        "region": "La Libertad",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Exploración minera",
@@ -137,7 +256,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "administracion-tecnica",
-    "riasec": { "R": 2, "I": 5, "A": 4, "S": 6, "E": 9, "C": 7 },
+    "riasec": {
+      "R": 2,
+      "I": 5,
+      "A": 4,
+      "S": 6,
+      "E": 9,
+      "C": 7
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 6,
@@ -156,18 +282,62 @@
       "logico-matematica",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["autonomia", "reconocimiento", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "autonomia",
+      "reconocimiento",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "Universidad del Pacífico", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "ESAN", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UPAO", "region": "Trujillo", "tipoGestion": "particular" },
-      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Peruana Unión", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad del Pacífico",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "ESAN",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPAO",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional de Piura",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Peruana Unión",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -186,7 +356,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 1, "I": 7, "A": 5, "S": 9, "E": 3, "C": 4 },
+    "riasec": {
+      "R": 1,
+      "I": 7,
+      "A": 5,
+      "S": 9,
+      "E": 3,
+      "C": 4
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 6,
@@ -205,18 +382,62 @@
       "intrapersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["impacto_social", "autonomia", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "impacto_social",
+      "autonomia",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Andina del Cusco", "region": "Cusco", "tipoGestion": "particular" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" },
-      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
-      { "nombre": "UNICA", "region": "Ica", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UNCP", "region": "Huancayo", "tipoGestion": "nacional" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Andina del Cusco",
+        "region": "Cusco",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UCV",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional de Piura",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNICA",
+        "region": "Ica",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNCP",
+        "region": "Huancayo",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -234,7 +455,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "gestion-construccion-civil",
-    "riasec": { "R": 8, "I": 8, "A": 3, "S": 4, "E": 5, "C": 6 },
+    "riasec": {
+      "R": 8,
+      "I": 8,
+      "A": 3,
+      "S": 4,
+      "E": 5,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 8,
       "logica": 8,
@@ -253,18 +481,62 @@
       "espacial",
       "interpersonal"
     ],
-    "valoresAsociados": ["autonomia", "trabajo_en_equipo", "sostenibilidad"],
+    "valoresAsociados": [
+      "autonomia",
+      "trabajo_en_equipo",
+      "sostenibilidad"
+    ],
     "universidades": [
-      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Nacional de Trujillo", "region": "Trujillo", "tipoGestion": "nacional" },
-      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Nacional de Huancavelica", "region": "Huancavelica", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" }
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UCSP",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional de Piura",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de Trujillo",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de Huancavelica",
+        "region": "Huancavelica",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -283,7 +555,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "contabilidad-tecnica",
-    "riasec": { "R": 1, "I": 5, "A": 2, "S": 4, "E": 5, "C": 9 },
+    "riasec": {
+      "R": 1,
+      "I": 5,
+      "A": 2,
+      "S": 4,
+      "E": 5,
+      "C": 9
+    },
     "aptitudesRequeridas": {
       "espacial": 2,
       "logica": 6,
@@ -302,18 +581,61 @@
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "autonomia",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" },
-      { "nombre": "Universidad Nacional de Piura", "region": "Piura", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UNCP", "region": "Huancayo", "tipoGestion": "nacional" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UCSM",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCV",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional de Piura",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNCP",
+        "region": "Huancayo",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -331,7 +653,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "diseno-grafico-tecnico",
-    "riasec": { "R": 2, "I": 4, "A": 9, "S": 3, "E": 5, "C": 4 },
+    "riasec": {
+      "R": 2,
+      "I": 4,
+      "A": 9,
+      "S": 3,
+      "E": 5,
+      "C": 4
+    },
     "aptitudesRequeridas": {
       "espacial": 8,
       "logica": 4,
@@ -350,13 +679,36 @@
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["creatividad", "autonomia"],
+    "valoresAsociados": [
+      "creatividad",
+      "autonomia"
+    ],
     "universidades": [
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCAL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" }
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCAL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSM",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCV",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Agencias de publicidad y comunicación",
@@ -373,7 +725,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "enfermeria-tecnica",
-    "riasec": { "R": 4, "I": 6, "A": 2, "S": 9, "E": 3, "C": 6 },
+    "riasec": {
+      "R": 4,
+      "I": 6,
+      "A": 2,
+      "S": 9,
+      "E": 3,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 6,
@@ -392,18 +751,61 @@
       "corporal-cinestesica",
       "intrapersonal"
     ],
-    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "impacto_social",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Norbert Wiener", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNAC", "region": "Callao", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Andina del Cusco", "region": "Cusco", "tipoGestion": "particular" },
-      { "nombre": "UNPRG", "region": "Lambayeque", "tipoGestion": "nacional" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Nacional de Barranca", "region": "Lima (provincias)", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USIL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Norbert Wiener",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNAC",
+        "region": "Callao",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Andina del Cusco",
+        "region": "Cusco",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNPRG",
+        "region": "Lambayeque",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de Barranca",
+        "region": "Lima (provincias)",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -421,7 +823,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "computacion-informatica-tecnica",
-    "riasec": { "R": 2, "I": 8, "A": 6, "S": 3, "E": 4, "C": 6 },
+    "riasec": {
+      "R": 2,
+      "I": 8,
+      "A": 6,
+      "S": 3,
+      "E": 4,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 9,
@@ -440,11 +849,27 @@
       "intrapersonal",
       "interpersonal"
     ],
-    "valoresAsociados": ["autonomia", "creatividad", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "autonomia",
+      "creatividad",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UTEC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UTEC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Desarrollo de software (empresas de cualquier sector)",
@@ -460,7 +885,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 2, "I": 7, "A": 4, "S": 4, "E": 6, "C": 7 },
+    "riasec": {
+      "R": 2,
+      "I": 7,
+      "A": 4,
+      "S": 4,
+      "E": 6,
+      "C": 7
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 8,
@@ -479,18 +911,62 @@
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["autonomia", "reconocimiento", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "autonomia",
+      "reconocimiento",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Norbert Wiener", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCSS", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "USMP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCSM", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "UPN", "region": "Trujillo", "tipoGestion": "particular" },
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UNSAAC", "region": "Cusco", "tipoGestion": "nacional" }
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Norbert Wiener",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSS",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USMP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSM",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPN",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -508,7 +984,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": "diseno-grafico",
-    "riasec": { "R": 3, "I": 3, "A": 9, "S": 3, "E": 5, "C": 4 },
+    "riasec": {
+      "R": 3,
+      "I": 3,
+      "A": 9,
+      "S": 3,
+      "E": 5,
+      "C": 4
+    },
     "aptitudesRequeridas": {
       "espacial": 8,
       "logica": 3,
@@ -526,11 +1009,26 @@
       "espacial",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": ["creatividad", "autonomia"],
+    "valoresAsociados": [
+      "creatividad",
+      "autonomia"
+    ],
     "universidades": [
-      { "nombre": "ISIL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Toulouse Lautrec", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Instituto Continental (Diseño Gráfico Publicitario)", "region": "Huancayo", "tipoGestion": "particular" }
+      {
+        "nombre": "ISIL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Toulouse Lautrec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Instituto Continental (Diseño Gráfico Publicitario)",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Agencias de publicidad y comunicación",
@@ -546,7 +1044,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "produccion-industrial-senati",
-    "riasec": { "R": 4, "I": 8, "A": 2, "S": 5, "E": 8, "C": 8 },
+    "riasec": {
+      "R": 4,
+      "I": 8,
+      "A": 2,
+      "S": 5,
+      "E": 8,
+      "C": 8
+    },
     "aptitudesRequeridas": {
       "espacial": 5,
       "logica": 8,
@@ -565,18 +1070,62 @@
       "interpersonal",
       "espacial"
     ],
-    "valoresAsociados": ["trabajo_en_equipo", "reconocimiento", "sostenibilidad"],
+    "valoresAsociados": [
+      "trabajo_en_equipo",
+      "reconocimiento",
+      "sostenibilidad"
+    ],
     "universidades": [
-      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad de Lima", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
-      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
-      { "nombre": "UARM", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Autónoma del Perú", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" }
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad de Lima",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UDEP",
+        "region": "Piura",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNT",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UARM",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Autónoma del Perú",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSP",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades e institutos del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -594,7 +1143,14 @@
     "tipo": "tecnica",
     "duracionAnios": 4,
     "vocacionRelacionada": "ingenieria-industrial",
-    "riasec": { "R": 6, "I": 6, "A": 2, "S": 4, "E": 6, "C": 8 },
+    "riasec": {
+      "R": 6,
+      "I": 6,
+      "A": 2,
+      "S": 4,
+      "E": 6,
+      "C": 8
+    },
     "aptitudesRequeridas": {
       "espacial": 5,
       "logica": 7,
@@ -613,9 +1169,16 @@
       "corporal-cinestesica",
       "espacial"
     ],
-    "valoresAsociados": ["trabajo_en_equipo", "sostenibilidad"],
+    "valoresAsociados": [
+      "trabajo_en_equipo",
+      "sostenibilidad"
+    ],
     "universidades": [
-      { "nombre": "SENATI (Escuela Superior de Tecnología)", "region": "nacional", "tipoGestion": "particular" }
+      {
+        "nombre": "SENATI (Escuela Superior de Tecnología)",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Planificación y control de producción",
@@ -630,7 +1193,14 @@
     "tipo": "universitaria",
     "duracionAnios": 7,
     "vocacionRelacionada": null,
-    "riasec": { "R": 3, "I": 9, "A": 2, "S": 9, "E": 3, "C": 5 },
+    "riasec": {
+      "R": 3,
+      "I": 9,
+      "A": 2,
+      "S": 9,
+      "E": 3,
+      "C": 5
+    },
     "aptitudesRequeridas": {
       "espacial": 5,
       "logica": 8,
@@ -649,18 +1219,61 @@
       "interpersonal",
       "naturalista"
     ],
-    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "impacto_social",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Ricardo Palma", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "USMP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Andina del Cusco", "region": "Cusco", "tipoGestion": "particular" },
-      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
-      { "nombre": "UNCP", "region": "Huancayo", "tipoGestion": "nacional" },
-      { "nombre": "UPN", "region": "Trujillo", "tipoGestion": "particular" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNT",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Ricardo Palma",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USMP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Andina del Cusco",
+        "region": "Cusco",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UDEP",
+        "region": "Piura",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNCP",
+        "region": "Huancayo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPN",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Existen más facultades de Medicina, incluidas varias nuevas surgidas tras la Ley 31520 (2023) que limitó las facultades de licenciamiento de SUNEDU para esta carrera; se listan solo programas con trayectoria histórica establecida.",
     "sectoresEmpleo": [
@@ -677,7 +1290,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 1, "I": 7, "A": 2, "S": 6, "E": 8, "C": 6 },
+    "riasec": {
+      "R": 1,
+      "I": 7,
+      "A": 2,
+      "S": 6,
+      "E": 8,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 2,
       "logica": 8,
@@ -696,18 +1316,62 @@
       "interpersonal",
       "intrapersonal"
     ],
-    "valoresAsociados": ["impacto_social", "reconocimiento", "autonomia"],
+    "valoresAsociados": [
+      "impacto_social",
+      "reconocimiento",
+      "autonomia"
+    ],
     "universidades": [
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "USMP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad del Pacífico", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
-      { "nombre": "UNAP", "region": "Puno", "tipoGestion": "nacional" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" }
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "USMP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad del Pacífico",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USIL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UDEP",
+        "region": "Piura",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNAP",
+        "region": "Puno",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNT",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -726,7 +1390,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "auxiliar-educacion",
-    "riasec": { "R": 2, "I": 5, "A": 5, "S": 9, "E": 4, "C": 5 },
+    "riasec": {
+      "R": 2,
+      "I": 5,
+      "A": 5,
+      "S": 9,
+      "E": 4,
+      "C": 5
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 5,
@@ -745,18 +1416,62 @@
       "verbal-linguistica",
       "intrapersonal"
     ],
-    "valoresAsociados": ["impacto_social", "trabajo_en_equipo", "sostenibilidad"],
+    "valoresAsociados": [
+      "impacto_social",
+      "trabajo_en_equipo",
+      "sostenibilidad"
+    ],
     "universidades": [
-      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNE Enrique Guzmán y Valle (La Cantuta)", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UARM", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCSS", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UCSP", "region": "Arequipa", "tipoGestion": "particular" },
-      { "nombre": "UNFV", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" }
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNE Enrique Guzmán y Valle (La Cantuta)",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UARM",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSS",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSP",
+        "region": "Arequipa",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNFV",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNT",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades del Perú, con múltiples especialidades (Inicial, Primaria, Secundaria con menciones); se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -774,7 +1489,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": "educacion",
-    "riasec": { "R": 4, "I": 2, "A": 4, "S": 9, "E": 2, "C": 5 },
+    "riasec": {
+      "R": 4,
+      "I": 2,
+      "A": 4,
+      "S": 9,
+      "E": 2,
+      "C": 5
+    },
     "aptitudesRequeridas": {
       "espacial": 4,
       "logica": 3,
@@ -793,9 +1515,16 @@
       "corporal-cinestesica",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "impacto_social",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "Instituto Superior Pedagógico Nicolás Copérnico", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "Instituto Superior Pedagógico Nicolás Copérnico",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Formación ofrecida por Institutos Superiores Pedagógicos (ISP) públicos y privados a nivel nacional (mínimo 3 años). Se excluyen intencionalmente los cursos cortos de 6-10 meses de institutos no pedagógicos, señalados en investigación académica (PUCP) como formación incompleta que no garantiza las competencias necesarias para el puesto.",
     "sectoresEmpleo": [
@@ -811,7 +1540,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": "tecnologias-ambientales-senati",
-    "riasec": { "R": 6, "I": 8, "A": 2, "S": 5, "E": 6, "C": 6 },
+    "riasec": {
+      "R": 6,
+      "I": 8,
+      "A": 2,
+      "S": 5,
+      "E": 6,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 5,
       "logica": 8,
@@ -830,16 +1566,52 @@
       "naturalista",
       "interpersonal"
     ],
-    "valoresAsociados": ["sostenibilidad", "impacto_social", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "sostenibilidad",
+      "impacto_social",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Autónoma del Perú", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" },
-      { "nombre": "UNT", "region": "Trujillo", "tipoGestion": "nacional" },
-      { "nombre": "UNALM", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UCV", "region": "Trujillo", "tipoGestion": "particular" }
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Autónoma del Perú",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNT",
+        "region": "Trujillo",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNALM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCV",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      }
     ],
     "notaCobertura": "Carrera en crecimiento, ofrecida en un número creciente de universidades del Perú; se listan algunas representativas.",
     "sectoresEmpleo": [
@@ -857,7 +1629,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": "ingenieria-ambiental",
-    "riasec": { "R": 7, "I": 5, "A": 2, "S": 3, "E": 3, "C": 7 },
+    "riasec": {
+      "R": 7,
+      "I": 5,
+      "A": 2,
+      "S": 3,
+      "E": 3,
+      "C": 7
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 5,
@@ -876,9 +1655,16 @@
       "logico-matematica",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": ["sostenibilidad", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "sostenibilidad",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "SENATI (Instituto)", "region": "nacional", "tipoGestion": "particular" }
+      {
+        "nombre": "SENATI (Instituto)",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Laboratorios de análisis ambiental",
@@ -894,7 +1680,14 @@
     "tipo": "universitaria",
     "duracionAnios": 5,
     "vocacionRelacionada": null,
-    "riasec": { "R": 5, "I": 6, "A": 9, "S": 4, "E": 5, "C": 5 },
+    "riasec": {
+      "R": 5,
+      "I": 6,
+      "A": 9,
+      "S": 4,
+      "E": 5,
+      "C": 5
+    },
     "aptitudesRequeridas": {
       "espacial": 9,
       "logica": 7,
@@ -913,18 +1706,62 @@
       "logico-matematica",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": ["creatividad", "sostenibilidad", "impacto_social"],
+    "valoresAsociados": [
+      "creatividad",
+      "sostenibilidad",
+      "impacto_social"
+    ],
     "universidades": [
-      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad de Lima", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UDEP", "region": "Piura", "tipoGestion": "particular" },
-      { "nombre": "UTP", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Universidad Continental", "region": "Huancayo", "tipoGestion": "particular" },
-      { "nombre": "UCAL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "UNSA", "region": "Arequipa", "tipoGestion": "nacional" }
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad de Lima",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USIL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UDEP",
+        "region": "Piura",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UTP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCAL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSA",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Esta carrera se dicta en la gran mayoría de universidades del Perú; se listan solo algunas representativas.",
     "sectoresEmpleo": [
@@ -942,7 +1779,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": null,
-    "riasec": { "R": 4, "I": 3, "A": 8, "S": 5, "E": 5, "C": 6 },
+    "riasec": {
+      "R": 4,
+      "I": 3,
+      "A": 8,
+      "S": 5,
+      "E": 5,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 8,
       "logica": 4,
@@ -961,12 +1805,31 @@
       "corporal-cinestesica",
       "interpersonal"
     ],
-    "valoresAsociados": ["creatividad", "autonomia"],
+    "valoresAsociados": [
+      "creatividad",
+      "autonomia"
+    ],
     "universidades": [
-      { "nombre": "ISIL", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Toulouse Lautrec", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Instituto CERTUS", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Chio Lecca", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "ISIL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Toulouse Lautrec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Instituto CERTUS",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Chio Lecca",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Estudios de diseño de interiores",
@@ -982,7 +1845,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": "administracion",
-    "riasec": { "R": 2, "I": 3, "A": 3, "S": 6, "E": 6, "C": 8 },
+    "riasec": {
+      "R": 2,
+      "I": 3,
+      "A": 3,
+      "S": 6,
+      "E": 6,
+      "C": 8
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 5,
@@ -1001,11 +1871,26 @@
       "logico-matematica",
       "intrapersonal"
     ],
-    "valoresAsociados": ["trabajo_en_equipo", "autonomia"],
+    "valoresAsociados": [
+      "trabajo_en_equipo",
+      "autonomia"
+    ],
     "universidades": [
-      { "nombre": "SENATI", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "SENATI",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Idat",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Cibertec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Áreas administrativas y comerciales",
@@ -1021,7 +1906,14 @@
     "tipo": "tecnica",
     "duracionAnios": 2,
     "vocacionRelacionada": "ingenieria-civil",
-    "riasec": { "R": 7, "I": 4, "A": 1, "S": 3, "E": 4, "C": 7 },
+    "riasec": {
+      "R": 7,
+      "I": 4,
+      "A": 1,
+      "S": 3,
+      "E": 4,
+      "C": 7
+    },
     "aptitudesRequeridas": {
       "espacial": 7,
       "logica": 5,
@@ -1040,12 +1932,30 @@
       "corporal-cinestesica",
       "logico-matematica"
     ],
-    "valoresAsociados": ["trabajo_en_equipo"],
+    "valoresAsociados": [
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "SENCICO", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Instituto José Pardo", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "CAPECO", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "Cibertec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "SENCICO",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Instituto José Pardo",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "CAPECO",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Supervisión y gestión de obras",
@@ -1061,7 +1971,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": "contabilidad",
-    "riasec": { "R": 1, "I": 3, "A": 1, "S": 4, "E": 3, "C": 9 },
+    "riasec": {
+      "R": 1,
+      "I": 3,
+      "A": 1,
+      "S": 4,
+      "E": 3,
+      "C": 9
+    },
     "aptitudesRequeridas": {
       "espacial": 2,
       "logica": 5,
@@ -1080,11 +1997,25 @@
       "intrapersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": ["autonomia"],
+    "valoresAsociados": [
+      "autonomia"
+    ],
     "universidades": [
-      { "nombre": "SENATI", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "SENATI",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Idat",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Cibertec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Asistencia contable en empresas",
@@ -1100,7 +2031,14 @@
     "tipo": "tecnica",
     "duracionAnios": 3,
     "vocacionRelacionada": "enfermeria",
-    "riasec": { "R": 6, "I": 2, "A": 1, "S": 9, "E": 2, "C": 6 },
+    "riasec": {
+      "R": 6,
+      "I": 2,
+      "A": 1,
+      "S": 9,
+      "E": 2,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 2,
       "logica": 3,
@@ -1119,13 +2057,36 @@
       "corporal-cinestesica",
       "intrapersonal"
     ],
-    "valoresAsociados": ["impacto_social", "trabajo_en_equipo"],
+    "valoresAsociados": [
+      "impacto_social",
+      "trabajo_en_equipo"
+    ],
     "universidades": [
-      { "nombre": "Instituto San Fernando", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" },
-      { "nombre": "IESTP Arturo Sabroso Montoya", "region": "Lima", "tipoGestion": "nacional" },
-      { "nombre": "IESTP José María Arguedas", "region": "Apurímac", "tipoGestion": "nacional" }
+      {
+        "nombre": "Instituto San Fernando",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Idat",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Cibertec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "IESTP Arturo Sabroso Montoya",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "IESTP José María Arguedas",
+        "region": "Apurímac",
+        "tipoGestion": "nacional"
+      }
     ],
     "notaCobertura": "Existen numerosos Institutos de Educación Superior Tecnológica Pública (IESTP) en todo el país que ofrecen esta carrera de forma estatal, además de institutos privados; se listan solo algunos representativos.",
     "sectoresEmpleo": [
@@ -1142,7 +2103,14 @@
     "tipo": "tecnica",
     "duracionAnios": 2,
     "vocacionRelacionada": "ingenieria-software",
-    "riasec": { "R": 2, "I": 6, "A": 4, "S": 3, "E": 4, "C": 6 },
+    "riasec": {
+      "R": 2,
+      "I": 6,
+      "A": 4,
+      "S": 3,
+      "E": 4,
+      "C": 6
+    },
     "aptitudesRequeridas": {
       "espacial": 3,
       "logica": 7,
@@ -1161,10 +2129,21 @@
       "intrapersonal",
       "interpersonal"
     ],
-    "valoresAsociados": ["autonomia", "creatividad"],
+    "valoresAsociados": [
+      "autonomia",
+      "creatividad"
+    ],
     "universidades": [
-      { "nombre": "Idat", "region": "nacional", "tipoGestion": "particular" },
-      { "nombre": "Cibertec", "region": "Lima", "tipoGestion": "particular" }
+      {
+        "nombre": "Idat",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Cibertec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
     ],
     "sectoresEmpleo": [
       "Desarrollo de aplicaciones web, móviles y cloud",
@@ -1173,5 +2152,1037 @@
       "Outsourcing de TI",
       "Ciberseguridad aplicada (nivel básico)"
     ]
-  }
+  },
+  {
+    "id": "economia",
+    "nombre": "Economía",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": {
+      "R": 1,
+      "I": 9,
+      "A": 2,
+      "S": 4,
+      "E": 7,
+      "C": 8
+    },
+    "aptitudesRequeridas": {
+      "espacial": 2,
+      "logica": 9,
+      "numerica": 9,
+      "verbal": 7
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 7,
+      "estabilidad": 6,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "verbal-linguistica",
+      "intrapersonal"
+    ],
+    "valoresAsociados": [
+      "autonomia",
+      "impacto_social",
+      "reconocimiento"
+    ],
+    "universidades": [
+      {
+        "nombre": "PUCP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad del Pacífico",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "ESAN",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad de Piura (UDEP)",
+        "region": "Piura",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNALM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UTP (Universidad Tecnológica del Perú)",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Banca central (BCRP)",
+      "Banca comercial y microfinanzas",
+      "Consultoría económica y financiera",
+      "Sector público (MEF, ministerios, entes reguladores)",
+      "Organismos multilaterales y ONG (políticas públicas, desarrollo)",
+      "Investigación y academia",
+      "Estudios económicos en empresas privadas"
+    ]
+  },
+  {
+    "id": "ingenieria-economica",
+    "nombre": "Ingeniería Económica",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": {
+      "R": 2,
+      "I": 8,
+      "A": 1,
+      "S": 2,
+      "E": 8,
+      "C": 9
+    },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 9,
+      "numerica": 9,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 6,
+      "estabilidad": 6,
+      "extraversion": 6,
+      "amabilidad": 4
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "interpersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": [
+      "reconocimiento",
+      "trabajo_en_equipo",
+      "autonomia"
+    ],
+    "universidades": [
+      {
+        "nombre": "UNI (Universidad Nacional de Ingeniería)",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNAP (Universidad Nacional del Altiplano)",
+        "region": "Puno",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de Frontera",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Científica del Sur (Ingeniería Económica y de Negocios)",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Evaluación y gestión de proyectos de inversión",
+      "Planeamiento empresarial y de producción",
+      "Consultoría económica y de negocios",
+      "Sector público (política económica, planeamiento regional/nacional)",
+      "Finanzas corporativas y mercados de capitales",
+      "Comercio y negociación internacional"
+    ]
+  },
+  {
+    "id": "ingenieria-minas",
+    "nombre": "Ingeniería de Minas",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "operaciones-mineras-tecnico",
+    "riasec": {
+      "R": 9,
+      "I": 7,
+      "A": 2,
+      "S": 4,
+      "E": 6,
+      "C": 7
+    },
+    "aptitudesRequeridas": {
+      "espacial": 8,
+      "logica": 8,
+      "numerica": 8,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 9,
+      "apertura": 6,
+      "estabilidad": 8,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "espacial",
+      "interpersonal"
+    ],
+    "valoresAsociados": [
+      "sostenibilidad",
+      "trabajo_en_equipo",
+      "reconocimiento"
+    ],
+    "notaCobertura": "Se dicta en al menos 16 universidades públicas y varias privadas; se listan solo las más representativas.",
+    "universidades": [
+      {
+        "nombre": "UNI",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UNSAAC",
+        "region": "Cusco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de San Agustín",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de Trujillo",
+        "region": "La Libertad",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional Jorge Basadre Grohmann",
+        "region": "Tacna",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional del Centro del Perú",
+        "region": "Junín",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de Piura",
+        "region": "Piura",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Exploración y evaluación de yacimientos",
+      "Operaciones de extracción (mina subterránea o superficial)",
+      "Planeamiento y gestión de proyectos mineros",
+      "Seguridad industrial y salud ocupacional en minería",
+      "Gestión ambiental y responsabilidad social minera",
+      "Consultoría minera"
+    ]
+  },
+  {
+    "id": "operaciones-mineras-tecnico",
+    "nombre": "Operaciones Mineras",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "ingenieria-minas",
+    "riasec": {
+      "R": 9,
+      "I": 4,
+      "A": 1,
+      "S": 3,
+      "E": 3,
+      "C": 6
+    },
+    "aptitudesRequeridas": {
+      "espacial": 6,
+      "logica": 5,
+      "numerica": 5,
+      "verbal": 3
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 4,
+      "estabilidad": 8,
+      "extraversion": 4,
+      "amabilidad": 4
+    },
+    "inteligenciasClave": [
+      "corporal-cinestesica",
+      "espacial",
+      "logico-matematica"
+    ],
+    "valoresAsociados": [
+      "trabajo_en_equipo",
+      "sostenibilidad"
+    ],
+    "universidades": [
+      {
+        "nombre": "Tecsup (Operaciones Mineras)",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Cetemin (Exploración y Operación Minera)",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Operación de equipos y maquinaria de mina",
+      "Supervisión de campo en exploración",
+      "Control de procesos de extracción",
+      "Apoyo técnico en seguridad minera"
+    ]
+  },
+  {
+    "id": "gastronomia",
+    "nombre": "Gastronomía",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "gastronomia-tecnica",
+    "riasec": {
+      "R": 7,
+      "I": 3,
+      "A": 8,
+      "S": 5,
+      "E": 6,
+      "C": 5
+    },
+    "aptitudesRequeridas": {
+      "espacial": 5,
+      "logica": 4,
+      "numerica": 4,
+      "verbal": 4
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 8,
+      "estabilidad": 7,
+      "extraversion": 6,
+      "amabilidad": 6
+    },
+    "inteligenciasClave": [
+      "corporal-cinestesica",
+      "espacial",
+      "naturalista"
+    ],
+    "valoresAsociados": [
+      "creatividad",
+      "trabajo_en_equipo",
+      "reconocimiento"
+    ],
+    "universidades": [
+      {
+        "nombre": "USIL",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USMP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPN",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Le Cordon Bleu Perú",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Restaurantes y alta cocina",
+      "Hotelería y turismo",
+      "Pastelería y panadería",
+      "Emprendimiento propio (restaurantes, food trucks)",
+      "Industria y producción de alimentos",
+      "Consultoría y medios gastronómicos (food styling, crítica culinaria)"
+    ]
+  },
+  {
+    "id": "gastronomia-tecnica",
+    "nombre": "Gastronomía",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "gastronomia",
+    "riasec": {
+      "R": 8,
+      "I": 2,
+      "A": 7,
+      "S": 4,
+      "E": 3,
+      "C": 5
+    },
+    "aptitudesRequeridas": {
+      "espacial": 5,
+      "logica": 3,
+      "numerica": 3,
+      "verbal": 3
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 7,
+      "estabilidad": 7,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "corporal-cinestesica",
+      "espacial",
+      "naturalista"
+    ],
+    "valoresAsociados": [
+      "creatividad",
+      "trabajo_en_equipo"
+    ],
+    "universidades": [
+      {
+        "nombre": "Instituto Le Cordon Bleu Perú",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "CENFOTUR",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Instituto D'Gallia",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Instituto Columbia",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Instituto Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Cocina de línea en restaurantes y hoteles",
+      "Pastelería y panadería",
+      "Bar y coctelería",
+      "Producción de alimentos"
+    ]
+  },
+  {
+    "id": "odontologia",
+    "nombre": "Odontología",
+    "tipo": "universitaria",
+    "duracionAnios": 6,
+    "vocacionRelacionada": null,
+    "riasec": {
+      "R": 7,
+      "I": 7,
+      "A": 4,
+      "S": 8,
+      "E": 6,
+      "C": 5
+    },
+    "aptitudesRequeridas": {
+      "espacial": 7,
+      "logica": 7,
+      "numerica": 5,
+      "verbal": 6
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 9,
+      "apertura": 6,
+      "estabilidad": 8,
+      "extraversion": 5,
+      "amabilidad": 7
+    },
+    "inteligenciasClave": [
+      "corporal-cinestesica",
+      "espacial",
+      "interpersonal"
+    ],
+    "valoresAsociados": [
+      "impacto_social",
+      "autonomia",
+      "trabajo_en_equipo"
+    ],
+    "notaCobertura": "Se dicta en más de 20 universidades a nivel nacional; se listan solo las más representativas.",
+    "universidades": [
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "USMP",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Científica del Sur",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Norbert Wiener",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional San Luis Gonzaga",
+        "region": "Ica",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional Hermilio Valdizán",
+        "region": "Huánuco",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Nacional de San Agustín",
+        "region": "Arequipa",
+        "tipoGestion": "nacional"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Consultorio privado propio",
+      "Clínicas dentales y odontológicas",
+      "Hospitales y centros de salud públicos",
+      "Docencia e investigación universitaria",
+      "Odontología estética y especialidades (ortodoncia, cirugía maxilofacial)"
+    ]
+  },
+  {
+    "id": "terapia-fisica",
+    "nombre": "Terapia Física y Rehabilitación",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": {
+      "R": 7,
+      "I": 6,
+      "A": 3,
+      "S": 8,
+      "E": 3,
+      "C": 6
+    },
+    "aptitudesRequeridas": {
+      "espacial": 6,
+      "logica": 6,
+      "numerica": 4,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 5,
+      "estabilidad": 7,
+      "extraversion": 5,
+      "amabilidad": 7
+    },
+    "inteligenciasClave": [
+      "corporal-cinestesica",
+      "interpersonal",
+      "logico-matematica"
+    ],
+    "valoresAsociados": [
+      "impacto_social",
+      "trabajo_en_equipo"
+    ],
+    "notaCobertura": "Se dicta (como Tecnología Médica en Terapia Física y Rehabilitación) en más de 20 universidades a nivel nacional; se listan solo las más representativas.",
+    "universidades": [
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UNMSM",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "UPC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Norbert Wiener",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UTP (Universidad Tecnológica del Perú)",
+        "region": "nacional (Lima, Arequipa, Trujillo, Piura, entre otras sedes)",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional Federico Villarreal",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Peruana Unión",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UPN (Universidad Privada del Norte)",
+        "region": "Trujillo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Continental",
+        "region": "Huancayo",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "UCSS (Universidad Católica Sedes Sapientiae)",
+        "region": "Piura (Chulucanas) / Lima",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Clínicas y hospitales públicos y privados",
+      "Centros de terapia física y rehabilitación",
+      "Centros geriátricos",
+      "Ergonomía laboral en empresas",
+      "Fisioterapia deportiva",
+      "Consultorio o práctica independiente"
+    ]
+  },
+  {
+    "id": "terapia-lenguaje",
+    "nombre": "Terapia de Lenguaje",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": null,
+    "riasec": {
+      "R": 3,
+      "I": 6,
+      "A": 5,
+      "S": 9,
+      "E": 4,
+      "C": 5
+    },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 5,
+      "numerica": 3,
+      "verbal": 9
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 7,
+      "estabilidad": 7,
+      "extraversion": 6,
+      "amabilidad": 8
+    },
+    "inteligenciasClave": [
+      "verbal-linguistica",
+      "interpersonal",
+      "corporal-cinestesica"
+    ],
+    "valoresAsociados": [
+      "impacto_social",
+      "creatividad",
+      "autonomia"
+    ],
+    "universidades": [
+      {
+        "nombre": "UPCH",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Universidad Nacional Federico Villarreal",
+        "region": "Lima",
+        "tipoGestion": "nacional"
+      },
+      {
+        "nombre": "Universidad Autónoma de Ica",
+        "region": "Ica",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Clínicas, consultorios y centros de salud especializados",
+      "Consultorio propio (emprendimiento)",
+      "Centros de estimulación temprana y programas de inclusión educativa",
+      "Instituciones especializadas (audiología, academias de canto/locución)",
+      "Docencia e investigación universitaria"
+    ]
+  },
+  {
+    "id": "ciencia-datos",
+    "nombre": "Ciencia de Datos e Inteligencia Artificial",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "ciencia-datos-tecnica",
+    "riasec": {
+      "R": 2,
+      "I": 9,
+      "A": 4,
+      "S": 3,
+      "E": 5,
+      "C": 8
+    },
+    "aptitudesRequeridas": {
+      "espacial": 3,
+      "logica": 9,
+      "numerica": 9,
+      "verbal": 5
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 8,
+      "apertura": 7,
+      "estabilidad": 6,
+      "extraversion": 5,
+      "amabilidad": 5
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "intrapersonal",
+      "verbal-linguistica"
+    ],
+    "valoresAsociados": [
+      "autonomia",
+      "impacto_social",
+      "reconocimiento"
+    ],
+    "universidades": [
+      {
+        "nombre": "UTEC",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Banca, finanzas y fintech",
+      "Tecnología y empresas digitales",
+      "Consultoría de analítica avanzada",
+      "Salud, retail y logística (analítica aplicada)",
+      "Sector público (políticas basadas en evidencia)",
+      "Investigación y academia"
+    ]
+  },
+  {
+    "id": "ciencia-datos-tecnica",
+    "nombre": "Ciencia de Datos e Inteligencia Artificial",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "ciencia-datos",
+    "riasec": {
+      "R": 2,
+      "I": 6,
+      "A": 3,
+      "S": 2,
+      "E": 4,
+      "C": 7
+    },
+    "aptitudesRequeridas": {
+      "espacial": 2,
+      "logica": 7,
+      "numerica": 7,
+      "verbal": 3
+    },
+    "rasgosFavorables": {
+      "responsabilidad": 7,
+      "apertura": 5,
+      "estabilidad": 6,
+      "extraversion": 4,
+      "amabilidad": 4
+    },
+    "inteligenciasClave": [
+      "logico-matematica",
+      "intrapersonal"
+    ],
+    "valoresAsociados": [
+      "autonomia",
+      "reconocimiento"
+    ],
+    "universidades": [
+      {
+        "nombre": "Tecsup",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "Cibertec",
+        "region": "Lima",
+        "tipoGestion": "particular"
+      },
+      {
+        "nombre": "SENATI",
+        "region": "nacional",
+        "tipoGestion": "particular"
+      }
+    ],
+    "sectoresEmpleo": [
+      "Análisis de datos en empresas de diversos sectores",
+      "Soporte a proyectos de inteligencia de negocios (BI)",
+      "Implementación de soluciones Big Data",
+      "Automatización y modelos predictivos aplicados"
+    ]
+  },
+  {
+    "id": "ingenieria-mecanica",
+    "nombre": "Ingeniería Mecánica",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "mecanica-produccion-tecnica",
+    "riasec": { "R": 8, "I": 7, "A": 3, "S": 3, "E": 5, "C": 6 },
+    "aptitudesRequeridas": { "espacial": 8, "logica": 8, "numerica": 8, "verbal": 4 },
+    "rasgosFavorables": { "responsabilidad": 8, "apertura": 6, "estabilidad": 7, "extraversion": 4, "amabilidad": 4 },
+    "inteligenciasClave": ["logico-matematica", "espacial", "corporal-cinestesica"],
+    "valoresAsociados": ["autonomia", "creatividad", "sostenibilidad"],
+    "notaCobertura": "Se dicta en numerosas universidades a nivel nacional; se listan solo las más representativas.",
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UTP", "region": "nacional (Lima y sedes regionales)", "tipoGestion": "particular" },
+      { "nombre": "Universidad Católica de Santa María (UCSM)", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de San Agustín (UNSA)", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional del Callao", "region": "Callao", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional de Trujillo", "region": "La Libertad", "tipoGestion": "nacional" }
+    ],
+    "sectoresEmpleo": [
+      "Manufactura y metalmecánica",
+      "Energía (transformación y fuentes convencionales/no convencionales)",
+      "Mantenimiento industrial",
+      "Minería y construcción",
+      "Automotriz y aeronáutica",
+      "Consultoría e independencia profesional"
+    ]
+  },
+  {
+    "id": "ingenieria-electronica",
+    "nombre": "Ingeniería Electrónica",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "electronica-industrial-tecnica",
+    "riasec": { "R": 7, "I": 8, "A": 3, "S": 3, "E": 5, "C": 6 },
+    "aptitudesRequeridas": { "espacial": 7, "logica": 9, "numerica": 7, "verbal": 5 },
+    "rasgosFavorables": { "responsabilidad": 8, "apertura": 7, "estabilidad": 7, "extraversion": 5, "amabilidad": 4 },
+    "inteligenciasClave": ["logico-matematica", "espacial", "intrapersonal"],
+    "valoresAsociados": ["autonomia", "creatividad", "impacto_social"],
+    "notaCobertura": "Se dicta en numerosas universidades a nivel nacional; se listan solo las más representativas.",
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "PUCP", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional del Callao", "region": "Callao", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Católica de Santa María (UCSM)", "region": "Arequipa", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de San Antonio Abad del Cusco (UNSAAC)", "region": "Cusco", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional Federico Villarreal", "region": "Lima", "tipoGestion": "nacional" }
+    ],
+    "sectoresEmpleo": [
+      "Automatización industrial y control de procesos",
+      "Telecomunicaciones",
+      "Bioingeniería y tecnología médica",
+      "Sector minero y energético",
+      "Tecnología y desarrollo de startups",
+      "Consultoría e investigación"
+    ]
+  },
+  {
+    "id": "electronica-industrial-tecnica",
+    "nombre": "Electrónica Industrial",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "ingenieria-electronica",
+    "riasec": { "R": 7, "I": 5, "A": 2, "S": 2, "E": 3, "C": 7 },
+    "aptitudesRequeridas": { "espacial": 5, "logica": 6, "numerica": 5, "verbal": 3 },
+    "rasgosFavorables": { "responsabilidad": 7, "apertura": 5, "estabilidad": 7, "extraversion": 3, "amabilidad": 4 },
+    "inteligenciasClave": ["logico-matematica", "espacial", "corporal-cinestesica"],
+    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "SENATI (Electrónica Industrial)", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Tecsup (Electrónica y Automatización Industrial)", "region": "Lima, Trujillo, Arequipa", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Instalación y mantenimiento de sistemas de control industrial",
+      "Automatización y robótica de planta",
+      "Sector eléctrico, minero e industrial",
+      "Instrumentación y control de procesos"
+    ]
+  },
+  {
+    "id": "ciberseguridad",
+    "nombre": "Ingeniería de Ciberseguridad",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "ciberseguridad-tecnica",
+    "riasec": { "R": 3, "I": 8, "A": 2, "S": 3, "E": 5, "C": 9 },
+    "aptitudesRequeridas": { "espacial": 3, "logica": 9, "numerica": 6, "verbal": 5 },
+    "rasgosFavorables": { "responsabilidad": 9, "apertura": 6, "estabilidad": 8, "extraversion": 4, "amabilidad": 4 },
+    "inteligenciasClave": ["logico-matematica", "intrapersonal", "interpersonal"],
+    "valoresAsociados": ["trabajo_en_equipo", "impacto_social", "reconocimiento"],
+    "universidades": [
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UTEC", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Banca, seguros y fintech",
+      "Consultoría de riesgo cibernético",
+      "Sector gobierno y defensa digital",
+      "Auditoría y cumplimiento de seguridad de la información",
+      "Empresas de tecnología y telecomunicaciones",
+      "Respuesta a incidentes y ciberdefensa (SOC)"
+    ]
+  },
+  {
+    "id": "ciberseguridad-tecnica",
+    "nombre": "Ciberseguridad",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "ciberseguridad",
+    "riasec": { "R": 3, "I": 6, "A": 2, "S": 2, "E": 3, "C": 8 },
+    "aptitudesRequeridas": { "espacial": 2, "logica": 6, "numerica": 4, "verbal": 3 },
+    "rasgosFavorables": { "responsabilidad": 8, "apertura": 5, "estabilidad": 7, "extraversion": 3, "amabilidad": 3 },
+    "inteligenciasClave": ["logico-matematica", "intrapersonal"],
+    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "SENATI (Ingeniería de Ciberseguridad)", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Tecsup (Ciberseguridad y Auditoría Informática)", "region": "Lima, Trujillo, Arequipa", "tipoGestion": "particular" },
+      { "nombre": "Cibertec (Ingeniería de Ciberseguridad)", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Soporte y monitoreo de seguridad (SOC nivel 1-2)",
+      "Administración de redes y seguridad perimetral",
+      "Soporte técnico especializado en ciberseguridad",
+      "Auditoría técnica básica de sistemas"
+    ]
+  },
+  {
+    "id": "nutricion",
+    "nombre": "Nutrición",
+    "tipo": "universitaria",
+    "duracionAnios": 6,
+    "vocacionRelacionada": null,
+    "riasec": { "R": 3, "I": 6, "A": 3, "S": 8, "E": 5, "C": 7 },
+    "aptitudesRequeridas": { "espacial": 2, "logica": 6, "numerica": 6, "verbal": 6 },
+    "rasgosFavorables": { "responsabilidad": 8, "apertura": 6, "estabilidad": 7, "extraversion": 5, "amabilidad": 7 },
+    "inteligenciasClave": ["interpersonal", "intrapersonal", "naturalista"],
+    "valoresAsociados": ["impacto_social", "trabajo_en_equipo", "autonomia"],
+    "universidades": [
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UNIFE", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "USIL", "region": "Lima", "tipoGestion": "particular" },
+      { "nombre": "UPN", "region": "Trujillo (y otras sedes)", "tipoGestion": "particular" },
+      { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Nutrición clínica en hospitales y clínicas",
+      "Nutrición pública y comunitaria (programas de salud)",
+      "Servicios de alimentación colectiva (hoteles, empresas, instituciones)",
+      "Nutrición deportiva",
+      "Consultorio o práctica independiente",
+      "Investigación y docencia"
+    ]
+  },
+  {
+    "id": "ingenieria-electrica",
+    "nombre": "Ingeniería Eléctrica",
+    "tipo": "universitaria",
+    "duracionAnios": 5,
+    "vocacionRelacionada": "electrotecnia-industrial-tecnica",
+    "riasec": { "R": 6, "I": 6, "A": 2, "S": 3, "E": 6, "C": 7 },
+    "aptitudesRequeridas": { "espacial": 5, "logica": 8, "numerica": 8, "verbal": 4 },
+    "rasgosFavorables": { "responsabilidad": 8, "apertura": 5, "estabilidad": 7, "extraversion": 5, "amabilidad": 4 },
+    "inteligenciasClave": ["logico-matematica", "espacial", "interpersonal"],
+    "valoresAsociados": ["sostenibilidad", "autonomia", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional del Callao", "region": "Callao", "tipoGestion": "nacional" },
+      { "nombre": "UTP", "region": "nacional (Lima y sedes regionales)", "tipoGestion": "particular" },
+      { "nombre": "Universidad Nacional de San Agustín (UNSA)", "region": "Arequipa", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Nacional de San Antonio Abad del Cusco (UNSAAC)", "region": "Cusco", "tipoGestion": "nacional" },
+      { "nombre": "Universidad Continental", "region": "Huancayo (y sedes en Arequipa, Cusco, Lima)", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Generación, transmisión y distribución de energía eléctrica",
+      "Diseño y gestión de proyectos de infraestructura eléctrica",
+      "Sector minero e industrial",
+      "Energías renovables",
+      "Mercados eléctricos y regulación tarifaria",
+      "Consultoría e ingeniería independiente"
+    ]
+  },
+  {
+    "id": "electrotecnia-industrial-tecnica",
+    "nombre": "Electrotecnia Industrial",
+    "tipo": "tecnica",
+    "duracionAnios": 3,
+    "vocacionRelacionada": "ingenieria-electrica",
+    "riasec": { "R": 8, "I": 4, "A": 2, "S": 2, "E": 3, "C": 7 },
+    "aptitudesRequeridas": { "espacial": 5, "logica": 5, "numerica": 5, "verbal": 3 },
+    "rasgosFavorables": { "responsabilidad": 7, "apertura": 4, "estabilidad": 7, "extraversion": 3, "amabilidad": 4 },
+    "inteligenciasClave": ["corporal-cinestesica", "espacial", "logico-matematica"],
+    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "universidades": [
+      { "nombre": "SENATI (Electrotecnia Industrial y Energías Renovables)", "region": "nacional", "tipoGestion": "particular" },
+      { "nombre": "Tecsup (Electricidad Industrial con mención en Sistemas Eléctricos de Potencia)", "region": "Lima, Trujillo, Arequipa", "tipoGestion": "particular" }
+    ],
+    "sectoresEmpleo": [
+      "Instalaciones eléctricas industriales",
+      "Mantenimiento de sistemas eléctricos y tableros de distribución",
+      "Generación con energías renovables",
+      "Sector eléctrico, industrial y minero"
+    ]
+  }  
 ]

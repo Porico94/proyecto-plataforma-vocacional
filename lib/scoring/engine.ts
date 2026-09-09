@@ -1,8 +1,9 @@
 import { Pregunta } from './types';
+import { normalizarScore } from './normalizar';
 
 const scoreEngineLikert = (preguntas: Pregunta[], respuestas: Record <string, number | string>) => {
   
-  const resultadoAgrupado: Record<string, Record<string, {suma: number, count: number}>> = preguntas.filter((pregunta) => pregunta.tipo === 'likert').reduce((acc: Record<string, Record<string, {suma: number, count: number}>>, pregunta) => {
+  const resultadoAgrupado: Record<string, Record<string, {suma: number, count: number, escalaMin: number, escalaMax: number}>> = preguntas.filter((pregunta) => pregunta.tipo === 'likert').reduce((acc: Record<string, Record<string, {suma: number, count: number, escalaMin: number, escalaMax: number}>>, pregunta) => {
     
     const respuestaInvertida: number = pregunta.escala!.max + pregunta.escala!.min - (respuestas[pregunta.id] as number);
     const valorRespuesta: number = pregunta.invertida ? respuestaInvertida : (respuestas[pregunta.id] as number);
@@ -14,7 +15,9 @@ const scoreEngineLikert = (preguntas: Pregunta[], respuestas: Record <string, nu
     if(!acc[pregunta.dimension][pregunta.subdimension]) {
       acc[pregunta.dimension][pregunta.subdimension] = {
         suma: valorRespuesta,
-        count: 1
+        count: 1,
+        escalaMin: pregunta.escala!.min,
+        escalaMax: pregunta.escala!.max
       }
     } else {
       acc[pregunta.dimension][pregunta.subdimension].suma += valorRespuesta;
@@ -28,8 +31,8 @@ const scoreEngineLikert = (preguntas: Pregunta[], respuestas: Record <string, nu
   (acc: Record<string, Record<string, number>>, [dimension, subdimensiones]) => {
     
     acc[dimension] = Object.entries(subdimensiones).reduce(
-      (subAcc: Record<string, number>, [subdimension, {suma, count}]) => {
-        subAcc[subdimension] = suma / count;
+      (subAcc: Record<string, number>, [subdimension, {suma, count, escalaMin, escalaMax}]) => {
+        subAcc[subdimension] = normalizarScore((suma / count), escalaMin, escalaMax, `${dimension} > ${subdimension}`);
         return subAcc;
       },{});
     return acc;
@@ -63,7 +66,7 @@ const scoreEngineAptitud = (preguntas: Pregunta[], respuestas: Record <string, n
   const resultado: Record<string, Record<string, number>> = Object.entries(resultadoAgrupado).reduce((acc: Record<string, Record<string, number>>, [dimension, subdimensiones]) => {
     acc[dimension] = Object.entries(subdimensiones).reduce(
       (subAcc: Record<string, number>, [subdimension, {aciertos, count}]) => {
-        subAcc[subdimension] = aciertos / count;
+        subAcc[subdimension] = normalizarScore((aciertos / count), 0, 1);
         return subAcc;
       },{});
     return acc;

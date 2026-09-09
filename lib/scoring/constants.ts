@@ -1,0 +1,1 @@
+export const ESCALA_DESTINO = 9;
