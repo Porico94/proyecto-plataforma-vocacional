@@ -5,18 +5,18 @@
 - Problema que resuelve: Los estudiantes de secundaria en Perú (15-18 años) eligen carrera técnica o universitaria sin criterio real, guiados por marketing/moda, sin considerar mercado laboral, aptitudes reales ni factores personales — lo que puede traducirse en años y dinero perdidos (caso real: el creador estudió Ingeniería Mecatrónica en 2011 guiado por marketing, sin encontrar mercado laboral al graduarse).
 - Para quién es: Estudiantes peruanos de colegio a punto de decidir carrera técnica o universitaria. Caso semilla: un familiar del creador. Objetivo final: todos los estudiantes del Perú.
 - Propuesta de valor: A diferencia del test vocacional típico (percibido como poco objetivo), esta plataforma combina múltiples dimensiones psicométricas + datos reales de mercado laboral peruano + experiencias reales de profesionales (foros), para dar una recomendación con criterio, no genérica.
-- MVP (alcance inicial): Test completo (personalidad, RIASEC, aptitudes cognitivas, inteligencias múltiples, valores, motivaciones, estilo de aprendizaje, preferencias de estilo de vida, restricciones personales) → motor de recomendación contra dataset estático de carreras → resultado descargable en PDF. Sin registro/login. Usuarios: grupo cerrado de beta testers.
-- Qué NO incluye el MVP: Registro/login/autenticación, persistencia de resultados en base de datos, integración de datos de mercado laboral **en tiempo real** (sí se permite investigación puntual y estática para construir el dataset), análisis de foros con IA, apertura a público general.
+- MVP (alcance inicial): Test completo (personalidad, RIASEC, aptitudes cognitivas, inteligencias múltiples, valores, motivaciones, estilo de aprendizaje) → motor de recomendación contra dataset estático de carreras → resultado descargable en PDF. Sin registro/login. Usuarios: grupo cerrado de beta testers.
+- Qué NO incluye el MVP: Registro/login/autenticación, persistencia de resultados en base de datos, integración de datos de mercado laboral **en tiempo real**, análisis de foros con IA, apertura a público general, restricciones personales como input del algoritmo (eliminado del proyecto por completo), filtros de estilo de vida (post-MVP).
 - Objetivos corto/mediano plazo:
   - Corto plazo: MVP funcional de punta a punta para que el familiar del creador y 3-5 beta testers más lo prueben y den feedback real.
-  - Mediano plazo: Iterar el motor de recomendación según feedback recibido, luego iniciar primer feature post-MVP (probablemente mercado laboral). El catálogo de `carreras.json` seguirá creciendo post-MVP con las carreras que falten — no es bloqueante para el lanzamiento del MVP.
+  - Mediano plazo: Iterar el motor de recomendación según feedback recibido, luego iniciar primer feature post-MVP (probablemente mercado laboral, o sistema de filtros de estilo de vida). El catálogo de `carreras.json` seguirá creciendo post-MVP.
 
 ## Investigación (Fase 2 — fija, no cambia)
 
 - Competidores/referencias analizados: Ponte en Carrera (MTPE/Minedu), Mi Carrera (Ministerio de Trabajo), tests de universidades privadas (UCV/ISIL/UPN), EstudiaPerú, TestVocacional.app.
 - Lo bueno (para aprender): Combinar varias metodologías psicométricas en un solo perfil da más solidez que un test único. Integrar datos reales de mercado laboral aporta valor concreto. Sin registro / fricción mínima al inicio mejora la conversión. Resultado descargable como alternativa a cuentas de usuario.
-- Lo malo (para evitar): Fragmentar el test en varias pruebas sueltas y desconectadas. Sesgo de negocio disfrazado de orientación objetiva (universidades privadas) — las páginas de universidades son fuente parcial/marketing, útiles solo para evidencia cualitativa, nunca para cifras. Profundidad sacrificada por velocidad. UX anticuada en plataformas del Estado.
-- Oportunidad de diferenciación: Ninguna referencia analizada cubre estilo de vida y restricciones personales como parte del algoritmo. Ninguna combina test multidimensional completo + mercado laboral peruano + experiencias reales de profesionales, en una sola plataforma con UX moderna.
+- Lo malo (para evitar): Fragmentar el test en varias pruebas sueltas y desconectadas. Sesgo de negocio disfrazado de orientación objetiva (universidades privadas). Profundidad sacrificada por velocidad. UX anticuada en plataformas del Estado.
+- Oportunidad de diferenciación: Ninguna referencia analizada cubre estilo de vida y restricciones personales como parte del algoritmo (nota Parte 11: se investigó a fondo esta idea propia y se descartó como input del _score_ de vocación, ver Reglas de negocio). Ninguna combina test multidimensional completo + mercado laboral peruano + experiencias reales de profesionales, en una sola plataforma con UX moderna.
 
 ## Arquitectura y stack (Fase 3 — fija salvo cambio de alcance)
 
@@ -25,81 +25,77 @@
 /app
 /page.js → Landing (pendiente de personalizar)
 /perfil/page.jsx → ✅ Completo
-/test/page.jsx → ✅ Completo
-/resultado/page.jsx → ✅ Completo (Fase 5 — Parte 5); PENDIENTE: agregar bloque de texto fijo (consejo genérico sobre estabilidad laboral/logro económico dependiendo de factores individuales, no del perfil del usuario)
+/test/page.jsx → ✅ Completo (Parte 11: sin cambios de lógica, solo consume preguntas.json ya reducido)
+/resultado/page.jsx → 🔶 En progreso: conectado a scoreEnginePerfil, renderiza debug (JSON.stringify). PENDIENTE: integrar <ConsejoVocacional/> antes del renderizado de carreras recomendadas; UI real y estilos Tailwind.
 /components
 /test/
 PreguntaLikert.jsx → ✅ Completo
-PreguntaOpciones.jsx → ✅ Completo
-/resultado/ → vacío, pendiente
+PreguntaOpciones.jsx → ✅ Completo (Parte 11: confirmado que NO es código muerto — sigue siendo el componente de las 12 preguntas de tipo aptitud, que comparten forma opciones: string[] con las extintas eleccion_forzada)
+/resultado/
+ConsejoVocacional.jsx → ✅ Nuevo (Parte 11): componente sin props, HTML semántico (section/p/ul/li/strong), consejo genérico sobre estabilidad económica. Sin estilos Tailwind aún. PENDIENTE: importar e integrar en resultado/page.jsx.
 /ui/ → vacío, pendiente
 /lib
 /storage.js → ✅ Completo
 /scoring/
-engine.ts → ✅ Completo (Parte 10): scoreEngineLikert, scoreEngineAptitud y scoreEngineEleccionForzada devuelven forma de dos niveles (dimension → subdimension). Normalización de escalas integrada y cerrada.
-normalizar.ts → ✅ Nuevo (Parte 10): normalizarScore(score, min, max, contexto?), reescalamiento lineal a ESCALA_DESTINO. Incluye guard (max <= min lanza Error con contexto "dimension > subdimension") para evitar inversiones silenciosas de escala.
-constants.ts → ✅ Nuevo (Parte 10): ESCALA_DESTINO = 9.
-types.ts → ✅ Completo, sin cambios en Parte 10.
+engine.ts → ✅ Completo (Parte 11): scoreEngineEleccionForzada eliminado (sin preguntas de ese tipo en el dataset). Solo scoreEngineLikert, scoreEngineAptitud, scoreEnginePerfil (ya no mezcla eleccion_forzada).
+normalizar.ts → ✅ Sin cambios en Parte 11.
+constants.ts → ✅ Sin cambios en Parte 11.
+types.ts → ✅ Modificado (Parte 11): tipo de Pregunta reducido a 'likert' | 'aptitud' (antes incluía 'eleccion_forzada'). Previene en tiempo de compilación que se reintroduzca ese tipo por error.
 /data
-preguntas.json → ✅ 104 preguntas reales. 9 dimensiones, valores con 6 subdimensiones activas: impacto_social, creatividad, autonomia, reconocimiento, trabajo_en_equipo, sostenibilidad. Likert confirmado en escala 1-5.
-carreras.json → 🔶 EN CRECIMIENTO CONTINUO (46 entradas confirmadas a la fecha, archivo subido y verificado en Parte 10). Cada versión técnica se modela como entrada completa e independiente en el mismo archivo, con su propio perfil psicométrico, vinculada a la universitaria vía el campo `vocacionRelacionada` (bidireccional). Campo `tipo`: `"universitaria"` | `"tecnica"`. Escala confirmada: 0-9 en todos los campos comparables (riasec, aptitudesRequeridas, rasgosFavorables).
+preguntas.json → ✅ 93 preguntas (reducidas de 104 en Parte 11). Dimensiones activas: personalidad, riasec, aptitudes, inteligencias_multiples, valores (6 subdimensiones), motivaciones, estilo_aprendizaje. Eliminadas por completo: restricciones_personales y estilo_vida (ver Reglas de negocio para detalle de motivo y subdimensiones). 0 preguntas de tipo eleccion_forzada.
+carreras.json → 🔶 En crecimiento continuo (46 entradas confirmadas a la fecha, sin cambios en Parte 11).
 /public
 
 - Stack confirmado: Next.js 16.3.0 (App Router, Turbopack), React 19.2.8, Tailwind CSS v4, React Hook Form 7.85 + Zod 4.4 + @hookform/resolvers 5.7, TypeScript en `/lib/scoring`, JS en el resto, ESLint, Playwright (aún no configurado), Vercel (aún no desplegado). Sin Auth.js ni PostgreSQL/Prisma en el MVP.
-- Decisiones técnicas importantes y por qué (sin cambios salvo lo agregado):
-  - Arquitectura de componentes de pregunta, patrón sincronización estado↔sessionStorage, validación "Siguiente"/"Anterior", motor de scoring de dos niveles, nomenclatura separada entre `preguntas.json` y `carreras.json`.
-  - **(NUEVO — Parte 10) Escala destino de normalización: 9, no 10.** Decisión explícita para matchear la escala real de `carreras.json` (0-9, ya con 46 carreras verificadas) en vez de migrar el dataset existente a 0-10. Fórmula: `((score - min) / (max - min)) * 9`, aplicada sobre el promedio final (matemáticamente equivalente a aplicarla antes de promediar, por ser transformación lineal).
-  - **(NUEVO — Parte 10) `scoreEngineAptitud` normaliza con `normalizarScore(valor, 0, 1)` en vez de `valor * 9` directo**, por consistencia (DRY): toda normalización pasa por una sola función, aunque el atajo directo hubiera sido matemáticamente equivalente y más corto.
-  - **(NUEVO — Parte 10) `scoreEngineLikert` guarda `escalaMin`/`escalaMax` dentro del acumulador del primer `reduce`** (junto a `suma`/`count`), porque en el segundo `reduce` (por `Object.entries`) ya no hay acceso al objeto `Pregunta` original — se asume que todas las preguntas de una misma subdimensión comparten la misma escala (caso real confirmado en `preguntas.json`).
-  - **(NUEVO — Parte 10) Guard de escala inválida vive dentro de `normalizarScore`, no en `engine.ts`**, y solo se usa con contexto (`dimension > subdimension`) en `scoreEngineLikert` — en `scoreEngineAptitud` el `min=0, max=1` es literal fijo en código, nunca puede fallar por datos corruptos de `preguntas.json`, así que no aplica pasar contexto ahí.
-- **Esquema exacto de cada entrada de `carreras.json`** (sin cambios desde Parte 9):
-
-id, nombre, tipo ("universitaria"|"tecnica"), duracionAnios,
-vocacionRelacionada (id de la entrada pareja, o null),
-riasec { R, I, A, S, E, C } (escala 0-9),
-aptitudesRequeridas { espacial, logica, numerica, verbal } (escala 0-9),
-rasgosFavorables { responsabilidad, apertura, estabilidad, extraversion, amabilidad } (escala 0-9),
-inteligenciasClave [ ] (subset de: logico-matematica, verbal-linguistica, espacial,
-corporal-cinestesica, interpersonal, intrapersonal, naturalista, musical),
-valoresAsociados [ ] (subset de las 6 subdimensiones activas de valores),
-notaCobertura (opcional, string — solo si es carrera masiva con >10 universidades),
-universidades [ { nombre, region, tipoGestion ("nacional"|"particular") } ],
-sectoresEmpleo [ ]
-
-- Flujo de trabajo para carreras nuevas (sin cambios desde Parte 9): Claude solo muestra el bloque JSON de la carrera nueva en el chat, Pool lo copia manualmente a su `carreras.json` local. Confirmado en Parte 10 que la copia manual de todo lo generado en Parte 9 se completó correctamente.
+- Decisiones técnicas importantes y por qué (se mantienen las de Parte 10, se agregan):
+  - **(NUEVO — Parte 11) `restricciones_personales` eliminada del proyecto por completo, no solo del MVP.** No se retoma ni como filtro post-MVP. Motivo: el objetivo del proyecto es mostrar todas las carreras vocacionalmente compatibles; factores como distancia, economía o familia son evadibles (becas, etc.) y no deben excluir carreras de la vista del estudiante bajo ninguna circunstancia.
+  - **(NUEVO — Parte 11) `estilo_vida` eliminada del flujo actual del test/engine, pero no del proyecto.** De sus 6 subdimensiones originales: `entorno_trabajo`, `trabajo_equipo` y `horario` se descartaron por completo (la variabilidad depende del puesto/empleador, no de la carrera — sin valor discriminativo real). `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` se posponen para post-MVP como **filtros aplicados sobre el ranking ya calculado**, no como preguntas dentro del score de vocación — el dato sigue siendo útil para el estudiante, solo cambia de rol (deja de competir por peso en el matching).
+  - **(NUEVO — Parte 11) Tipo de pregunta `eleccion_forzada` eliminado por completo** (de `types.ts`, `engine.ts` y `preguntas.json`) al quedar sin ninguna pregunta asociada tras eliminar las dos dimensiones que lo usaban exclusivamente.
+  - **(NUEVO — Parte 11) `PreguntaOpciones.jsx` se mantiene sin cambios**, confirmado que sigue siendo necesario para renderizar las preguntas de tipo `aptitud` (comparten la misma forma `opciones: string[]` que tenían las de `eleccion_forzada`).
+  - **(NUEVO — Parte 11) Bloque de texto fijo del resultado implementado como componente propio (`ConsejoVocacional.jsx`)**, no como texto inline en `resultado/page.jsx`, para mantener el archivo ordenado y permitir modificarlo de forma aislada. Sin props porque el contenido es genérico, no personalizado por perfil del estudiante.
+- **Esquema exacto de cada entrada de `carreras.json`** (sin cambios desde Parte 9 — ver sesiones previas).
+- Flujo de trabajo para carreras nuevas (sin cambios desde Parte 9).
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
-- Feature: Motor de recomendación — normalización de escalas (cerrado) + comparación categórica (próximo)
-- Fase actual: Desarrollo (Fase 5) — Parte 10 cerrada
-- En lo que se trabajó en Parte 10 (sesión de hoy):
-  - Se implementó la normalización de escalas pendiente desde Parte 6: `constants.ts` (ESCALA_DESTINO=9), `normalizar.ts` (normalizarScore con guard defensivo), integración en `engine.ts`.
-  - Se confirmó y corrigió una inconsistencia real: la fórmula documentada apuntaba a escala 0-10, pero `carreras.json` usa 0-9. Se resolvió ajustando la fórmula a 9 en vez de migrar las 46 carreras existentes.
-  - Se verificó el archivo `carreras.json` subido por Pool: 46 entradas, escala 0-9 confirmada en campos comparables.
-  - Pendiente de commit: mensaje acordado, push aún no confirmado como hecho.
-- ❌ Pendiente (continúa en la próxima sesión — Parte 11):
-  - Diseñar estrategia de comparación para `estilo_vida` y `restricciones_personales` (categóricos) en el motor de recomendación.
-  - Redactar e implementar el bloque de texto fijo (consejo genérico sobre estabilidad laboral/logro económico) en `resultado/page.jsx`.
+- Feature: Bloque de texto fijo / consejo vocacional en resultado — Fase 4 (Diseño UI / contenido) cerrada, Fase 5 (Desarrollo) parcialmente cerrada
+- Fase actual: Desarrollo (Fase 5) — Parte 11 cerrada
+- En lo que se trabajó en Parte 11 (sesión de hoy):
+  - Se resolvió, sin necesidad de implementar lógica de comparación categórica, el pendiente de Parte 10 sobre `estilo_vida` y `restricciones_personales`: ambas dimensiones se sacaron de competir por peso en el score de vocación (una eliminada del todo, otra pospuesta como filtro post-MVP).
+  - `preguntas.json` reducido de 104 a 93 preguntas; `engine.ts` y `types.ts` simplificados en consecuencia (sin `scoreEngineEleccionForzada`, sin tipo `'eleccion_forzada'`).
+  - Se verificó `test/page.jsx` y `PreguntaOpciones.jsx`: sin residuos de código muerto relacionados a `eleccion_forzada`.
+  - Se redactó y estructuró el consejo vocacional genérico sobre estabilidad económica (tono cercano/mentor), implementado como componente `ConsejoVocacional.jsx` con HTML semántico (`section`, `p`, `ul`/`li`, `strong`), sin estilos Tailwind todavía.
+  - Mensajes de commit acordados (dos commits separados, push aún no confirmado como hecho):
+    - `refactor(test): eliminar dimensiones restricciones_personales y estilo_vida`
+    - `feat(resultado): crear componente ConsejoVocacional`
+- ❌ Pendiente (continúa en la próxima sesión — Parte 12):
+  - Confirmar push de los dos commits de Parte 11.
+  - Integrar `<ConsejoVocacional/>` en `resultado/page.jsx`, justo antes del renderizado de las carreras recomendadas (posición ya acordada).
+  - Aplicar estilos Tailwind a `ConsejoVocacional.jsx` (Fase 6 del ciclo de este mini-feature).
+  - Diseño real de `resultado/page.jsx` (reemplazar debug `JSON.stringify` por UI real de carreras recomendadas).
+  - Sendero de progreso visual y estilos Tailwind del test.
   - Seguir agregando carreras según prioridad (ver lista abajo).
-  - Sendero de progreso visual y estilos Tailwind del test; diseño real de `resultado/page.jsx`.
   - Estudio aislado de generación de PDF (jsPDF o @react-pdf/renderer).
+  - Reforzar en repaso: por qué `normalizarScore` en `scoreEngineAptitud` no necesita el parámetro `contexto` (valores `0`/`1` son literales fijos en código, nunca pueden llegar corruptos desde `preguntas.json`); y en qué momento del ciclo de desarrollo actúa el chequeo de tipos de TypeScript (tiempo de compilación/editor, no en runtime frente al estudiante).
 
 ## Features completados ✅
 
-- [x] Normalización de escalas en el motor de scoring — Parte 10: `constants.ts`, `normalizar.ts`, integración en `engine.ts` con guard defensivo contra escalas inválidas.
-      (pendiente al 100%: "Test vocacional" sigue en curso; `test/page.jsx`, `lib/scoring/engine.ts` y `resultado/page.jsx` con datos reales conectados ya cerrados como sub-hitos funcionales; metodología de reconstrucción de `carreras.json` validada y aplicada, con arquitectura técnica/universitaria ya resuelta)
+- [x] Normalización de escalas en el motor de scoring — Parte 10.
+- [x] Eliminación de `restricciones_personales` y `estilo_vida` del score de vocación; simplificación de `engine.ts`/`types.ts` (sin `eleccion_forzada`) — Parte 11.
+- [x] Redacción e implementación del componente `ConsejoVocacional.jsx` (contenido y estructura semántica) — Parte 11. Pendiente: integración visual en `resultado/page.jsx` y estilos.
 
 ## Reglas de negocio definidas
 
-(Se mantienen todas las reglas de sesiones previas — normalización de escalas [ahora implementada], campo `sectoresEmpleo`, `notaCobertura` para carreras masivas, prohibición de codificar sesgos sociales, verificación obligatoria de nomenclatura, arquitectura técnica/universitaria resuelta, meta de "33 carreras" descartada, fuentes confiables Tecsup/SENATI/Cibertec, no se agregan bootcamps/certificaciones sin programa formal de 2-3 años, flujo de guardado manual de `carreras.json` — y se agregan:)
+(Se mantienen todas las reglas de sesiones previas — normalización de escalas, campo `sectoresEmpleo`, `notaCobertura`, prohibición de sesgos sociales, verificación de nomenclatura, arquitectura técnica/universitaria resuelta, fuentes confiables, no bootcamps sin programa formal, flujo manual de `carreras.json`, escala destino 9, manejo de errores fail-loud, separación constante/lógica — y se agregan:)
 
-- **(NUEVO — Parte 10) Escala destino de normalización confirmada en 9, no 10.** Toda futura pregunta o dato numérico que deba compararse contra `carreras.json` debe normalizarse a este rango usando `normalizarScore` de `lib/scoring/normalizar.ts` — nunca reimplementar la fórmula en otro archivo.
-- **(NUEVO — Parte 10) Manejo de errores: fallar rápido y visible, no silencioso.** Cuando un dato de configuración (como `escala.min`/`escala.max` en `preguntas.json`) pudiera estar corrupto y producir un resultado matemáticamente válido pero incorrecto (ej. inversión de escala), se prefiere lanzar una excepción explícita con contexto de debugging, en vez de devolver un número plausible pero equivocado — especialmente mientras el proyecto no tiene tests automatizados.
-- **(NUEVO — Parte 10) Separación constante/lógica en `/lib/scoring`:** valores de configuración van en `constants.ts` (sin lógica), funciones puras van en archivos propios como `normalizar.ts` — para facilitar tests unitarios aislados en Fase 8 y evitar que otros módulos (motor de recomendación, `resultado/page.jsx`) tengan que importar todo `engine.ts` para acceder a un valor o función.
+- **(NUEVO — Parte 11) `restricciones_personales` no debe influir nunca en qué carreras se muestran al estudiante**, ni como score ni como filtro futuro. Motivo de fondo: contradice el objetivo central del proyecto (mostrar todo lo vocacionalmente compatible); los factores que mide (economía, distancia, familia) son evadibles (becas, etc.) y no deben usarse como criterio de exclusión.
+- **(NUEVO — Parte 11) Criterio para decidir si una subdimensión de estilo de vida es válida para matching:** la variabilidad debe ser inherente a la naturaleza de la carrera, no depender del puesto/sector/empleador específico. Si casi todas las carreras admiten todas las opciones de una pregunta (ej. remoto/oficina/campo), la pregunta no discrimina y no aporta valor — candidata a eliminar o mover fuera del score.
+- **(NUEVO — Parte 11) Dato "pospuesto" ≠ dato "eliminado".** Una subdimensión pospuesta (como las 3 de `estilo_vida` para filtros post-MVP) se saca del test y del engine en su totalidad hasta que tenga un rol definido — no se deja en el dataset "por si acaso" ignorada en el engine, porque eso le hace perder tiempo al estudiante respondiendo algo que no se usa para nada.
+- **(NUEVO — Parte 11) Commits separados por naturaleza del cambio:** un refactor de dominio (eliminar dimensiones) y un feature nuevo (componente de UI) van en commits distintos, aunque se hayan hecho en la misma sesión.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 11: diseñar la estrategia de comparación categórica (`estilo_vida`, `restricciones_personales`) para el motor de recomendación.
+Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 12: integrar `<ConsejoVocacional/>` en `resultado/page.jsx` (antes del listado de carreras) y aplicar estilos Tailwind al componente.
 
 ## Dudas o problemas pendientes
 
@@ -117,8 +113,7 @@ Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inici
   - Relaciones Internacionales / Ciencias Políticas
   - Traducción e Interpretación
   - Publicidad
-- Diseño de la estrategia de comparación para `estilo_vida` (categórico mixto) — aún no discutido en detalle. **Próximo tema de Parte 11.**
-- Cómo comparar `restricciones_personales.economia` del usuario contra `universidades[].tipoGestion` de cada carrera dentro del motor de recomendación — mecánica exacta aún no diseñada. **Próximo tema de Parte 11.**
-- Redacción exacta del mensaje genérico fijo sobre estabilidad laboral/logro económico para `resultado/page.jsx` — aún no escrito, solo aprobado el concepto.
+- Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — decidido que vivirán como controles de filtro en `resultado/page.jsx` (no como preguntas del test), pero mecánica exacta aún no diseñada. Explícitamente fuera de alcance hasta después del MVP.
 - Diseño visual del sendero de progreso del test, ni la UI real de `resultado/page.jsx` — pendiente.
-- Pendiente confirmar mensaje de commit real (acordado en Parte 10: `feat(scoring): normalizar scores de Likert y Aptitud a escala 0-9`) y hacer el push correspondiente — incluye `constants.ts`, `normalizar.ts`, `engine.ts` modificado, y todas las carreras agregadas en Parte 9 (guardadas por Claude y copiadas manualmente por Pool, confirmado sincronizado en Parte 10).
+- Estilos Tailwind de `ConsejoVocacional.jsx` — pendiente, próxima sesión.
+- Confirmar que el push de los dos commits de Parte 11 se hizo correctamente.
