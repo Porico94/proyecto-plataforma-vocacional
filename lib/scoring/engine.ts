@@ -74,30 +74,14 @@ const scoreEngineAptitud = (preguntas: Pregunta[], respuestas: Record <string, n
   return resultado;
 };
 
-const scoreEngineEleccionForzada = (preguntas: Pregunta[], respuestas: Record <string, number | string>) => {
-  
-  const resultado: Record<string, Record<string, string>> = preguntas.filter((pregunta) => pregunta.tipo === 'eleccion_forzada').reduce((acc: Record<string, Record<string, string>>, pregunta) => {
-    if(!acc[pregunta.dimension]) {
-      acc[pregunta.dimension] = {};
-    }
-
-    acc[pregunta.dimension][pregunta.subdimension] = respuestas[pregunta.id] as string;
-    
-    return acc;
-  }, {});
-  return resultado;
-};
-
 const scoreEnginePerfil = (preguntas: Pregunta[], respuestas: Record <string, number | string>) => {
   const resultadoLikert = scoreEngineLikert(preguntas, respuestas);
   const resultadoAptitud = scoreEngineAptitud(preguntas, respuestas);
-  const resultadoEleccionForzada = scoreEngineEleccionForzada(preguntas, respuestas);
   
   return {
     ...resultadoLikert,
-    ...resultadoAptitud,
-    ...resultadoEleccionForzada
+    ...resultadoAptitud
   };
 };
 
-export {scoreEngineLikert, scoreEngineAptitud, scoreEngineEleccionForzada, scoreEnginePerfil};
+export {scoreEngineLikert, scoreEngineAptitud, scoreEnginePerfil};

@@ -58,7 +58,7 @@ export default function TestVocacional() {
 
   if (preguntaActual.tipo === 'likert') {
     campoPregunta = <PreguntaLikert pregunta={preguntaActual} respuesta={respuestas[preguntaActual.id]} onResponder={handleResponder} />        
-  } else if (preguntaActual.tipo === 'aptitud' || preguntaActual.tipo === 'eleccion_forzada') {
+  } else if (preguntaActual.tipo === 'aptitud') {
     campoPregunta = <PreguntaOpciones pregunta={preguntaActual} respuesta={respuestas[preguntaActual.id]} onResponder={handleResponder} />
   } else {    
     campoPregunta = <p>Tipo de pregunta desconocido {preguntaActual.tipo}</p>;

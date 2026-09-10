@@ -1,7 +1,7 @@
 export interface Pregunta {
   id: string;
   dimension: string;
-  tipo: 'likert' | 'aptitud' | 'eleccion_forzada';
+  tipo: 'likert' | 'aptitud';
   subdimension: string;
   texto: string;
   escala?: {
