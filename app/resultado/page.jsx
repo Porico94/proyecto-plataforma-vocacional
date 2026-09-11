@@ -3,6 +3,7 @@
 import {useEffect, useState} from 'react';
 import {storage} from '@/lib/storage';
 import preguntas from '@/data/preguntas.json';
+import ConsejoVocacional from '@/components/resultado/ConsejoVocacional';
 import {scoreEnginePerfil} from '@/lib/scoring/engine';
 
 export default function Resultado() {
@@ -22,8 +23,9 @@ export default function Resultado() {
       </div>
     );
   } else {
-    return (
+    return (      
       <div>
+        <ConsejoVocacional/>
         <h1>Resultado del Test Vocacional</h1>
         <p>Perfil: {JSON.stringify(resultado)}</p>
       </div>

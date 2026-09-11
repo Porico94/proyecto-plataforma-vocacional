@@ -16,89 +16,84 @@
 - Competidores/referencias analizados: Ponte en Carrera (MTPE/Minedu), Mi Carrera (Ministerio de Trabajo), tests de universidades privadas (UCV/ISIL/UPN), EstudiaPerú, TestVocacional.app.
 - Lo bueno (para aprender): Combinar varias metodologías psicométricas en un solo perfil da más solidez que un test único. Integrar datos reales de mercado laboral aporta valor concreto. Sin registro / fricción mínima al inicio mejora la conversión. Resultado descargable como alternativa a cuentas de usuario.
 - Lo malo (para evitar): Fragmentar el test en varias pruebas sueltas y desconectadas. Sesgo de negocio disfrazado de orientación objetiva (universidades privadas). Profundidad sacrificada por velocidad. UX anticuada en plataformas del Estado.
-- Oportunidad de diferenciación: Ninguna referencia analizada cubre estilo de vida y restricciones personales como parte del algoritmo (nota Parte 11: se investigó a fondo esta idea propia y se descartó como input del _score_ de vocación, ver Reglas de negocio). Ninguna combina test multidimensional completo + mercado laboral peruano + experiencias reales de profesionales, en una sola plataforma con UX moderna.
+- Oportunidad de diferenciación: Ninguna referencia analizada cubre estilo de vida y restricciones personales como parte del algoritmo (descartado como input del score, ver Reglas de negocio). Ninguna combina test multidimensional completo + mercado laboral peruano + experiencias reales de profesionales, en una sola plataforma con UX moderna.
 
 ## Arquitectura y stack (Fase 3 — fija salvo cambio de alcance)
 
 - Estructura de carpetas (actualizada):
 
 /app
-/page.js → Landing (pendiente de personalizar)
+/page.js → Landing (pendiente de personalizar — aquí se definirá la identidad visual de marca del proyecto, ver Dudas pendientes)
 /perfil/page.jsx → ✅ Completo
-/test/page.jsx → ✅ Completo (Parte 11: sin cambios de lógica, solo consume preguntas.json ya reducido)
-/resultado/page.jsx → 🔶 En progreso: conectado a scoreEnginePerfil, renderiza debug (JSON.stringify). PENDIENTE: integrar <ConsejoVocacional/> antes del renderizado de carreras recomendadas; UI real y estilos Tailwind.
+/test/page.jsx → ✅ Completo
+/resultado/page.jsx → 🔶 En progreso (Parte 12): `<ConsejoVocacional/>` integrado en el JSX, dentro de la rama `else` (cuando ya hay `resultado`), envuelto junto con `<h1>` y `<p>` en un único `<div>` raíz. Sigue renderizando debug (`JSON.stringify`). PENDIENTE: estilos Tailwind de `ConsejoVocacional`, y UI real de carreras recomendadas.
 /components
 /test/
 PreguntaLikert.jsx → ✅ Completo
-PreguntaOpciones.jsx → ✅ Completo (Parte 11: confirmado que NO es código muerto — sigue siendo el componente de las 12 preguntas de tipo aptitud, que comparten forma opciones: string[] con las extintas eleccion_forzada)
+PreguntaOpciones.jsx → ✅ Completo
 /resultado/
-ConsejoVocacional.jsx → ✅ Nuevo (Parte 11): componente sin props, HTML semántico (section/p/ul/li/strong), consejo genérico sobre estabilidad económica. Sin estilos Tailwind aún. PENDIENTE: importar e integrar en resultado/page.jsx.
+ConsejoVocacional.jsx → ✅ Contenido y estructura semántica completos (Parte 11). Integrado en `resultado/page.jsx` (Parte 12). PENDIENTE: estilos Tailwind — bloqueado hasta definir identidad visual de marca (ver Dudas pendientes).
 /ui/ → vacío, pendiente
 /lib
 /storage.js → ✅ Completo
 /scoring/
-engine.ts → ✅ Completo (Parte 11): scoreEngineEleccionForzada eliminado (sin preguntas de ese tipo en el dataset). Solo scoreEngineLikert, scoreEngineAptitud, scoreEnginePerfil (ya no mezcla eleccion_forzada).
-normalizar.ts → ✅ Sin cambios en Parte 11.
-constants.ts → ✅ Sin cambios en Parte 11.
-types.ts → ✅ Modificado (Parte 11): tipo de Pregunta reducido a 'likert' | 'aptitud' (antes incluía 'eleccion_forzada'). Previene en tiempo de compilación que se reintroduzca ese tipo por error.
+engine.ts → ✅ Completo
+normalizar.ts → ✅ Completo
+constants.ts → ✅ Completo
+types.ts → ✅ Completo
 /data
-preguntas.json → ✅ 93 preguntas (reducidas de 104 en Parte 11). Dimensiones activas: personalidad, riasec, aptitudes, inteligencias_multiples, valores (6 subdimensiones), motivaciones, estilo_aprendizaje. Eliminadas por completo: restricciones_personales y estilo_vida (ver Reglas de negocio para detalle de motivo y subdimensiones). 0 preguntas de tipo eleccion_forzada.
-carreras.json → 🔶 En crecimiento continuo (46 entradas confirmadas a la fecha, sin cambios en Parte 11).
+preguntas.json → ✅ 93 preguntas.
+carreras.json → 🔶 En crecimiento continuo (46 entradas confirmadas a la fecha, sin cambios en Parte 12).
 /public
 
 - Stack confirmado: Next.js 16.3.0 (App Router, Turbopack), React 19.2.8, Tailwind CSS v4, React Hook Form 7.85 + Zod 4.4 + @hookform/resolvers 5.7, TypeScript en `/lib/scoring`, JS en el resto, ESLint, Playwright (aún no configurado), Vercel (aún no desplegado). Sin Auth.js ni PostgreSQL/Prisma en el MVP.
-- Decisiones técnicas importantes y por qué (se mantienen las de Parte 10, se agregan):
-  - **(NUEVO — Parte 11) `restricciones_personales` eliminada del proyecto por completo, no solo del MVP.** No se retoma ni como filtro post-MVP. Motivo: el objetivo del proyecto es mostrar todas las carreras vocacionalmente compatibles; factores como distancia, economía o familia son evadibles (becas, etc.) y no deben excluir carreras de la vista del estudiante bajo ninguna circunstancia.
-  - **(NUEVO — Parte 11) `estilo_vida` eliminada del flujo actual del test/engine, pero no del proyecto.** De sus 6 subdimensiones originales: `entorno_trabajo`, `trabajo_equipo` y `horario` se descartaron por completo (la variabilidad depende del puesto/empleador, no de la carrera — sin valor discriminativo real). `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` se posponen para post-MVP como **filtros aplicados sobre el ranking ya calculado**, no como preguntas dentro del score de vocación — el dato sigue siendo útil para el estudiante, solo cambia de rol (deja de competir por peso en el matching).
-  - **(NUEVO — Parte 11) Tipo de pregunta `eleccion_forzada` eliminado por completo** (de `types.ts`, `engine.ts` y `preguntas.json`) al quedar sin ninguna pregunta asociada tras eliminar las dos dimensiones que lo usaban exclusivamente.
-  - **(NUEVO — Parte 11) `PreguntaOpciones.jsx` se mantiene sin cambios**, confirmado que sigue siendo necesario para renderizar las preguntas de tipo `aptitud` (comparten la misma forma `opciones: string[]` que tenían las de `eleccion_forzada`).
-  - **(NUEVO — Parte 11) Bloque de texto fijo del resultado implementado como componente propio (`ConsejoVocacional.jsx`)**, no como texto inline en `resultado/page.jsx`, para mantener el archivo ordenado y permitir modificarlo de forma aislada. Sin props porque el contenido es genérico, no personalizado por perfil del estudiante.
+- Decisiones técnicas importantes y por qué (se mantienen las de Parte 11, se agregan):
+  - **(NUEVO — Parte 12) Alias de importación `@/` confirmado y en uso activo.** Apunta a la raíz del proyecto (`jsconfig.json`/`tsconfig.json`, `paths: {"@/*": ["./*"]}`). Se usa consistentemente en vez de rutas relativas (`../../`) porque no se rompe al mover archivos de carpeta. Regla de extensión: módulos de código (`.js`/`.jsx`/`.ts`/`.tsx`) se importan sin extensión (el bundler los resuelve); archivos de datos crudos (`.json`) sí requieren extensión explícita.
+  - **(NUEVO — Parte 12) `<ConsejoVocacional/>` se integró como componente autocerrado**, sin `children` ni props, consistente con su diseño original (contenido genérico, no personalizado). Va dentro del mismo `<div>` raíz que el resto del contenido de la rama `else` de `resultado/page.jsx` (JSX exige un único nodo raíz por `return`).
+  - **(NUEVO — Parte 12) Identidad visual de marca (paleta de colores, tipografía) del proyecto completo aún NO está definida.** Se decidió explícitamente que esa decisión no le corresponde a un componente aislado (`ConsejoVocacional`), sino a una fase de diseño más amplia — probablemente al trabajar la Landing (`app/page.js`). Hasta entonces, cualquier estilo Tailwind que se aplique a componentes existentes debe ser neutro/genérico (grises/slate por defecto de Tailwind), sin comprometer una paleta de marca todavía no decidida.
 - **Esquema exacto de cada entrada de `carreras.json`** (sin cambios desde Parte 9 — ver sesiones previas).
 - Flujo de trabajo para carreras nuevas (sin cambios desde Parte 9).
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
-- Feature: Bloque de texto fijo / consejo vocacional en resultado — Fase 4 (Diseño UI / contenido) cerrada, Fase 5 (Desarrollo) parcialmente cerrada
-- Fase actual: Desarrollo (Fase 5) — Parte 11 cerrada
-- En lo que se trabajó en Parte 11 (sesión de hoy):
-  - Se resolvió, sin necesidad de implementar lógica de comparación categórica, el pendiente de Parte 10 sobre `estilo_vida` y `restricciones_personales`: ambas dimensiones se sacaron de competir por peso en el score de vocación (una eliminada del todo, otra pospuesta como filtro post-MVP).
-  - `preguntas.json` reducido de 104 a 93 preguntas; `engine.ts` y `types.ts` simplificados en consecuencia (sin `scoreEngineEleccionForzada`, sin tipo `'eleccion_forzada'`).
-  - Se verificó `test/page.jsx` y `PreguntaOpciones.jsx`: sin residuos de código muerto relacionados a `eleccion_forzada`.
-  - Se redactó y estructuró el consejo vocacional genérico sobre estabilidad económica (tono cercano/mentor), implementado como componente `ConsejoVocacional.jsx` con HTML semántico (`section`, `p`, `ul`/`li`, `strong`), sin estilos Tailwind todavía.
-  - Mensajes de commit acordados (dos commits separados, push aún no confirmado como hecho):
-    - `refactor(test): eliminar dimensiones restricciones_personales y estilo_vida`
-    - `feat(resultado): crear componente ConsejoVocacional`
-- ❌ Pendiente (continúa en la próxima sesión — Parte 12):
-  - Confirmar push de los dos commits de Parte 11.
-  - Integrar `<ConsejoVocacional/>` en `resultado/page.jsx`, justo antes del renderizado de las carreras recomendadas (posición ya acordada).
-  - Aplicar estilos Tailwind a `ConsejoVocacional.jsx` (Fase 6 del ciclo de este mini-feature).
+- Feature: Bloque de texto fijo / consejo vocacional en resultado — Fase 4 (Diseño UI / contenido) cerrada, Fase 5 (Desarrollo) en curso
+- Fase actual: Desarrollo (Fase 5) — Parte 12 cerrada
+- En lo que se trabajó en Parte 12 (sesión de hoy):
+  - Se confirmó el push de los dos commits pendientes de Parte 11.
+  - Se integró `<ConsejoVocacional/>` en `resultado/page.jsx`: import correcto vía alias `@/components/resultado/ConsejoVocacional`, insertado dentro del único `<div>` raíz de la rama `else` (cuando `resultado` ya existe), antes del `<h1>` y `<p>` de debug. Se corrigió un error de JSX (dos nodos raíz sin envolver) durante el proceso.
+  - Se evaluó y **descartó para esta sesión** una idea de mejora (mensaje dismissible con retraso inicial + imagen motivacional) por romper el alcance mínimo de la tarea — documentada como idea futura post-MVP (ver Dudas pendientes).
+  - Se evaluó aplicar estilos Tailwind a `ConsejoVocacional.jsx` (siguiente paso planeado de Parte 12), pero se detectó que esta sería **la primera decisión de color/identidad visual de todo el proyecto**. Se decidió posponer la paleta definitiva a una fase más amplia (Landing) y no resolverla hoy sobre un componente aislado. Estilos Tailwind de `ConsejoVocacional` quedan pendientes hasta esa decisión.
+- ❌ Pendiente (continúa en la próxima sesión — Parte 13):
+  - Definir identidad visual de marca del proyecto (paleta de colores, tipografía) — probablemente al iniciar el trabajo de la Landing (`app/page.js`). Esto desbloquea los estilos Tailwind de `ConsejoVocacional.jsx` y de cualquier otro componente visual pendiente.
+  - Aplicar estilos Tailwind a `ConsejoVocacional.jsx` una vez definida la paleta (Fase 6 del ciclo de este mini-feature).
   - Diseño real de `resultado/page.jsx` (reemplazar debug `JSON.stringify` por UI real de carreras recomendadas).
   - Sendero de progreso visual y estilos Tailwind del test.
   - Seguir agregando carreras según prioridad (ver lista abajo).
   - Estudio aislado de generación de PDF (jsPDF o @react-pdf/renderer).
-  - Reforzar en repaso: por qué `normalizarScore` en `scoreEngineAptitud` no necesita el parámetro `contexto` (valores `0`/`1` son literales fijos en código, nunca pueden llegar corruptos desde `preguntas.json`); y en qué momento del ciclo de desarrollo actúa el chequeo de tipos de TypeScript (tiempo de compilación/editor, no en runtime frente al estudiante).
+  - Estudio aislado de Tailwind CSS en el proyecto de Aprendizaje (nuevo pendiente de Parte 12 — ver nota abajo).
 
 ## Features completados ✅
 
 - [x] Normalización de escalas en el motor de scoring — Parte 10.
-- [x] Eliminación de `restricciones_personales` y `estilo_vida` del score de vocación; simplificación de `engine.ts`/`types.ts` (sin `eleccion_forzada`) — Parte 11.
-- [x] Redacción e implementación del componente `ConsejoVocacional.jsx` (contenido y estructura semántica) — Parte 11. Pendiente: integración visual en `resultado/page.jsx` y estilos.
+- [x] Eliminación de `restricciones_personales` y `estilo_vida` del score de vocación; simplificación de `engine.ts`/`types.ts` — Parte 11.
+- [x] Redacción e implementación del componente `ConsejoVocacional.jsx` (contenido y estructura semántica) — Parte 11.
+- [x] Integración de `<ConsejoVocacional/>` en `resultado/page.jsx` — Parte 12. Pendiente: estilos Tailwind (bloqueado por paleta de marca aún no definida).
 
 ## Reglas de negocio definidas
 
-(Se mantienen todas las reglas de sesiones previas — normalización de escalas, campo `sectoresEmpleo`, `notaCobertura`, prohibición de sesgos sociales, verificación de nomenclatura, arquitectura técnica/universitaria resuelta, fuentes confiables, no bootcamps sin programa formal, flujo manual de `carreras.json`, escala destino 9, manejo de errores fail-loud, separación constante/lógica — y se agregan:)
+(Se mantienen todas las reglas de sesiones previas, se agregan:)
 
-- **(NUEVO — Parte 11) `restricciones_personales` no debe influir nunca en qué carreras se muestran al estudiante**, ni como score ni como filtro futuro. Motivo de fondo: contradice el objetivo central del proyecto (mostrar todo lo vocacionalmente compatible); los factores que mide (economía, distancia, familia) son evadibles (becas, etc.) y no deben usarse como criterio de exclusión.
-- **(NUEVO — Parte 11) Criterio para decidir si una subdimensión de estilo de vida es válida para matching:** la variabilidad debe ser inherente a la naturaleza de la carrera, no depender del puesto/sector/empleador específico. Si casi todas las carreras admiten todas las opciones de una pregunta (ej. remoto/oficina/campo), la pregunta no discrimina y no aporta valor — candidata a eliminar o mover fuera del score.
-- **(NUEVO — Parte 11) Dato "pospuesto" ≠ dato "eliminado".** Una subdimensión pospuesta (como las 3 de `estilo_vida` para filtros post-MVP) se saca del test y del engine en su totalidad hasta que tenga un rol definido — no se deja en el dataset "por si acaso" ignorada en el engine, porque eso le hace perder tiempo al estudiante respondiendo algo que no se usa para nada.
-- **(NUEVO — Parte 11) Commits separados por naturaleza del cambio:** un refactor de dominio (eliminar dimensiones) y un feature nuevo (componente de UI) van en commits distintos, aunque se hayan hecho en la misma sesión.
+- **(NUEVO — Parte 12) Decisiones de identidad visual (paleta, tipografía) no se toman sobre componentes aislados.** Le corresponden a una fase de diseño amplia que cubra todo el proyecto (Landing u otro punto de entrada equivalente), no a un mini-feature puntual como un aviso o consejo.
+- **(NUEVO — Parte 12) Mejoras que agregan estado/interactividad (ej. dismissible, temporizadores, assets nuevos) a un componente ya cerrado en Fase 4 no se implementan inline** — abren su propio ciclo Fase 4-7 y se documentan como idea futura, aunque el cambio "se vea pequeño" a simple vista.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 12: integrar `<ConsejoVocacional/>` en `resultado/page.jsx` (antes del listado de carreras) y aplicar estilos Tailwind al componente.
+Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión" para continuar la Fase 5 (Desarrollo) — Parte 13: decidir identidad visual de marca (o avanzar con otro pendiente si se prioriza distinto, a confirmar al abrir sesión).
 
 ## Dudas o problemas pendientes
 
+- **Identidad visual de marca aún sin definir** — bloquea estilos Tailwind de `ConsejoVocacional.jsx` y de cualquier componente visual futuro. Se resolverá probablemente en el ciclo de la Landing.
+- **Idea futura (post-MVP):** `ConsejoVocacional` dismissible con retraso inicial (temporizador antes de mostrar botón de cierre) + imagen motivacional — requiere su propio ciclo Fase 4-7 completo, no es un cambio mínimo. Evaluada y descartada para Parte 12 por alcance.
 - **Carreras candidatas restantes para seguir agregando:**
   - Comunicación Audiovisual / Ciencias de la Comunicación
   - Gestión de Recursos Humanos
@@ -113,7 +108,5 @@ Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inici
   - Relaciones Internacionales / Ciencias Políticas
   - Traducción e Interpretación
   - Publicidad
-- Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — decidido que vivirán como controles de filtro en `resultado/page.jsx` (no como preguntas del test), pero mecánica exacta aún no diseñada. Explícitamente fuera de alcance hasta después del MVP.
+- Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — vivirán como controles de filtro en `resultado/page.jsx`, mecánica exacta aún no diseñada. Fuera de alcance hasta después del MVP.
 - Diseño visual del sendero de progreso del test, ni la UI real de `resultado/page.jsx` — pendiente.
-- Estilos Tailwind de `ConsejoVocacional.jsx` — pendiente, próxima sesión.
-- Confirmar que el push de los dos commits de Parte 11 se hizo correctamente.
