@@ -13,25 +13,25 @@
       "E": 5,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 9,
       "logica": 9,
       "numerica": 8,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 9,
       "apertura": 7,
       "estabilidad": 7,
       "extraversion": 4,
       "amabilidad": 4
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "espacial",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "creatividad"
     ],
@@ -110,25 +110,25 @@
       "E": 4,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 6,
       "logica": 7,
       "numerica": 4,
       "verbal": 7
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 7,
       "estabilidad": 7,
       "extraversion": 5,
       "amabilidad": 9
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "corporal-cinestesica",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "creatividad",
       "trabajo_en_equipo"
@@ -168,25 +168,25 @@
       "E": 5,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 9,
       "logica": 8,
       "numerica": 7,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 8,
       "estabilidad": 7,
       "extraversion": 4,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "espacial",
       "naturalista"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "sostenibilidad"
     ],
@@ -264,25 +264,25 @@
       "E": 9,
       "C": 7
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 6,
       "numerica": 7,
       "verbal": 7
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 6,
       "estabilidad": 6,
       "extraversion": 7,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "logico-matematica",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "reconocimiento",
       "trabajo_en_equipo"
@@ -364,25 +364,25 @@
       "E": 3,
       "C": 4
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 6,
       "numerica": 5,
       "verbal": 8
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 7,
       "apertura": 7,
       "estabilidad": 7,
       "extraversion": 5,
       "amabilidad": 8
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "intrapersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "autonomia",
       "trabajo_en_equipo"
@@ -463,25 +463,25 @@
       "E": 5,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 8,
       "logica": 8,
       "numerica": 8,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 9,
       "apertura": 6,
       "estabilidad": 7,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "espacial",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "trabajo_en_equipo",
       "sostenibilidad"
@@ -563,25 +563,25 @@
       "E": 5,
       "C": 9
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 2,
       "logica": 6,
       "numerica": 9,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 9,
       "apertura": 5,
       "estabilidad": 6,
       "extraversion": 4,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "trabajo_en_equipo"
     ],
@@ -661,25 +661,25 @@
       "E": 5,
       "C": 4
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 8,
       "logica": 4,
       "numerica": 2,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 6,
       "apertura": 9,
       "estabilidad": 5,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "espacial",
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "creatividad",
       "autonomia"
     ],
@@ -733,25 +733,25 @@
       "E": 3,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 6,
       "numerica": 5,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 9,
       "apertura": 6,
       "estabilidad": 8,
       "extraversion": 5,
       "amabilidad": 8
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "corporal-cinestesica",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "trabajo_en_equipo"
     ],
@@ -831,25 +831,25 @@
       "E": 4,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 9,
       "numerica": 6,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 7,
       "apertura": 8,
       "estabilidad": 6,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "intrapersonal",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "creatividad",
       "trabajo_en_equipo"
@@ -893,25 +893,25 @@
       "E": 6,
       "C": 7
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 8,
       "numerica": 6,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 7,
       "apertura": 7,
       "estabilidad": 6,
       "extraversion": 6,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "reconocimiento",
       "trabajo_en_equipo"
@@ -992,24 +992,24 @@
       "E": 5,
       "C": 4
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 8,
       "logica": 3,
       "numerica": 2,
       "verbal": 4
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 6,
       "apertura": 9,
       "estabilidad": 5,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "espacial",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "creatividad",
       "autonomia"
     ],
@@ -1052,25 +1052,25 @@
       "E": 8,
       "C": 8
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 5,
       "logica": 8,
       "numerica": 8,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 6,
       "estabilidad": 6,
       "extraversion": 6,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "interpersonal",
       "espacial"
     ],
-    "valoresAsociados": [
+    "valores": [
       "trabajo_en_equipo",
       "reconocimiento",
       "sostenibilidad"
@@ -1151,25 +1151,25 @@
       "E": 6,
       "C": 8
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 5,
       "logica": 7,
       "numerica": 7,
       "verbal": 4
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 5,
       "estabilidad": 6,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "corporal-cinestesica",
       "espacial"
     ],
-    "valoresAsociados": [
+    "valores": [
       "trabajo_en_equipo",
       "sostenibilidad"
     ],
@@ -1201,25 +1201,25 @@
       "E": 3,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 5,
       "logica": 8,
       "numerica": 5,
       "verbal": 8
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 10,
       "apertura": 6,
       "estabilidad": 8,
       "extraversion": 5,
       "amabilidad": 8
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "interpersonal",
       "naturalista"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "trabajo_en_equipo"
     ],
@@ -1298,25 +1298,25 @@
       "E": 8,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 2,
       "logica": 8,
       "numerica": 4,
       "verbal": 9
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 6,
       "estabilidad": 6,
       "extraversion": 7,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "verbal-linguistica",
       "interpersonal",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "reconocimiento",
       "autonomia"
@@ -1398,25 +1398,25 @@
       "E": 4,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 5,
       "numerica": 3,
       "verbal": 8
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 6,
       "estabilidad": 7,
       "extraversion": 6,
       "amabilidad": 8
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "verbal-linguistica",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "trabajo_en_equipo",
       "sostenibilidad"
@@ -1497,25 +1497,25 @@
       "E": 2,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 4,
       "logica": 3,
       "numerica": 2,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 5,
       "estabilidad": 7,
       "extraversion": 5,
       "amabilidad": 9
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "corporal-cinestesica",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "trabajo_en_equipo"
     ],
@@ -1548,25 +1548,25 @@
       "E": 6,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 5,
       "logica": 8,
       "numerica": 7,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 8,
       "estabilidad": 6,
       "extraversion": 6,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "naturalista",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "sostenibilidad",
       "impacto_social",
       "trabajo_en_equipo"
@@ -1637,25 +1637,25 @@
       "E": 3,
       "C": 7
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 5,
       "numerica": 6,
       "verbal": 4
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 5,
       "estabilidad": 6,
       "extraversion": 4,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "naturalista",
       "logico-matematica",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "sostenibilidad",
       "trabajo_en_equipo"
     ],
@@ -1688,25 +1688,25 @@
       "E": 5,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 9,
       "logica": 7,
       "numerica": 6,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 7,
       "apertura": 9,
       "estabilidad": 6,
       "extraversion": 6,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "espacial",
       "logico-matematica",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "creatividad",
       "sostenibilidad",
       "impacto_social"
@@ -1787,25 +1787,25 @@
       "E": 5,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 8,
       "logica": 4,
       "numerica": 4,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 6,
       "apertura": 8,
       "estabilidad": 5,
       "extraversion": 6,
       "amabilidad": 6
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "espacial",
       "corporal-cinestesica",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "creatividad",
       "autonomia"
     ],
@@ -1853,25 +1853,25 @@
       "E": 6,
       "C": 8
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 5,
       "numerica": 6,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 7,
       "apertura": 5,
       "estabilidad": 6,
       "extraversion": 6,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "logico-matematica",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "trabajo_en_equipo",
       "autonomia"
     ],
@@ -1914,25 +1914,25 @@
       "E": 4,
       "C": 7
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 7,
       "logica": 5,
       "numerica": 5,
       "verbal": 3
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 5,
       "estabilidad": 6,
       "extraversion": 5,
       "amabilidad": 4
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "espacial",
       "corporal-cinestesica",
       "logico-matematica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "trabajo_en_equipo"
     ],
     "universidades": [
@@ -1979,25 +1979,25 @@
       "E": 3,
       "C": 9
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 2,
       "logica": 5,
       "numerica": 8,
       "verbal": 4
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 4,
       "estabilidad": 6,
       "extraversion": 3,
       "amabilidad": 4
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "intrapersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia"
     ],
     "universidades": [
@@ -2039,25 +2039,25 @@
       "E": 2,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 2,
       "logica": 3,
       "numerica": 4,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 4,
       "estabilidad": 8,
       "extraversion": 5,
       "amabilidad": 9
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "interpersonal",
       "corporal-cinestesica",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "trabajo_en_equipo"
     ],
@@ -2111,25 +2111,25 @@
       "E": 4,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 7,
       "numerica": 5,
       "verbal": 4
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 6,
       "apertura": 6,
       "estabilidad": 6,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "intrapersonal",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "creatividad"
     ],
@@ -2167,25 +2167,25 @@
       "E": 7,
       "C": 8
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 2,
       "logica": 9,
       "numerica": 9,
       "verbal": 7
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 7,
       "estabilidad": 6,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "verbal-linguistica",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "impacto_social",
       "reconocimiento"
@@ -2261,25 +2261,25 @@
       "E": 8,
       "C": 9
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 9,
       "numerica": 9,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 6,
       "estabilidad": 6,
       "extraversion": 6,
       "amabilidad": 4
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "interpersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "reconocimiento",
       "trabajo_en_equipo",
       "autonomia"
@@ -2329,25 +2329,25 @@
       "E": 6,
       "C": 7
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 8,
       "logica": 8,
       "numerica": 8,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 9,
       "apertura": 6,
       "estabilidad": 8,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "espacial",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "sostenibilidad",
       "trabajo_en_equipo",
       "reconocimiento"
@@ -2423,25 +2423,25 @@
       "E": 3,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 6,
       "logica": 5,
       "numerica": 5,
       "verbal": 3
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 4,
       "estabilidad": 8,
       "extraversion": 4,
       "amabilidad": 4
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "corporal-cinestesica",
       "espacial",
       "logico-matematica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "trabajo_en_equipo",
       "sostenibilidad"
     ],
@@ -2478,25 +2478,25 @@
       "E": 6,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 5,
       "logica": 4,
       "numerica": 4,
       "verbal": 4
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 8,
       "estabilidad": 7,
       "extraversion": 6,
       "amabilidad": 6
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "corporal-cinestesica",
       "espacial",
       "naturalista"
     ],
-    "valoresAsociados": [
+    "valores": [
       "creatividad",
       "trabajo_en_equipo",
       "reconocimiento"
@@ -2551,25 +2551,25 @@
       "E": 3,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 5,
       "logica": 3,
       "numerica": 3,
       "verbal": 3
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 7,
       "estabilidad": 7,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "corporal-cinestesica",
       "espacial",
       "naturalista"
     ],
-    "valoresAsociados": [
+    "valores": [
       "creatividad",
       "trabajo_en_equipo"
     ],
@@ -2621,25 +2621,25 @@
       "E": 6,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 7,
       "logica": 7,
       "numerica": 5,
       "verbal": 6
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 9,
       "apertura": 6,
       "estabilidad": 8,
       "extraversion": 5,
       "amabilidad": 7
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "corporal-cinestesica",
       "espacial",
       "interpersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "autonomia",
       "trabajo_en_equipo"
@@ -2719,25 +2719,25 @@
       "E": 3,
       "C": 6
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 6,
       "logica": 6,
       "numerica": 4,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 5,
       "estabilidad": 7,
       "extraversion": 5,
       "amabilidad": 7
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "corporal-cinestesica",
       "interpersonal",
       "logico-matematica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "trabajo_en_equipo"
     ],
@@ -2817,25 +2817,25 @@
       "E": 4,
       "C": 5
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 5,
       "numerica": 3,
       "verbal": 9
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 7,
       "estabilidad": 7,
       "extraversion": 6,
       "amabilidad": 8
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "verbal-linguistica",
       "interpersonal",
       "corporal-cinestesica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "impacto_social",
       "creatividad",
       "autonomia"
@@ -2879,25 +2879,25 @@
       "E": 5,
       "C": 8
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 3,
       "logica": 9,
       "numerica": 9,
       "verbal": 5
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 8,
       "apertura": 7,
       "estabilidad": 6,
       "extraversion": 5,
       "amabilidad": 5
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "intrapersonal",
       "verbal-linguistica"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "impacto_social",
       "reconocimiento"
@@ -2932,24 +2932,24 @@
       "E": 4,
       "C": 7
     },
-    "aptitudesRequeridas": {
+    "aptitudes": {
       "espacial": 2,
       "logica": 7,
       "numerica": 7,
       "verbal": 3
     },
-    "rasgosFavorables": {
+    "personalidad": {
       "responsabilidad": 7,
       "apertura": 5,
       "estabilidad": 6,
       "extraversion": 4,
       "amabilidad": 4
     },
-    "inteligenciasClave": [
+    "inteligencias_multiples": [
       "logico-matematica",
       "intrapersonal"
     ],
-    "valoresAsociados": [
+    "valores": [
       "autonomia",
       "reconocimiento"
     ],
@@ -2984,10 +2984,10 @@
     "duracionAnios": 5,
     "vocacionRelacionada": "mecanica-produccion-tecnica",
     "riasec": { "R": 8, "I": 7, "A": 3, "S": 3, "E": 5, "C": 6 },
-    "aptitudesRequeridas": { "espacial": 8, "logica": 8, "numerica": 8, "verbal": 4 },
-    "rasgosFavorables": { "responsabilidad": 8, "apertura": 6, "estabilidad": 7, "extraversion": 4, "amabilidad": 4 },
-    "inteligenciasClave": ["logico-matematica", "espacial", "corporal-cinestesica"],
-    "valoresAsociados": ["autonomia", "creatividad", "sostenibilidad"],
+    "aptitudes": { "espacial": 8, "logica": 8, "numerica": 8, "verbal": 4 },
+    "personalidad": { "responsabilidad": 8, "apertura": 6, "estabilidad": 7, "extraversion": 4, "amabilidad": 4 },
+    "inteligencias_multiples": ["logico-matematica", "espacial", "corporal-cinestesica"],
+    "valores": ["autonomia", "creatividad", "sostenibilidad"],
     "notaCobertura": "Se dicta en numerosas universidades a nivel nacional; se listan solo las más representativas.",
     "universidades": [
       { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
@@ -3014,10 +3014,10 @@
     "duracionAnios": 5,
     "vocacionRelacionada": "electronica-industrial-tecnica",
     "riasec": { "R": 7, "I": 8, "A": 3, "S": 3, "E": 5, "C": 6 },
-    "aptitudesRequeridas": { "espacial": 7, "logica": 9, "numerica": 7, "verbal": 5 },
-    "rasgosFavorables": { "responsabilidad": 8, "apertura": 7, "estabilidad": 7, "extraversion": 5, "amabilidad": 4 },
-    "inteligenciasClave": ["logico-matematica", "espacial", "intrapersonal"],
-    "valoresAsociados": ["autonomia", "creatividad", "impacto_social"],
+    "aptitudes": { "espacial": 7, "logica": 9, "numerica": 7, "verbal": 5 },
+    "personalidad": { "responsabilidad": 8, "apertura": 7, "estabilidad": 7, "extraversion": 5, "amabilidad": 4 },
+    "inteligencias_multiples": ["logico-matematica", "espacial", "intrapersonal"],
+    "valores": ["autonomia", "creatividad", "impacto_social"],
     "notaCobertura": "Se dicta en numerosas universidades a nivel nacional; se listan solo las más representativas.",
     "universidades": [
       { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
@@ -3044,10 +3044,10 @@
     "duracionAnios": 3,
     "vocacionRelacionada": "ingenieria-electronica",
     "riasec": { "R": 7, "I": 5, "A": 2, "S": 2, "E": 3, "C": 7 },
-    "aptitudesRequeridas": { "espacial": 5, "logica": 6, "numerica": 5, "verbal": 3 },
-    "rasgosFavorables": { "responsabilidad": 7, "apertura": 5, "estabilidad": 7, "extraversion": 3, "amabilidad": 4 },
-    "inteligenciasClave": ["logico-matematica", "espacial", "corporal-cinestesica"],
-    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "aptitudes": { "espacial": 5, "logica": 6, "numerica": 5, "verbal": 3 },
+    "personalidad": { "responsabilidad": 7, "apertura": 5, "estabilidad": 7, "extraversion": 3, "amabilidad": 4 },
+    "inteligencias_multiples": ["logico-matematica", "espacial", "corporal-cinestesica"],
+    "valores": ["autonomia", "trabajo_en_equipo"],
     "universidades": [
       { "nombre": "SENATI (Electrónica Industrial)", "region": "nacional", "tipoGestion": "particular" },
       { "nombre": "Tecsup (Electrónica y Automatización Industrial)", "region": "Lima, Trujillo, Arequipa", "tipoGestion": "particular" }
@@ -3066,10 +3066,10 @@
     "duracionAnios": 5,
     "vocacionRelacionada": "ciberseguridad-tecnica",
     "riasec": { "R": 3, "I": 8, "A": 2, "S": 3, "E": 5, "C": 9 },
-    "aptitudesRequeridas": { "espacial": 3, "logica": 9, "numerica": 6, "verbal": 5 },
-    "rasgosFavorables": { "responsabilidad": 9, "apertura": 6, "estabilidad": 8, "extraversion": 4, "amabilidad": 4 },
-    "inteligenciasClave": ["logico-matematica", "intrapersonal", "interpersonal"],
-    "valoresAsociados": ["trabajo_en_equipo", "impacto_social", "reconocimiento"],
+    "aptitudes": { "espacial": 3, "logica": 9, "numerica": 6, "verbal": 5 },
+    "personalidad": { "responsabilidad": 9, "apertura": 6, "estabilidad": 8, "extraversion": 4, "amabilidad": 4 },
+    "inteligencias_multiples": ["logico-matematica", "intrapersonal", "interpersonal"],
+    "valores": ["trabajo_en_equipo", "impacto_social", "reconocimiento"],
     "universidades": [
       { "nombre": "UPC", "region": "Lima", "tipoGestion": "particular" },
       { "nombre": "UTEC", "region": "Lima", "tipoGestion": "particular" }
@@ -3090,10 +3090,10 @@
     "duracionAnios": 3,
     "vocacionRelacionada": "ciberseguridad",
     "riasec": { "R": 3, "I": 6, "A": 2, "S": 2, "E": 3, "C": 8 },
-    "aptitudesRequeridas": { "espacial": 2, "logica": 6, "numerica": 4, "verbal": 3 },
-    "rasgosFavorables": { "responsabilidad": 8, "apertura": 5, "estabilidad": 7, "extraversion": 3, "amabilidad": 3 },
-    "inteligenciasClave": ["logico-matematica", "intrapersonal"],
-    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "aptitudes": { "espacial": 2, "logica": 6, "numerica": 4, "verbal": 3 },
+    "personalidad": { "responsabilidad": 8, "apertura": 5, "estabilidad": 7, "extraversion": 3, "amabilidad": 3 },
+    "inteligencias_multiples": ["logico-matematica", "intrapersonal"],
+    "valores": ["autonomia", "trabajo_en_equipo"],
     "universidades": [
       { "nombre": "SENATI (Ingeniería de Ciberseguridad)", "region": "nacional", "tipoGestion": "particular" },
       { "nombre": "Tecsup (Ciberseguridad y Auditoría Informática)", "region": "Lima, Trujillo, Arequipa", "tipoGestion": "particular" },
@@ -3113,10 +3113,10 @@
     "duracionAnios": 6,
     "vocacionRelacionada": null,
     "riasec": { "R": 3, "I": 6, "A": 3, "S": 8, "E": 5, "C": 7 },
-    "aptitudesRequeridas": { "espacial": 2, "logica": 6, "numerica": 6, "verbal": 6 },
-    "rasgosFavorables": { "responsabilidad": 8, "apertura": 6, "estabilidad": 7, "extraversion": 5, "amabilidad": 7 },
-    "inteligenciasClave": ["interpersonal", "intrapersonal", "naturalista"],
-    "valoresAsociados": ["impacto_social", "trabajo_en_equipo", "autonomia"],
+    "aptitudes": { "espacial": 2, "logica": 6, "numerica": 6, "verbal": 6 },
+    "personalidad": { "responsabilidad": 8, "apertura": 6, "estabilidad": 7, "extraversion": 5, "amabilidad": 7 },
+    "inteligencias_multiples": ["interpersonal", "intrapersonal", "naturalista"],
+    "valores": ["impacto_social", "trabajo_en_equipo", "autonomia"],
     "universidades": [
       { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
       { "nombre": "UPCH", "region": "Lima", "tipoGestion": "particular" },
@@ -3141,10 +3141,10 @@
     "duracionAnios": 5,
     "vocacionRelacionada": "electrotecnia-industrial-tecnica",
     "riasec": { "R": 6, "I": 6, "A": 2, "S": 3, "E": 6, "C": 7 },
-    "aptitudesRequeridas": { "espacial": 5, "logica": 8, "numerica": 8, "verbal": 4 },
-    "rasgosFavorables": { "responsabilidad": 8, "apertura": 5, "estabilidad": 7, "extraversion": 5, "amabilidad": 4 },
-    "inteligenciasClave": ["logico-matematica", "espacial", "interpersonal"],
-    "valoresAsociados": ["sostenibilidad", "autonomia", "trabajo_en_equipo"],
+    "aptitudes": { "espacial": 5, "logica": 8, "numerica": 8, "verbal": 4 },
+    "personalidad": { "responsabilidad": 8, "apertura": 5, "estabilidad": 7, "extraversion": 5, "amabilidad": 4 },
+    "inteligencias_multiples": ["logico-matematica", "espacial", "interpersonal"],
+    "valores": ["sostenibilidad", "autonomia", "trabajo_en_equipo"],
     "universidades": [
       { "nombre": "UNI", "region": "Lima", "tipoGestion": "nacional" },
       { "nombre": "UNMSM", "region": "Lima", "tipoGestion": "nacional" },
@@ -3170,10 +3170,10 @@
     "duracionAnios": 3,
     "vocacionRelacionada": "ingenieria-electrica",
     "riasec": { "R": 8, "I": 4, "A": 2, "S": 2, "E": 3, "C": 7 },
-    "aptitudesRequeridas": { "espacial": 5, "logica": 5, "numerica": 5, "verbal": 3 },
-    "rasgosFavorables": { "responsabilidad": 7, "apertura": 4, "estabilidad": 7, "extraversion": 3, "amabilidad": 4 },
-    "inteligenciasClave": ["corporal-cinestesica", "espacial", "logico-matematica"],
-    "valoresAsociados": ["autonomia", "trabajo_en_equipo"],
+    "aptitudes": { "espacial": 5, "logica": 5, "numerica": 5, "verbal": 3 },
+    "personalidad": { "responsabilidad": 7, "apertura": 4, "estabilidad": 7, "extraversion": 3, "amabilidad": 4 },
+    "inteligencias_multiples": ["corporal-cinestesica", "espacial", "logico-matematica"],
+    "valores": ["autonomia", "trabajo_en_equipo"],
     "universidades": [
       { "nombre": "SENATI (Electrotecnia Industrial y Energías Renovables)", "region": "nacional", "tipoGestion": "particular" },
       { "nombre": "Tecsup (Electricidad Industrial con mención en Sistemas Eléctricos de Potencia)", "region": "Lima, Trujillo, Arequipa", "tipoGestion": "particular" }
@@ -3184,5 +3184,5 @@
       "Generación con energías renovables",
       "Sector eléctrico, industrial y minero"
     ]
-  }  
+  }
 ]

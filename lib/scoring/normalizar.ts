@@ -6,3 +6,4 @@ export const normalizarScore = (score: number, min: number, max: number, context
   }
   return ((score - min) / (max - min)) * ESCALA_DESTINO;
 }
+  
