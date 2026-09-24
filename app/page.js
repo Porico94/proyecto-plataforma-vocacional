@@ -31,7 +31,7 @@ export default function Home() {
               </p>
             </div>
             <a href="/test"
-              className="mt-8 inline-block rounded-md bg-amanecer px-8 py-4 text-base font-semibold text-texto-oscuro hover:bg-amanecer/90"
+              className="mt-8 inline-block rounded-md bg-amanecer px-8 py-4 text-base font-semibold text-texto-oscuro hover:bg-amanecer/90 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
             >
               Empieza tu test
             </a>
