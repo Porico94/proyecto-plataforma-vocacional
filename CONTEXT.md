@@ -23,87 +23,105 @@
 - Estructura de carpetas (actualizada):
 
 /app
-/page.js → Landing (pendiente de personalizar — aquí se definirá la identidad visual de marca del proyecto)
+/page.js → 🔶 Fase 6 en progreso (ver abajo). Hero reescrito completo en esta sesión (Fase 6 - Parte 1): estructura, copy y estilos Tailwind ajustados. `<ComoFunciona/>` y `<CtaFinal/>` sin tocar aún en Fase 6 — pendientes para próxima sesión. Sin sección de Diferenciación (descartada, ver Reglas de negocio).
+/layout.js → ✅ Completo: fuentes Literata (`--font-voz`) y Karla (`--font-cuerpo`) cargadas vía `next/font/google`, `lang="es"`, metadata con nombre de marca.
+/globals.css → ✅ Completo: tokens de marca en `@theme` (colores noche/papel/amanecer/musgo/texto-claro/texto-oscuro, fuentes voz/cuerpo), reemplazando el scaffold default de Next (sin modo claro/oscuro automático, no aplica al proyecto). Nota: el warning de editor "Unknown at rule @theme" es falso positivo, no bloquea el build.
 /perfil/page.jsx → ✅ Completo
-/test/page.jsx → ✅ Completo
-/resultado/page.jsx → ✅ Completo (Parte 14): `<ConsejoVocacional/>` integrado, `obtenerTop10Carreras` conectado, debug reemplazado por lista real de carreras recomendadas con desglose por dimensión. Estilos Tailwind bloqueados hasta definir identidad visual.
+/test/page.jsx → ✅ Completo (estilos Tailwind pendientes)
+/resultado/page.jsx → ✅ Completo (Parte 14): `<ConsejoVocacional/>` integrado, `obtenerTop10Carreras` conectado. Estilos Tailwind pendientes.
 /components
+/landing/
+ComoFunciona.jsx → ✅ Contenido/estructura completos (Parte 15). Pendiente de revisión en Fase 6 (Responsive+A11y) — próxima sesión.
+CtaFinal.jsx → ✅ Contenido/estructura completos (Parte 15). Pendiente de revisión en Fase 6 (Responsive+A11y) — próxima sesión, después de ComoFunciona.
 /test/
-PreguntaLikert.jsx → ✅ Completo. ⚠️ Detectado en Parte 14: no indica al estudiante qué significan los extremos de la escala 1-5 — pendiente para ciclo de Responsive+Accesibilidad.
+PreguntaLikert.jsx → ✅ Completo. ⚠️ Pendiente (fuera de este feature): no indica al estudiante qué significan los extremos de la escala 1-5.
 PreguntaOpciones.jsx → ✅ Completo
 /resultado/
-ConsejoVocacional.jsx → ✅ Contenido y estructura completos. PENDIENTE: estilos Tailwind (bloqueado por identidad visual).
+ConsejoVocacional.jsx → ✅ Contenido y estructura completos. Estilos Tailwind pendientes de aplicar.
 /ui/ → vacío, pendiente
 /lib
 /storage.js → ✅ Completo
 /scoring/
-engine.ts → ✅ Completo (perfil del estudiante desde respuestas)
-recomendacion.ts → ✅ Completo — motor de comparación estudiante↔carreras, conectado a la UI en Parte 14.
+engine.ts → ✅ Completo
+recomendacion.ts → ✅ Completo
 normalizar.ts → ✅ Completo
 constants.ts → ✅ Completo
 types.ts → ✅ Completo
 /data
 preguntas.json → ✅ 77 preguntas, 5 dimensiones activas (`personalidad` 25, `riasec` 18, `inteligencias_multiples` 16, `aptitudes` 12, `valores` 6).
-carreras.json → 🔶 46 entradas. Array plano de objetos; cada carrera tiene `riasec`/`aptitudes`/`personalidad` como objetos `{subdimension: numero}` (Grupo A), `inteligencias_multiples`/`valores` como arrays de strings (Grupo B), más `universidades`, `sectoresEmpleo` (informativos, no usados en el motor de recomendación). Campo opcional `notaCobertura` en 19/46 entradas.
+carreras.json → 🔶 46 entradas. Array plano de objetos; cada carrera tiene `riasec`/`aptitudes`/`personalidad` como objetos `{subdimension: numero}` (Grupo A), `inteligencias_multiples`/`valores` como arrays de strings (Grupo B), más `universidades`, `sectoresEmpleo`. Campo opcional `notaCobertura` en 19/46 entradas.
 /public
 
 - Stack confirmado: Next.js 16.3.0 (App Router, Turbopack), React 19.2.8, Tailwind CSS v4, React Hook Form 7.85 + Zod 4.4 + @hookform/resolvers 5.7, TypeScript en `/lib/scoring`, JS en el resto, ESLint, Playwright (aún no configurado), Vercel (aún no desplegado). Sin Auth.js ni PostgreSQL/Prisma en el MVP.
-- Decisiones técnicas importantes y por qué (se mantienen las de Parte 12-13, se agregan):
-  - **(NUEVO — Parte 14) `resultado/page.jsx` calcula `resultado` y `top10` dentro del mismo `useEffect` con `[]`**, cada uno en su propio `useState`. Dos razones distintas y complementarias: (1) separación de responsabilidades — `recomendacion.ts` es lógica de negocio pura sin dependencias de React, testeable de forma aislada; (2) optimización de render — calcular `obtenerTop10Carreras` (que recorre 46 carreras con distancia euclidiana por dimensión) dentro del cuerpo del componente en vez de en el efecto obligaría a recalcularlo en cada render, no solo cuando los datos de entrada cambian.
-  - **(NUEVO — Parte 14) Desglose por dimensión en la UI** se renderiza con un `.map()` anidado sobre `Object.entries(carrera.porDimension)` dentro de cada `<li>` de carrera — mismo patrón que usa `calcularPorDimension` internamente en `recomendacion.ts`, aplicado ahora del lado de presentación.
-  - Se mantienen las decisiones de Parte 13: motor dividido en Grupo A (distancia euclidiana) y Grupo B (promedio invertido), conversión a porcentaje, top 10 fijo.
-- **Esquema exacto de cada entrada de `carreras.json`** (sin cambios de forma desde Parte 9, renombre de claves en Parte 13 — ver arriba).
+- **Identidad visual de marca (Parte 15):**
+  - Nombre: **Oriéntame.pe**
+  - Paleta: `noche` #14171F (fondo base), `papel` #E8E2D3 (superficie clara alterna), `amanecer` #D9A441 (acento primario/CTA sobre fondo oscuro), `musgo` #5B8C7B (acento secundario/detalle), `texto-claro` #F2EFE6, `texto-oscuro` #1E2027.
+  - Tipografía: **Literata** (serif, `--font-voz`) para titulares/voz editorial; **Karla** (sans, `--font-cuerpo`) para cuerpo de texto.
+  - Regla de contraste de botones: el color del CTA se adapta al fondo de su propia sección — no es una regla fija de "siempre un color", sino de contraste local.
+- Decisiones técnicas importantes y por qué (se mantienen las de Parte 12-15, se agregan las de esta sesión — Fase 6 Parte 1):
+  - **Tailwind v4 no usa `tailwind.config.js`** — toda la configuración de tema vive en `globals.css` dentro de un bloque `@theme`.
+  - **Sin modo claro/oscuro automático por `prefers-color-scheme`** — decisión de marca fija.
+  - **`next/font` es stack nuevo para Pool** — pendiente de estudio aislado en el proyecto de Aprendizaje.
+  - **Patrón "container": ancho de sección vs. ancho de contenido.** El `<section>` del hero es `w-full` sin límite propio; el contenido (h1/p/lista/botón) vive dentro de un `<div className="max-w-7xl">` interno. Esto permite que el fondo/sección algún día sea full-bleed mientras el texto mantiene un techo de legibilidad. Elegido tras evaluar estadísticas reales de resolución de pantalla (StatCounter, junio 2026): 1920x1080 es la resolución de escritorio dominante (~20% share), mayoría de usuarios en 1920px o menos — monitores ultra anchos (27"-32") son minoría. Mobile genera >60% del tráfico web global vs. ~35% de escritorio, reforzando el enfoque mobile-first de la Fase 6.
+  - **Un solo `<h1>` por página con jerarquía semántica real:** un segundo mensaje visual que es parte del mismo titular (no una sección nueva de contenido) va como `<span className="block">` anidado DENTRO del `<h1>`, nunca como `<h2>` ni como elemento hermano suelto — la elección del elemento HTML se basa en el significado del contenido, no en el tamaño visual deseado (el CSS resuelve el tamaño después).
+  - **Listas reales (`<ul>`/`<li>`) para contenido enumerado**, no párrafos con saltos de línea — mismo principio: semántica antes que estética, mejora accesibilidad para lectores de pantalla.
+  - **Jerarquía visual de CTA principal:** un botón hero debe igualar o superar el tamaño de texto del cuerpo (no ser más chico), con padding generoso — principios aplicados: efecto de aislamiento (von Restorff), contraste de color, Fitts's Law (área clickeable).
+  - Se mantienen las decisiones de Parte 13-14: motor dividido en Grupo A/B, top 10 fijo, cálculos costosos en `useEffect`+estado propio.
+- **Esquema exacto de cada entrada de `carreras.json`** (sin cambios de forma desde Parte 9).
 - Flujo de trabajo para carreras nuevas (sin cambios desde Parte 9).
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
-- Feature: Resultado del test — carreras recomendadas — Fase 5 (Desarrollo) cerrada, Fase 4 (Diseño UI) bloqueada
-- Fase actual: Entre ciclos — Parte 14 cerrada, lógica de `resultado/page.jsx` completa. Siguiente feature natural aún por decidir (ver Próximo paso concreto).
-- En lo que se trabajó en Parte 14 (sesión de hoy):
-  - Se conectó `obtenerTop10Carreras` dentro de `resultado/page.jsx`: import de `carreras.json` y de la función desde `recomendacion.ts`, cálculo de `top10Calculado` en el mismo `useEffect` que `resultadoCalculado`, guardado en estado propio `top10`.
-  - Se reemplazó el debug `JSON.stringify` por estructura semántica: `<section>` con `<h2>`, lista de carreras (`<h3>` + `.total.toFixed(1)}%`) y desglose por dimensión anidado (`<ul>` de `Object.entries(carrera.porDimension)`).
-  - Se corrigieron dos bugs de la primera versión del código de Pool: import apuntando a `recomendaciones` (plural) en vez de `recomendacion` (singular); jerarquía de headings rota (`<h1>` repetido 10 veces dentro del `.map()`, corregido a `<h3>`).
-  - Checkpoint de comprensión cerrado exitosamente: Pool distinguió correctamente useEffect (necesario por SSR/hydration — storage no existe en servidor), useState+useEffect para top10 (evita recalcular `obtenerTop10Carreras` en cada render), y separación de responsabilidades (`recomendacion.ts` como lógica de negocio pura, testeable sin React) como decisiones de capas distintas, no la misma.
-  - Preguntas técnicas de entrevista respondidas correctamente: por qué `Object.values()` y no `Object.entries()` en el promedio de `calcularCompatibilidadCarrera`; por qué un tercer cálculo derivado de `resultado` iría en el mismo `useEffect` con `[]` en vez de uno nuevo con `[resultado]`, dado que `resultado` no cambia tras el cálculo inicial.
-  - Se detectó (fuera de alcance de esta parte, anotado para después): `PreguntaLikert.jsx` no indica al estudiante el significado de los extremos de la escala 1-5 — decisión tomada de resolverlo en el ciclo de Responsive+Accesibilidad del feature del test, no ahora.
-- ❌ Pendiente (continúa en la próxima sesión):
-  - Definir identidad visual de marca del proyecto (paleta, tipografía) — probablemente al iniciar la Landing. Desbloquea estilos de `ConsejoVocacional.jsx` y del bloque de carreras recomendadas ya conectado.
-  - Sendero de progreso visual y estilos Tailwind del test.
-  - Agregar bloque de texto fijo genérico en `resultado/page.jsx` aclarando que el resultado económico depende del esfuerzo individual, no solo de la carrera elegida.
-  - Mejora de accesibilidad pendiente en `PreguntaLikert.jsx`: indicar significado de los extremos de la escala 1-5 (ver Dudas pendientes).
-  - Seguir agregando carreras según prioridad (ver lista abajo).
-  - Estudio aislado de generación de PDF (jsPDF o @react-pdf/renderer).
-  - Estudio aislado de Tailwind CSS en el proyecto de Aprendizaje.
+- Feature: **Landing page**
+- Fase actual: **Fase 6 (Responsive + Accesibilidad)** — en progreso, sesión "Fase 6 - Parte 1".
+- En lo que se trabajó en esta sesión (Fase 6 - Parte 1):
+  - **Hero (`app/page.js`) reescrito completo**, resolviendo los 3 hallazgos de Parte 16:
+    1. Alineación hero/header: se quitó `mx-auto` del `<section>` del hero (ya lo había aplicado Pool antes de esta sesión); el desalineamiento visual restante resultó ser causado por `max-w-2xl` comprimiendo el hero en una columna angosta, no por falta de alineación real izquierda.
+    2. Decisión de ancho tomada: **Opción B (hero full-bleed)** — `<section>` sin `max-w` propio (`w-full` puro), contenido interno envuelto en `<div className="max-w-7xl">`. Resuelto tras revisar estadísticas reales de resolución de pantalla.
+    3. Botón "Empieza tu test": ajustado de `text-sm font-medium px-6 py-3` a `text-base font-semibold px-8 py-4`, aplicando principios de jerarquía visual de CTA.
+  - Título dividido en dos ideas de distinto peso (`¿No sabes qué carrera estudiar?` + subtítulo) usando un `<span className="block">` anidado DENTRO del `<h1>` — no un `<h2>` ni elemento hermano (se corrigió un error de anidamiento donde el `span` quedó fuera del `h1` por accidente).
+  - Párrafo descriptivo reescrito como lista real (`<ul>`/`<li>` con `list-disc`) — copy final: "Analizamos: Quién eres (personalidad y valores) / Lo que te mueve (intereses y gustos) / En qué destacas (habilidades y aptitudes)" + párrafo de cierre "El resultado: un filtro con carreras a tu medida".
+  - Confirmado con Pool: HMR/Fast Refresh de Next.js+Turbopack actualiza el navegador automáticamente al guardar — no hace falta reiniciar `npm run dev` en cada cambio, solo cuando se tocan `next.config.js` o variables de entorno.
+  - Exploración de UX: el espacio vacío a la derecha del hero en pantallas anchas se evaluó como válido dado el tono editorial/minimalista de la marca ("cero floro", tipografía Literata) — Pool decidió mantenerlo así por ahora, pero quiere explorar más adelante, solo por curiosidad, una Opción B con elemento visual a la derecha (layout dos columnas) — de concretarse, eso reabriría formalmente la Fase 4 (Diseño UI) para el hero específicamente, fuera del alcance de Fase 6.
+  - Motion/hover en el botón (`scale`/`shadow` al hover) explícitamente diferido a Fase 7 (Animaciones), donde se activa la skill `emil-design-eng` — no se toca en Fase 6.
 
 ## Features completados ✅
 
 - [x] Normalización de escalas en el motor de scoring — Parte 10.
-- [x] Eliminación de `restricciones_personales` y `estilo_vida` del score de vocación; simplificación de `engine.ts`/`types.ts` — Parte 11.
-- [x] Redacción e implementación del componente `ConsejoVocacional.jsx` (contenido y estructura semántica) — Parte 11.
+- [x] Eliminación de `restricciones_personales` y `estilo_vida` del score de vocación — Parte 11.
+- [x] Redacción e implementación de `ConsejoVocacional.jsx` — Parte 11.
 - [x] Integración de `<ConsejoVocacional/>` en `resultado/page.jsx` — Parte 12.
-- [x] Eliminación de `motivaciones` y `estilo_aprendizaje` de `preguntas.json`; renombre de claves de `carreras.json` para coincidir con `resultado` — Parte 13.
-- [x] Motor de recomendación completo (`recomendacion.ts`): distancia euclidiana (Grupo A), compatibilidad categórica (Grupo B), combinación por carrera, conversión a %, y top 10 — Parte 13.
-- [x] Conexión de `obtenerTop10Carreras` en `resultado/page.jsx`: debug reemplazado por UI semántica real con desglose por dimensión — Parte 14.
+- [x] Eliminación de `motivaciones`/`estilo_aprendizaje`; renombre de claves de `carreras.json` — Parte 13.
+- [x] Motor de recomendación completo (`recomendacion.ts`) — Parte 13.
+- [x] Conexión de `obtenerTop10Carreras` en `resultado/page.jsx` — Parte 14.
+- [x] Identidad visual de marca definida (Oriéntame.pe: paleta, tipografía) — Parte 15.
+- [x] Landing page — Fase 4 (Diseño UI) y Fase 5 (Desarrollo) completas: Hero, ComoFunciona, CtaFinal — Parte 15.
+- [x] Hero de la Landing — Fase 6 (Responsive + Accesibilidad) completa: alineación, ancho full-bleed con `max-w-7xl` interno, título en dos niveles semánticos, lista de "Analizamos", CTA con jerarquía visual correcta — Fase 6 Parte 1.
 
 ## Reglas de negocio definidas
 
 (Se mantienen todas las reglas de sesiones previas, se agregan:)
 
-- **(NUEVO — Parte 14) Cálculos costosos y derivados de datos externos (storage, fetch, etc.) van en `useEffect` + estado propio; cálculos triviales sobre estado que ya se tiene pueden ir directo en el cuerpo del render.** Regla general de React adoptada tras el checkpoint de esta parte.
-- **(NUEVO — Parte 14) Un solo `<h1>` por página; el resto de headings desciende en orden (`h2` → `h3`...) según jerarquía real de contenido**, incluso dentro de listas generadas con `.map()`.
-- Se mantienen las reglas de Parte 13: comparación estudiante↔carrera dividida en dos grupos según forma del dato; toda dimensión del test debe tener razón de uso clara dentro del MVP; se muestran las 10 carreras de mayor compatibilidad con desglose por dimensión.
+- La comunicación pública del proyecto (landing, copy) evita marketing comparativo o defensivo frente a competidores. El foco debe estar siempre en ayudar al estudiante.
+- Tono de voz del proyecto: directo y sin rodeos ("cero floro"), sin mensajes largos, poéticos o reflexivos.
+- El color de los CTAs se decide por contraste contra el fondo local de su sección, no por una regla fija de color único en todo el sitio.
+- Patrón de ancho: secciones full-bleed (`w-full` sin límite) + contenedor interno con `max-w` para el contenido de texto, en vez de limitar el ancho de toda la sección.
+- Se mantienen las reglas de Parte 13-14: comparación estudiante↔carrera dividida en dos grupos; un solo `<h1>` por página; toda dimensión del test debe tener razón de uso clara.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión". Definir con Pool cuál es el siguiente feature: probablemente **Fase 4 (Diseño UI) de la Landing**, ya que definir la identidad visual de marca ahí desbloquea los estilos pendientes de `ConsejoVocacional.jsx` y del bloque de carreras recomendadas. Alternativa: cerrar primero el texto fijo pendiente sobre esfuerzo individual en `resultado/page.jsx` antes de saltar a Landing.
+Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión". Continuar la Fase 6 (Responsive + Accesibilidad) con `ComoFunciona.jsx` (revisar estructura, estilos Tailwind pendientes de aplicar con los tokens de marca), y si el alcance lo permite en la misma sesión, seguir con `CtaFinal.jsx`. Después de ambos: contraste de color (`texto-claro/70` y `/60` sobre fondo Noche), foco de teclado visible en links/CTAs, y `prefers-reduced-motion` (Fase 7 aún, sin animaciones todavía).
 
 ## Dudas o problemas pendientes
 
-- **Identidad visual de marca aún sin definir** — bloquea estilos Tailwind de `ConsejoVocacional.jsx` y del bloque de carreras recomendadas (ya conectado funcionalmente). Se resolverá probablemente en el ciclo de la Landing.
-- **(NUEVO — Parte 14) `PreguntaLikert.jsx` no indica al estudiante el significado de los extremos de la escala 1-5** (ej. 1 = muy en desacuerdo, 5 = muy de acuerdo). Detectado por Pool al probar el flujo completo. Resolución diferida al ciclo de Responsive+Accesibilidad del feature del test (no se modifica un feature ya cerrado fuera de su propio ciclo).
-- **Idea futura (post-MVP):** `ConsejoVocacional` dismissible con retraso inicial + imagen motivacional — requiere su propio ciclo Fase 4-7 completo.
-- **Idea futura (post-MVP):** modos de test "normal" vs. "preciso" — el modo preciso reintroduciría preguntas de dimensiones descartadas (`motivaciones`, `estilo_aprendizaje`) para mayor precisión.
-- **Idea futura (post-MVP):** reemplazar el "top 10 fijo" de carreras recomendadas por un umbral mínimo de compatibilidad, para evitar mostrar carreras poco compatibles solo por completar el número.
+- `next/font` es stack nuevo para Pool — pendiente su estudio aislado en el proyecto de Aprendizaje, junto con Tailwind v4 y generación de PDF.
+- `PreguntaLikert.jsx` no indica al estudiante el significado de los extremos de la escala 1-5. Resolución diferida al ciclo de Responsive+Accesibilidad del feature del **Test** (ciclo independiente de la Landing).
+- Agregar bloque de texto fijo genérico en `resultado/page.jsx` aclarando que el resultado económico depende del esfuerzo individual, no solo de la carrera elegida — pendiente desde Parte 14.
+- Aplicar los tokens de identidad visual a los estilos Tailwind pendientes de `ConsejoVocacional.jsx`, el bloque de carreras recomendadas en `resultado/page.jsx`, y el sendero de progreso visual del test.
+- **(NUEVO)** Exploración pendiente, solo por curiosidad de Pool: layout de hero a dos columnas con elemento visual a la derecha (Opción B de la discusión de espacio vacío) — si se concreta, reabre Fase 4 (Diseño UI) para el hero específicamente, fuera del alcance actual de Fase 6.
+- **Idea futura (post-MVP):** `ConsejoVocacional` dismissible con retraso inicial + imagen motivacional.
+- **Idea futura (post-MVP):** modos de test "normal" vs. "preciso".
+- **Idea futura (post-MVP):** reemplazar el "top 10 fijo" por un umbral mínimo de compatibilidad.
 - **Carreras candidatas restantes para seguir agregando:**
   - Comunicación Audiovisual / Ciencias de la Comunicación
   - Gestión de Recursos Humanos
@@ -118,5 +136,4 @@ Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inici
   - Relaciones Internacionales / Ciencias Políticas
   - Traducción e Interpretación
   - Publicidad
-- Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — vivirán como controles de filtro en `resultado/page.jsx`, mecánica exacta aún no diseñada. Fuera de alcance hasta después del MVP.
-- Diseño visual del sendero de progreso del test, ni la UI real de `resultado/page.jsx` — estructura semántica ya lista, solo falta estilo.
+- Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — fuera de alcance hasta después del MVP.
