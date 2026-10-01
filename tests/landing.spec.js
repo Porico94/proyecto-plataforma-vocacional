@@ -79,7 +79,7 @@ test.describe('Landing: hover y reduced-motion', () => {
 test('el CTA lleva a /test', async ({ page }) => {
   await page.goto('/');
 
-  await page.getByRole('link', { name: /empieza tu test/i }).click();
+  await page.getByRole('link', { name: /Empieza tu test/i }).click();
 
   await expect(page).toHaveURL('/test');  
 });

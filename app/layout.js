@@ -13,7 +13,8 @@ const karla = Karla({
 
 export const metadata = {
   title: "Encuentra tu carrera compatible",
-  description: "Test vocacional completo + datos reales del mercado laboral peruano.",
+  description: "Test vocacional completo: personalidad, intereses y aptitudes. Descubre qué carreras van mejor contigo.",
+  robots: { index: false },
 };
 
 export default function RootLayout({ children }) {
