@@ -17,6 +17,14 @@
     return acc;
   }, []);
 
+  const nombresAmigables = {
+    personalidad: '¿Cómo eres?',
+    riasec: '¿Qué te atrae?',
+    aptitudes: 'Tus habilidades',
+    inteligencias_multiples: '¿Cómo piensas mejor?',
+    valores: 'Lo que valoras',
+  };
+
   export default function TestVocacional() {
     const router = useRouter();
     const [cargandoDatos, setCargandoDatos] = useState(true);
@@ -84,7 +92,7 @@
     if (cargandoDatos) {return <p>Cargando...</p>;}
     return (
       <div>
-        <p>{preguntaActual.tipo}</p>
+        <p>{nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}</p>
         <p>Etapa {numeroEtapa} de {etapas.length}</p>
         <p>Pregunta {preguntaEnEtapa} de {totalEnEtapa}</p>
         <p>{preguntaActual.texto}</p>      

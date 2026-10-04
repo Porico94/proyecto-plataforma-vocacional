@@ -26,15 +26,15 @@
 /page.js → ✅ Landing COMPLETA (Fases 4-9). Solo renderiza el Hero (`ComoFunciona`/`CtaFinal` construidos pero desconectados de la landing por decisión de Pool, revisión diferida indefinidamente). Header sin link de navegación por ancla. Contraste AA verificado. Foco de teclado visible cubierto por test. CTA del Hero (`<a href="/test">`) con microinteracción de hover (`::before` decorativo + `scale`/`shadow`), `motion-safe:` aplicado al `scale`. **(Fase 9) Transición corregida a `before:transition-[scale,box-shadow]`** (antes decía `transform` y el escalado saltaba). `metadata` de la página: title "Orientame.pe — Encuentra tu carrera con criterio" (sin tilde, a propósito) y description sin promesa de "datos de mercado laboral".
 /layout.js → ✅ Completo: fuentes Literata (`--font-voz`) y Karla (`--font-cuerpo`) vía `next/font/google`, `lang="es"`. **(Fase 9) `metadata` global con `robots: { index: false }`** (aplica a todo el sitio mientras sea privado) y title por defecto "Encuentra tu carrera compatible".
 /globals.css → ✅ Completo: tokens de marca en `@theme` (noche/papel/amanecer/musgo/texto-claro/texto-oscuro, fuentes voz/cuerpo). Sin modo claro/oscuro automático. El warning de editor "Unknown at rule @theme" es falso positivo.
-/perfil/page.jsx → ✅ Completo
-/test/page.jsx → ✅ Completo (estilos Tailwind pendientes) — **próximo feature**, ciclo Fase 4-9 completo
+/perfil/page.jsx → ✅ Funcionalmente completo. ⚠️ Sin estilos Tailwind (pendiente). Revisar qué pide hoy (el mockup antiguo pedía región, ver Dudas).
+/test/page.jsx → 🔶 **Fase 4 en curso.** Hecho y subido a GitHub: (1) pantalla de carga con estado `cargandoDatos` (inicia en `true`, pasa a `false` al final del `useEffect` que lee `storage`; `if (cargandoDatos) return ...` va DESPUÉS de todos los hooks); (2) `etapas` calculado con `reduce` **fuera del componente**, agrupando `preguntas.json` por `dimension` → `[{dimension, inicio, fin}]`; (3) dentro del componente: `etapaActual` (`find` con `inicio <= currentIndex && fin >= currentIndex`), `numeroEtapa` (`indexOf(etapaActual) + 1`), `preguntaEnEtapa` (`currentIndex - inicio + 1`), `totalEnEtapa` (`fin - inicio + 1`); el JSX muestra "Etapa X de {etapas.length}" y "Pregunta Y de Z" en texto plano. Falta: mapa de nombres amigables, sendero en JSX, pantallas de cierre, estilos Tailwind.
 /resultado/page.jsx → ✅ Completo (Parte 14): `<ConsejoVocacional/>` integrado, `obtenerTop10Carreras` conectado. Estilos Tailwind pendientes. Feature en cola, después de Test.
 /components
 /landing/
 ComoFunciona.jsx → 🔶 Construido, NO renderizado en `page.js`. Decisión de reintegrarlo diferida indefinidamente.
 CtaFinal.jsx → 🔶 Construido, NO renderizado. Misma decisión diferida.
 /test/
-PreguntaLikert.jsx → ✅ Completo. ⚠️ Pendiente: no indica qué significan los extremos de la escala 1-5. Se resuelve al abrir el ciclo del feature Test.
+PreguntaLikert.jsx → ✅ Completo. ⚠️ Pendiente: no indica qué significan los extremos de la escala 1-5. Cada pregunta likert ya trae `escala.etiquetas` en el JSON (5 textos, de "Totalmente en desacuerdo" a "Totalmente de acuerdo"): probablemente basta mostrarlas, sin tocar datos.
 PreguntaOpciones.jsx → ✅ Completo
 /resultado/
 ConsejoVocacional.jsx → ✅ Contenido y estructura completos. Estilos Tailwind pendientes.
@@ -44,7 +44,7 @@ ConsejoVocacional.jsx → ✅ Contenido y estructura completos. Estilos Tailwind
 /scoring/
 engine.ts, recomendacion.ts, normalizar.ts, constants.ts, types.ts → ✅ Completos
 /data
-preguntas.json → ✅ 77 preguntas, 5 dimensiones activas (`personalidad` 25, `riasec` 18, `inteligencias_multiples` 16, `aptitudes` 12, `valores` 6).
+preguntas.json → ✅ 77 preguntas, 5 dimensiones activas, **agrupadas (contiguas) en este orden**: `personalidad` 25 (índices 0-24), `riasec` 18 (25-42), `aptitudes` 12 (43-54), `inteligencias_multiples` 16 (55-70), `valores` 6 (71-76). Tipos: solo `aptitudes` es `aptitud` (opciones); el resto `likert`.
 carreras.json → 🔶 46 entradas. Array plano; `riasec`/`aptitudes`/`personalidad` como objetos `{subdimension: numero}` (Grupo A), `inteligencias_multiples`/`valores` como arrays de strings (Grupo B), más `universidades`, `sectoresEmpleo`. Campo opcional `notaCobertura` en 19/46 entradas. `sectoresEmpleo` es puramente informativo.
 /tests
 landing.spec.js → ✅ 7 tests en 5 grupos (semántica h1 único, teclado Tab → CTA + anillo, responsive sin desborde, hover/reduced-motion solo escritorio, navegación CTA → `/test`). 2 proyectos → 14 tests: 12 pasan + 2 omitidos a propósito (hover en móvil). Verificado verde tras el fix de Fase 9.
@@ -72,11 +72,17 @@ landing.spec.js → ✅ 7 tests en 5 grupos (semántica h1 único, teclado Tab �
   - **Microinteracción hover sin blur de texto (Fase 7):** nunca `transform`/`scale` directo sobre un elemento con texto; usar un `::before` decorativo (`relative isolate` en el padre, `before:absolute before:inset-0 before:-z-10`) que lleva fondo/shadow y recibe el `scale`. Motivo: `transform` promueve el elemento a capa GPU y el texto pierde subpíxeles (borroso).
   - **`motion-safe:` solo envuelve movimiento/tamaño:** el `scale` va en `motion-safe:hover:before:scale-[...]`; el `box-shadow` queda fuera.
   - **Tailwind v4 y `hover:` en móvil:** el variant `hover:` solo se activa bajo `@media (hover: hover) and (pointer: fine)`.
-  - **(NUEVO, Fase 9) Tailwind v4 aplica `scale-[...]` con la propiedad CSS `scale`, no con `transform`:** la clase de transición debe nombrar `scale` (`transition-[scale,box-shadow]`); si solo dice `transform`, el escalado salta de golpe. Verificado a mano en producción.
-  - **(NUEVO, Fase 9) Qué significa "estática" en `next build`:** el HTML se genera una sola vez, en el build, y se sirve igual a todos. `/test`, `/resultado` y `/perfil` salen estáticas porque el cálculo personalizado ocurre en el navegador dentro de `useEffect` (lectura de `storage.js`). Leer `sessionStorage`/`localStorage` durante el render fallaría en el build (esas APIs no existen en Node).
-  - **(NUEVO, Fase 9) Vercel:** cada push a `main` dispara deploy a producción; si el build falla, Vercel mantiene la última versión buena; push a otras ramas generan URL de preview. Se conectó con permiso "Only select repositories" en la GitHub App. `npm run build` y `npm run lint` se corren en local antes de desplegar (el build ya no ejecuta ESLint por defecto).
-  - **(NUEVO, Fase 9) `robots: { index: false }` va en `layout.js` (aplica a todo el sitio), no en `page.jsx`.** Es un pedido de cortesía a buscadores, no seguridad: quien tenga el link entra. Se quita al abrir el proyecto al público.
-  - **(NUEVO, Fase 9) CI con GitHub Actions + Playwright se pospone hasta el feature Test** (tendrá flujos con estado). GitHub Actions es stack nuevo: estudiarlo primero en el proyecto de Aprendizaje.
+  - **Tailwind v4 aplica `scale-[...]` con la propiedad CSS `scale`, no con `transform`:** la clase de transición debe nombrar `scale` (`transition-[scale,box-shadow]`); si solo dice `transform`, el escalado salta de golpe. Verificado a mano en producción.
+  - **Qué significa "estática" en `next build`:** el HTML se genera una sola vez, en el build, y se sirve igual a todos. `/test`, `/resultado` y `/perfil` salen estáticas porque el cálculo personalizado ocurre en el navegador dentro de `useEffect` (lectura de `storage.js`).
+  - **(NUEVO, Test) Dónde corre cada código:** el cuerpo del componente corre en Node (durante `next build`) Y en el navegador; el `useEffect` corre SOLO en el navegador. Por eso leer `sessionStorage` como valor inicial (`useState(storage.get(...))`) rompe el build (`sessionStorage is not defined`: la API no existe en Node), y se lee dentro de `useEffect`. Además evita el hydration mismatch (el primer render del navegador debe coincidir con el HTML del build). Llamar a un `set...` en el cuerpo del componente, sin efecto, da otro error distinto: "Too many re-renders".
+  - **(NUEVO, Test) Pantalla de carga al restaurar progreso:** estado `cargandoDatos` inicia en `true` (lo cierto en el primer render) y pasa a `false` al final del `useEffect`. Se usa retorno anticipado (`if (cargandoDatos) return ...`) colocado **después de todos los hooks** (regla de los hooks: mismo orden en cada render; un retorno antes del `useEffect` dejaría el efecto sin registrar y la pantalla de carga infinita). Se descartaron esqueleto y contenedor vacío.
+  - **(NUEVO, Test) `etapas` se deriva de `preguntas.json`, no se escribe a mano:** rangos fijos con índices se desfasarían en silencio al agregar/quitar preguntas. Condición: las preguntas de una misma dimensión deben quedar contiguas en el JSON. Va fuera del componente porque solo depende de datos que no cambian (se calcula una vez al cargar el módulo); `find` y las fórmulas van dentro porque dependen de `currentIndex` (estado). Los objetos se pasan por referencia: `find` devuelve el mismo objeto que está en el array, por eso `indexOf(etapaActual)` funciona.
+  - **(NUEVO, Test) Sendero de progreso — decisión:** se usará el sendero del mockup "La Ruta" (paradas hecha/actual/pendiente, una por dimensión, lateral en escritorio y horizontal en móvil), no una barra simple. Hallazgos de investigación: una barra de progreso constante no reduce el abandono de forma significativa (meta-análisis de 32 experimentos); importa que la duración prometida sea honesta y que haya hitos por etapas. Para el sendero: `<ol>` con `aria-current="step"` en la parada actual (los emojis son decorativos); estado de cada parada derivado de `etapas` y `currentIndex` (hecha si `fin < currentIndex`, actual si `currentIndex` cae en el rango, pendiente si `inicio > currentIndex`); mantener el contador "Pregunta Y de Z" dentro de la etapa.
+  - **(NUEVO, Test) Niveles del sendero:** básico = sendero + etiqueta de etapa + contador (en curso); medio = pantallas de cierre entre etapas (avisar que la etapa 3, aptitudes, cambia de formato: opciones en vez de escala 1-5); extra (opcional, al final del feature) = fondo que pasa de `noche` hacia `amanecer` según avanza (verificar contraste AA en cada tramo del degradado en Fase 6; animarlo en Fase 7).
+  - **(NUEVO, Test) Mockup original "La Ruta" (HTML de chats iniciales) — solo referencia, está desactualizado:** usa 106 preguntas y 9 paradas (hoy 77 y 5), un tipo "elección forzada" que no existe y mide restricciones eliminadas, pide región en el perfil, otra identidad (Clash Display/Sora, azul/dorado/turquesa, toggle claro/oscuro) y dice 33 carreras (hoy 46). Se aprovecha: sendero lateral/horizontal, likert tipo altímetro con etiquetas de extremos, enfoque de "reto" para aptitudes. Nombres amigables a reutilizar: personalidad → "Cómo eres", riasec → "Qué te atrae", aptitudes → "Tus habilidades", inteligencias_multiples → "Cómo piensas mejor", valores → "Lo que valoras".
+  - **`robots: { index: false }` va en `layout.js` (aplica a todo el sitio), no en `page.jsx`.** Es un pedido de cortesía a buscadores, no seguridad: quien tenga el link entra. Se quita al abrir el proyecto al público.
+  - **Vercel:** cada push a `main` dispara deploy a producción; si el build falla, Vercel mantiene la última versión buena; push a otras ramas generan URL de preview. Se conectó con permiso "Only select repositories" en la GitHub App. `npm run build` y `npm run lint` se corren en local antes de desplegar (el build ya no ejecuta ESLint por defecto).
+  - **CI con GitHub Actions + Playwright se pospone hasta el feature Test** (tendrá flujos con estado). GitHub Actions es stack nuevo: estudiarlo primero en el proyecto de Aprendizaje.
   - **Decisiones de testing con Playwright (Fase 8):**
     - `getByRole` sobre `locator('h1')`: prueba lo que percibe un lector de pantalla; ignora elementos ocultos; `level` busca el nivel calculado.
     - Locators estrictos: más de un match lanza _strict mode violation_; se afina con `name` o regiones, `.first()`/`.nth()` solo explícito.
@@ -97,14 +103,15 @@ landing.spec.js → ✅ 7 tests en 5 grupos (semántica h1 único, teclado Tab �
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
-- Feature: **Test** (por abrir)
-- Fase actual: **Fase 4 (Diseño UI) — pendiente de iniciar.** Landing cerrada: Fases 4-9 completas.
-- En lo que se trabajó en la última sesión (Landing, Fase 9):
-  - `npm run build` y `npm run lint` limpios en local (7/7 páginas estáticas, sin warnings). Revisión de `.gitignore` y de archivos sensibles: sin `.env` ni claves versionadas.
-  - Pool tuvo dudas con Vercel y consideró Render, pero decidió mantener Vercel; el bloqueo era solo dar permiso al repo en la GitHub App. Deploy exitoso y verificado a mano en producción (fuentes, CTA, responsive, teclado, celular real).
-  - Fix `before:transition-[scale,box-shadow]` (hipótesis del `scale` confirmada: saltaba). `robots` movido a `layout.js`. Description corregida para no prometer "datos reales de mercado laboral".
-  - Tests de Playwright verdes tras el cambio (12 pasan, 2 omitidos).
-  - Checkpoint de comprensión superado. Preguntas de entrevista (estática vs. dinámica, `noindex` vs. proteger acceso, push roto en Vercel): respondidas bien en conceptos. **Pendiente de reforzar:** escribir el ejemplo de código que rompe el build (leer `sessionStorage` suelto en el cuerpo del componente) y su corrección con `useState` + `useEffect`; también la precisión de que "estática" = HTML generado una vez en el build, no en cada visita.
+- Feature: **Test**
+- Fase actual: **Fase 4 (Diseño UI) — en curso.** Falta cerrarla (sendero en JSX, pantallas de cierre, estilos con tokens de marca) antes de pasar a la Fase 5.
+- En lo que se trabajó en la última sesión (Test, Fase 4, Parte 1):
+  - Pregunta de entrevista pendiente cerrada (leer `sessionStorage` en el render rompe el build; corrección con `useState` + `useEffect`). Pool necesitó repasar el tema; quedó claro con la tabla "qué corre dónde" (cuerpo del componente: Node y navegador; `useEffect`: solo navegador).
+  - Pantalla de carga al restaurar el progreso (`cargandoDatos`, retorno anticipado después de los hooks).
+  - Cálculo de `etapas` con `reduce` (fuera del componente) y de `etapaActual`, `numeroEtapa`, `preguntaEnEtapa`, `totalEnEtapa` (dentro); el JSX ya muestra "Etapa X de 5" y "Pregunta Y de Z". Probado a mano en el navegador y subido a GitHub.
+  - Investigación sobre progreso en cuestionarios largos y decisión de usar el sendero del mockup "La Ruta" (ver Decisiones técnicas).
+  - Checkpoint de comprensión: pregunta 1 respondida bien (por qué derivar `etapas` del JSON). Pregunta 2 a medias: Pool dijo que el `reduce` va fuera "porque necesitamos el array completo"; la razón correcta es que solo depende de datos fijos (se calcula una vez) mientras que `find` y las fórmulas dependen de `currentIndex` (estado). **Pendiente de reforzar al inicio de la próxima sesión.**
+  - Conceptos que costaron y conviene repasar en entrevista: `reduce` con array como valor inicial, índice `-1` de `acc[acc.length - 1]` en array vacío (`undefined`), objetos por referencia (`ultima.fin = indice` modifica el mismo objeto que está en `acc`), `indexOf` busca el elemento tal cual (objeto completo, no una propiedad).
 
 ## Features completados ✅
 
@@ -135,26 +142,33 @@ landing.spec.js → ✅ 7 tests en 5 grupos (semántica h1 único, teclado Tab �
 - Cualquier microinteracción de hover sobre un elemento con texto sigue el patrón `::before` documentado — nunca se anima el texto directamente.
 - Todo test nuevo se hace fallar a propósito antes de darse por bueno.
 - Cada feature con UI incluye, en su Fase 8, como mínimo: estructura semántica, navegación por teclado y responsive en los dos proyectos; el feature Test sumará flujos con estado.
-- **(NUEVO)** Antes de cada deploy: `npm run build` + `npm run lint` + `npx playwright test` en local.
-- **(NUEVO)** Si una tecnología es nueva (señal de stack nuevo), se estudia primero en el proyecto de Aprendizaje: aplica a GitHub Actions antes de montar CI.
+- Antes de cada deploy: `npm run build` + `npm run lint` + `npx playwright test` en local.
+- Si una tecnología es nueva (señal de stack nuevo), se estudia primero en el proyecto de Aprendizaje: aplica a GitHub Actions antes de montar CI.
+- **(NUEVO)** Las preguntas de una misma dimensión deben estar contiguas en `preguntas.json`; el progreso del test se calcula por etapas (una por dimensión) derivadas de ese archivo, nunca con rangos escritos a mano.
+- **(NUEVO)** Todo cálculo que dependa de `sessionStorage`/`localStorage` va dentro de `useEffect`, nunca en el valor inicial de `useState` ni en el cuerpo del componente.
+- **(NUEVO)** Un retorno anticipado en un componente va siempre después de todos los hooks.
 - Se mantienen las reglas de Parte 13-14: comparación estudiante↔carrera dividida en dos grupos; un solo `<h1>` por página; toda dimensión del test debe tener razón de uso clara.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión". Empezar el ciclo del feature **Test** por la **Fase 4 (Diseño UI)**: definir el diseño del flujo de 77 preguntas (sendero de progreso visual, cómo se muestra `PreguntaLikert`/`PreguntaOpciones`, indicar el significado de los extremos de la escala 1-5, aplicar los tokens de marca y el ritmo de fondo `noche`/`papel`). Al inicio de la sesión, retomar en 5 minutos la pregunta de entrevista pendiente (ejemplo de código del build roto por leer `sessionStorage` en el render y su corrección).
+Abrir un chat nuevo dentro del proyecto, pegar este CONTEXT.md y escribir "inicio sesión". Al inicio, retomar en 5 minutos la pregunta 2 del checkpoint (por qué el `reduce` va fuera del componente y el `find`/fórmulas dentro). Después, continuar la **Fase 4 del feature Test**: crear el mapa de nombres amigables por dimensión (objeto `dimension` → texto, sin índices) y construir el sendero en JSX como `<ol>` con `aria-current="step"` en la parada actual y estado hecha/actual/pendiente derivado de `etapas` y `currentIndex`.
 
 ## Dudas o problemas pendientes
 
+- **Riesgo anotado para Fase 8 (Testing con estado):** si el índice guardado en storage queda fuera de rango (p. ej. se quitan preguntas del JSON con un test a medias), `preguntaActual` y `etapaActual` serían `undefined` y la página se rompería. Decidir cómo validar/resetear el índice guardado.
+- Decidir si `/perfil` sigue pidiendo región: el mockup antiguo la usaba para ajustar carreras, pero las restricciones personales fueron eliminadas del algoritmo. Definir qué pide hoy esa página (nombre para el PDF, etc.).
+- Estilos Tailwind pendientes de `/perfil/page.jsx` (la página donde el estudiante pone su nombre).
+- `PreguntaLikert.jsx`: mostrar las `escala.etiquetas` del JSON para que se entiendan los extremos de la escala 1-5 (se resuelve en la Fase 4 del feature Test).
+- Pantallas de cierre entre etapas: definir copy breve (tono directo, "cero floro") y avisar el cambio de formato antes de la etapa de aptitudes.
+- Nivel extra del sendero (fondo `noche` → `amanecer`): pendiente para el final del feature (contraste en Fase 6, animación en Fase 7).
 - `next/font` es stack nuevo para Pool — pendiente de estudio aislado en el proyecto de Aprendizaje, junto con Tailwind v4, generación de PDF y **GitHub Actions** (necesario antes de montar CI en la Fase 8 del feature Test).
-- Pregunta de entrevista pendiente: escribir el ejemplo de código que rompe el build por leer `sessionStorage` durante el render y su corrección con `useState` + `useEffect`.
 - Opcional: quitar el bloque duplicado `# Playwright` de `.gitignore` (commit `chore: dedupe gitignore`) y, si algún día se crea `.env.example`, agregar `!.env.example` porque `.env*` también lo ignora.
 - Opcional: `title.template` en `layout.js` para que todas las páginas lleven la marca en el título (hoy el title por defecto no la incluye).
-- `PreguntaLikert.jsx` no indica el significado de los extremos de la escala 1-5 — se resuelve en Fase 4 del feature Test.
 - Agregar bloque de texto fijo genérico en `resultado/page.jsx` aclarando que el resultado económico depende del esfuerzo individual, no solo de la carrera elegida.
 - Aplicar los tokens de identidad visual a los estilos Tailwind pendientes de `ConsejoVocacional.jsx`, el bloque de carreras recomendadas en `resultado/page.jsx`, y el sendero de progreso visual del test.
 - Exploración pendiente, solo por curiosidad de Pool: layout de hero a dos columnas con elemento visual a la derecha — si se concreta, reabre Fase 4 para el hero (y los tests de Fase 8 del Hero deberán revisarse).
 - ¿Se reintegran `ComoFunciona.jsx` y `CtaFinal.jsx` a la landing, o se quedan fuera del MVP de forma permanente? Decisión diferida indefinidamente.
-- Número real de "10 minutos" para completar el test nunca fue medido — si se reintegra `CtaFinal.jsx`, cronometrar las 77 preguntas antes de publicar la cifra.
+- Número real de "10 minutos" para completar el test nunca fue medido — la investigación indica que una duración prometida que no se cumple perjudica; cronometrar las 77 preguntas antes de publicar cualquier cifra (en la landing o en el test).
 - **Idea futura (post-MVP):** `ConsejoVocacional` dismissible con retraso inicial + imagen motivacional.
 - **Idea futura (post-MVP):** modos de test "normal" vs. "preciso".
 - **Idea futura (post-MVP):** reemplazar el "top 10 fijo" por un umbral mínimo de compatibilidad.
