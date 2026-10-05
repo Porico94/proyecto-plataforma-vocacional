@@ -75,7 +75,6 @@
         storage.set(storage.keys.INDICE, nuevoIndice);
       } else {
         router.push('/resultado');
-        console.log('Test completado');
       }
     };
 
@@ -102,8 +101,9 @@
           {etapas.map((etapa) => {
             const estado = estadoDeEtapa(etapa);
             return (
-              <li key={etapa.dimension}> aria-current={estado === 'actual' ? 'step' : undefined}
-                {nombresAmigables[etapa.dimension]} ({estado})
+              <li key={etapa.dimension} aria-current={estado === 'actual' ? 'step' : undefined}> 
+                {nombresAmigables[etapa.dimension]}
+                <span className="sr-only"> ({estado})</span>
               </li>
             );
           })}
