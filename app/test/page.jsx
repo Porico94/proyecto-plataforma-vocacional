@@ -46,6 +46,12 @@
     const preguntaEnEtapa = currentIndex - etapaActual.inicio + 1;
     const totalEnEtapa = etapaActual.fin - etapaActual.inicio + 1;
 
+    const estadoDeEtapa = (etapa) => {
+      if (currentIndex > etapa.fin) return 'hecha';
+      if (currentIndex >= etapa.inicio) return 'actual';
+      return 'pendiente';
+    };
+
     const handleAnterior = () => {
       if (currentIndex > 0) {
         const nuevoIndice = currentIndex - 1;
@@ -92,6 +98,16 @@
     if (cargandoDatos) {return <p>Cargando...</p>;}
     return (
       <div>
+        <ol>
+          {etapas.map((etapa) => {
+            const estado = estadoDeEtapa(etapa);
+            return (
+              <li key={etapa.dimension}> aria-current={estado === 'actual' ? 'step' : undefined}
+                {nombresAmigables[etapa.dimension]} ({estado})
+              </li>
+            );
+          })}
+        </ol>
         <p>{nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}</p>
         <p>Etapa {numeroEtapa} de {etapas.length}</p>
         <p>Pregunta {preguntaEnEtapa} de {totalEnEtapa}</p>
