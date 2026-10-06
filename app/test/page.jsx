@@ -28,6 +28,7 @@
   export default function TestVocacional() {
     const router = useRouter();
     const [cargandoDatos, setCargandoDatos] = useState(true);
+    const [mostrandoCierre, setMostrandoCierre] = useState(false);
     const [currentIndex, setCurrentIndex] = useState(0);
     const [respuestas, setRespuestas] = useState({});
     const [error, setError] = useState('');
@@ -52,11 +53,15 @@
       return 'pendiente';
     };
 
+    const setearIndice = (indice) => {
+      setCurrentIndex(indice);
+      storage.set(storage.keys.INDICE, indice);
+    };
+
     const handleAnterior = () => {
       if (currentIndex > 0) {
         const nuevoIndice = currentIndex - 1;
-        setCurrentIndex(nuevoIndice);
-        storage.set(storage.keys.INDICE, nuevoIndice);
+        setearIndice(nuevoIndice);
         setError('');
       }
     };
@@ -66,16 +71,28 @@
         setError('Debes responder la pregunta antes de continuar');
         return;
       }
-      
       setError('');
 
-      if (currentIndex < preguntas.length - 1) {
+      const terminoEtapa = currentIndex === etapaActual.fin;
+      const esUltimaPregunta = currentIndex === preguntas.length - 1;
+
+      if (terminoEtapa && !esUltimaPregunta) {
+        setMostrandoCierre(true);
+        return;
+      }
+
+      if (!esUltimaPregunta) {
         const nuevoIndice = currentIndex + 1;
-        setCurrentIndex(nuevoIndice);
-        storage.set(storage.keys.INDICE, nuevoIndice);
+        setearIndice(nuevoIndice);
       } else {
         router.push('/resultado');
       }
+    };
+
+    const handleContinuar = () => {
+      const nuevoIndice = currentIndex + 1;
+      setearIndice(nuevoIndice);
+      setMostrandoCierre(false);
     };
 
     const handleResponder = (preguntaId, valor) => {
@@ -108,14 +125,25 @@
             );
           })}
         </ol>
-        <p>{nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}</p>
-        <p>Etapa {numeroEtapa} de {etapas.length}</p>
-        <p>Pregunta {preguntaEnEtapa} de {totalEnEtapa}</p>
-        <p>{preguntaActual.texto}</p>      
-        {campoPregunta}
-        <p>{error}</p>
-        {currentIndex > 0 && <button onClick={handleAnterior}>Anterior</button>}
-        <button onClick={handleSiguiente}> {currentIndex < preguntas.length - 1 ? 'Siguiente' : 'Ver resultado'}</button>
+        {mostrandoCierre ? (
+          <>
+            <p>Cierre de {nombresAmigables[etapaActual.dimension]}</p>
+            <button onClick={handleContinuar}>Continuar</button>
+          </>
+        ) : (
+          <>
+            <p>{nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}</p>
+            <p>Etapa {numeroEtapa} de {etapas.length}</p>
+            <p>Pregunta {preguntaEnEtapa} de {totalEnEtapa}</p>
+            <p>{preguntaActual.texto}</p>
+            {campoPregunta}
+            <p>{error}</p>
+            {currentIndex > 0 && <button onClick={handleAnterior}>Anterior</button>}
+            <button onClick={handleSiguiente}>
+              {currentIndex < preguntas.length - 1 ? 'Siguiente' : 'Ver resultado'}
+            </button>
+          </>
+        )}
       </div>
     )
   }
