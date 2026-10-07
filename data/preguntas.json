@@ -90,13 +90,13 @@
   },
   {
     "id": "apt-espacial-02", "dimension": "aptitudes", "subdimension": "espacial",
-    "texto": "Si doblas una hoja de papel por la mitad dos veces y le haces un corte en una esquina, ¿cuántos agujeros verás al desdoblarla?",
+    "texto": "Doblas una hoja de papel por la mitad dos veces y le haces un agujero que atraviesa todas las capas, lejos de los dobleces. ¿Cuántos agujeros verás al desdoblarla?",
     "tipo": "aptitud", "opciones": ["1", "2", "4", "8"], "respuestaCorrecta": "4"
   },
   {
     "id": "apt-espacial-03", "dimension": "aptitudes", "subdimension": "espacial",
-    "texto": "Imagina un cubo pintado por fuera y cortado en 27 cubos pequeños iguales (3x3x3). ¿Cuántos cubos pequeños NO tienen ninguna cara pintada?",
-    "tipo": "aptitud", "opciones": ["0", "1", "6", "8"], "respuestaCorrecta": "1"
+    "texto": "Caminas 3 cuadras al norte, giras a la derecha y caminas 2 cuadras, giras otra vez a la derecha y caminas 3 cuadras. ¿Dónde estás respecto al punto de partida?",
+    "tipo": "aptitud", "opciones": ["2 cuadras al este", "2 cuadras al oeste", "3 cuadras al norte", "En el mismo punto"], "respuestaCorrecta": "2 cuadras al este"
   },
   {
     "id": "apt-logica-01", "dimension": "aptitudes", "subdimension": "logica",
