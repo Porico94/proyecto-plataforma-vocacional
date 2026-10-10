@@ -69,8 +69,8 @@ export default function TestVocacional() {
   const etapaActual = etapas.find((etapa) => etapa.inicio <= currentIndex && etapa.fin >= currentIndex);
 
   const numeroEtapa = etapas.indexOf(etapaActual) + 1;
-  const preguntaEnEtapa = currentIndex - etapaActual.inicio + 1;
-  const totalEnEtapa = etapaActual.fin - etapaActual.inicio + 1;
+  const numeroPreguntaEnEtapa = currentIndex - etapaActual.inicio + 1;
+  const totalPreguntasEnEtapa = etapaActual.fin - etapaActual.inicio + 1;
   const etapaSiguiente = etapas[numeroEtapa];
 
   const esIntroInicial = mostrandoIntro && currentIndex === 0;
@@ -119,7 +119,6 @@ export default function TestVocacional() {
   };
 
   const handleContinuar = () => {
-    // En la intro inicial el índice se queda en 0: solo se pasa de la intro a la pregunta 1.
     if (!esIntroInicial) setearIndice(currentIndex + 1);
     setMostrandoIntro(false);
   };
@@ -157,7 +156,7 @@ export default function TestVocacional() {
       {mostrandoIntro ? (
         <>
           {!esIntroInicial && <p>Terminaste el bloque {nombresAmigables[etapaActual.dimension]}</p>}
-          <p>Bloque: {nombresAmigables[etapaIntro.dimension]}</p>
+          <p>El nuevo bloque es {nombresAmigables[etapaIntro.dimension]}</p>
           <p>{introEtapas[etapaIntro.dimension].mide}</p>
           <p>{introEtapas[etapaIntro.dimension].comoResponder}</p>
           <button onClick={handleContinuar}>Continuar</button>
@@ -166,7 +165,7 @@ export default function TestVocacional() {
         <>
           <p>{nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}</p>
           <p>Etapa {numeroEtapa} de {etapas.length}</p>
-          <p>Pregunta {preguntaEnEtapa} de {totalEnEtapa}</p>
+          <p>Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}</p>
           <p>{preguntaActual.texto}</p>
           {campoPregunta}
           <p>{error}</p>
