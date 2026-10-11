@@ -1,10 +1,20 @@
 'use client'
 
-export default function PreguntaLikert({pregunta, respuesta, onResponder}) {  
+export default function PreguntaLikert({pregunta, respuesta, onResponder}) {
   return (
-    <div>      
-      {[1,2,3,4,5].map((e) => <button key={e} onClick={() => onResponder(pregunta.id, e)}>{e}</button>)}
-      <p>Tu respuesta: {respuesta}</p>    
+    <div>
+      {pregunta.escala.etiquetas.map((etiqueta,index) => {
+        const valor = pregunta.escala.min + index;
+        return (
+          <button
+            key={etiqueta}
+            aria-pressed={valor === respuesta}
+            onClick={() => onResponder(pregunta.id, valor)}
+          >
+            {valor}-{etiqueta}
+          </button>
+        )
+      })}      
     </div>
   )
 }
