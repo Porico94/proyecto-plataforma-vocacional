@@ -141,7 +141,7 @@ export default function TestVocacional() {
 
   if (cargandoDatos) {return <p>Cargando...</p>;}
   return (
-    <div>
+    <div className="mx-auto w-full max-w-2xl px-4 py-8">
       <ol>
         {etapas.map((etapa) => {
           const estado = estadoDeEtapa(etapa);
