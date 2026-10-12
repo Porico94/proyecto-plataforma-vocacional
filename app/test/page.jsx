@@ -72,6 +72,7 @@ export default function TestVocacional() {
   const numeroPreguntaEnEtapa = currentIndex - etapaActual.inicio + 1;
   const totalPreguntasEnEtapa = etapaActual.fin - etapaActual.inicio + 1;
   const etapaSiguiente = etapas[numeroEtapa];
+  const esUltimaPregunta = currentIndex === preguntas.length - 1;
 
   const esIntroInicial = mostrandoIntro && currentIndex === 0;
   const etapaIntro = esIntroInicial ? etapaActual : etapaSiguiente;
@@ -103,7 +104,7 @@ export default function TestVocacional() {
     setError('');
 
     const terminoEtapa = currentIndex === etapaActual.fin;
-    const esUltimaPregunta = currentIndex === preguntas.length - 1;
+    
 
     if (terminoEtapa && !esUltimaPregunta) {
       setMostrandoIntro(true);
@@ -169,10 +170,22 @@ export default function TestVocacional() {
           <p>{preguntaActual.texto}</p>
           {campoPregunta}
           <p>{error}</p>
-          {currentIndex > 0 && <button onClick={handleAnterior}>Anterior</button>}
-          <button onClick={handleSiguiente}>
-            {currentIndex < preguntas.length - 1 ? 'Siguiente' : 'Ver resultado'}
-          </button>
+          <div className="mt-6 flex gap-2 justify-end">
+            {currentIndex > 0 && <button
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              onClick={handleAnterior}
+              >
+                <span aria-hidden="true">← </span>
+                Anterior
+              </button>}
+            <button
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              onClick={handleSiguiente}
+            >
+              {esUltimaPregunta ? 'Ver resultado' : 'Siguiente'}
+              {!esUltimaPregunta && <span aria-hidden="true">→</span>}
+            </button>
+          </div>
         </>
       )}
     </div>
