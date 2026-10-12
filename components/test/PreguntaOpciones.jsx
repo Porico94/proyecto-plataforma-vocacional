@@ -10,7 +10,7 @@ export default function PreguntaOpciones({pregunta, respuesta, onResponder}) {
             key={e}
             aria-pressed={valorSeleccionado}
             onClick={() => onResponder(pregunta.id, e)}
-            className="flex w-full min-h-11.5 items-center gap-3 rounded-lg border-2 border-texto-claro/50 px-3 text-left text-texto-claro aria-pressed:border-amanecer aria-pressed:bg-amanecer aria-pressed:font-medium aria-pressed:text-texto-oscuro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"  
+            className="group flex w-full min-h-11.5 items-center gap-3 rounded-lg border-2 border-texto-claro/50 px-3 text-left text-texto-claro aria-pressed:border-amanecer aria-pressed:bg-amanecer aria-pressed:font-medium aria-pressed:text-texto-oscuro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"  
           >            
             <span
               aria-hidden="true"
