@@ -48,6 +48,12 @@ const introEtapas = {
   },
 };
 
+const estilosParada = {
+  hecha: 'border-amanecer bg-amanecer text-texto-oscuro',
+  actual: 'border-amanecer text-amanecer ring-3 ring-amanecer/30',
+  pendiente: 'border-texto-claro/50 text-texto-claro/70',
+};
+
 export default function TestVocacional() {
   const router = useRouter();
   const [cargandoDatos, setCargandoDatos] = useState(true);
@@ -143,13 +149,30 @@ export default function TestVocacional() {
   if (cargandoDatos) {return <p>Cargando...</p>;}
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-8">
-      <ol>
-        {etapas.map((etapa) => {
+      <ol className="mb-6 flex items-center">
+        {etapas.map((etapa, index) => {
           const estado = estadoDeEtapa(etapa);
           return (
-            <li key={etapa.dimension} aria-current={estado === 'actual' ? 'step' : undefined}>
-              {nombresAmigables[etapa.dimension]}
-              <span className="sr-only"> ({estado})</span>
+            <li
+              key={etapa.dimension}
+              aria-current={estado === 'actual' ? 'step' : undefined}
+              className={index === 0 ? 'flex items-center' : 'flex flex-1 items-center'}
+            >
+              {index > 0 && (
+                <span
+                  aria-hidden="true"
+                  className={`h-0.5 flex-1 ${estado === 'pendiente' ? 'bg-texto-claro/35' : 'bg-amanecer'}`}
+                />
+              )}
+              <span
+                aria-hidden="true"
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-sm font-medium ${estilosParada[estado]}`}
+              >
+                {estado === 'hecha' ? '✓' : index + 1}
+              </span>
+              <span className="sr-only">
+                {nombresAmigables[etapa.dimension] ?? 'Etapa sin nombre'} ({estado})
+              </span>
             </li>
           );
         })}
