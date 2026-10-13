@@ -164,10 +164,15 @@ export default function TestVocacional() {
         </>
       ) : (
         <>
-          <p>{nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}</p>
-          <p>Etapa {numeroEtapa} de {etapas.length}</p>
-          <p>Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}</p>
-          <p>{preguntaActual.texto}</p>
+          <p className="text-sm font-medium text-amanecer">
+            Etapa {numeroEtapa} de {etapas.length} · {nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}
+          </p>
+          <p className="mt-1 text-sm text-texto-claro/80">
+            Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}
+          </p>
+          <h2 className="mt-4 mb-6 font-voz text-2xl leading-snug font-medium text-texto-claro">
+            {preguntaActual.texto}
+          </h2>
           {campoPregunta}
           <p>{error}</p>
           <div className="mt-6 flex gap-2 justify-end">
@@ -175,7 +180,7 @@ export default function TestVocacional() {
               className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
               onClick={handleAnterior}
               >
-                <span aria-hidden="true">← </span>
+                <span aria-hidden="true">←</span>
                 Anterior
               </button>}
             <button
