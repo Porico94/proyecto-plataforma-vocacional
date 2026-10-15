@@ -28,11 +28,11 @@ const nombresAmigables = {
 const introEtapas = {
   personalidad: {
     mide: 'Aquí vemos cómo eres en tu día a día: tu curiosidad, tu orden, cómo te relacionas con otros y cómo manejas la presión.',
-    comoResponder: 'Elige la opción que mejor describa tu forma de ser. Sé sincero contigo: responde como eres actualmente, no como te gustaría ser.',
+    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. Responde como eres actualmente, no como te gustaría ser.',
   },
   riasec: {
     mide: 'Aquí vemos qué tipo de actividades te atraen: trabajar con las manos, investigar, crear, ayudar, liderar u organizar.',
-    comoResponder: 'Elige la opción deacuerdo a qué tanto te llama la atención cada actividad, sin importar si eres un experto o no.',
+    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. Piensa en cuánto te atrae cada actividad, no en qué tan bien se te da.',
   },
   aptitudes: {
     mide: 'Aquí vemos cómo resuelves problemas con palabras, números, figuras y lógica.',    
@@ -40,11 +40,11 @@ const introEtapas = {
   },
   inteligencias_multiples: {
     mide: 'Aquí vemos en qué áreas sientes más facilidad natural: lógica, palabras, espacio, movimiento, música, personas, tu mundo interior y la naturaleza.',
-    comoResponder: 'Indica qué tan identificado te sientes con cada frase según lo que se te hace más fácil o natural hacer.',
+    comoResponder: 'Vuelve la escala anterior, no hay respuestas correctas. Indica qué tan de acuerdo estás con cada frase según lo que se te hace más fácil o natural.',
   },
   valores: {
     mide: 'Aquí vemos qué buscas en tu futuro trabajo: ayudar a otros, crear, decidir con libertad, ser reconocido, trabajar en equipo o cuidar el ambiente.',
-    comoResponder: 'Responde qué tan importante es cada punto para tu futuro. Elige según tus prioridades reales, ignorando las modas o lo que tu entorno espere de ti.',
+    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. Piensa en lo que de verdad te importa para tu futuro, no en las modas ni en lo que otros esperan de ti.',
   },
 };
 
