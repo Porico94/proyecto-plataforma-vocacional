@@ -28,23 +28,23 @@ const nombresAmigables = {
 const introEtapas = {
   personalidad: {
     mide: 'Aquí vemos cómo eres en tu día a día: tu curiosidad, tu orden, cómo te relacionas con otros y cómo manejas la presión.',
-    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. No hay respuestas correctas, responde como eres, no como crees que deberías ser. Algunas frases suenan negativas; respóndelas igual con sinceridad.',
+    comoResponder: 'Elige la opción que mejor describa tu forma de ser. Sé sincero contigo: responde como eres actualmente, no como te gustaría ser.',
   },
   riasec: {
     mide: 'Aquí vemos qué tipo de actividades te atraen: trabajar con las manos, investigar, crear, ayudar, liderar u organizar.',
-    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. Piensa en lo que te gusta hacer, no en lo que se te da bien.',
+    comoResponder: 'Elige la opción deacuerdo a qué tanto te llama la atención cada actividad, sin importar si eres un experto o no.',
   },
   aptitudes: {
     mide: 'Aquí vemos cómo resuelves problemas con palabras, números, figuras y lógica.',    
-    comoResponder: 'Cambia el formato, solo una pregunta es correcta.',
+    comoResponder: 'Ojo: aquí el formato cambia. Cada pregunta tiene una sola respuesta correcta. Lee con calma y elige la opción que consideres acertada.',
   },
   inteligencias_multiples: {
     mide: 'Aquí vemos en qué áreas sientes más facilidad natural: lógica, palabras, espacio, movimiento, música, personas, tu mundo interior y la naturaleza.',
-    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. Ya no hay respuestas correctas, importa cómo te ves tú.',
+    comoResponder: 'Indica qué tan identificado te sientes con cada frase según lo que se te hace más fácil o natural hacer.',
   },
   valores: {
     mide: 'Aquí vemos qué buscas en tu futuro trabajo: ayudar a otros, crear, decidir con libertad, ser reconocido, trabajar en equipo o cuidar el ambiente.',
-    comoResponder: 'Indica qué tan de acuerdo estás con cada frase. Piensa en lo que te importa a ti, no en lo que esté de moda ni en lo que otros esperan.',
+    comoResponder: 'Responde qué tan importante es cada punto para tu futuro. Elige según tus prioridades reales, ignorando las modas o lo que tu entorno espere de ti.',
   },
 };
 
@@ -104,7 +104,7 @@ export default function TestVocacional() {
 
   const handleSiguiente = () => {
     if (respuestas[preguntaActual.id] === undefined) {
-      setError('Debes responder la pregunta antes de continuar');
+      setError('Selecciona una respuesta para poder continuar.');
       return;
     }
     setError('');
@@ -134,6 +134,7 @@ export default function TestVocacional() {
     const nuevaRespuesta = {...respuestas, [preguntaId]: valor};
     setRespuestas(nuevaRespuesta);
     storage.set(storage.keys.RESPUESTAS, nuevaRespuesta);
+    setError('');
   };
 
   let campoPregunta;
@@ -179,11 +180,31 @@ export default function TestVocacional() {
       </ol>
       {mostrandoIntro ? (
         <>
-          {!esIntroInicial && <p>Terminaste el bloque {nombresAmigables[etapaActual.dimension]}</p>}
-          <p>El nuevo bloque es {nombresAmigables[etapaIntro.dimension]}</p>
-          <p>{introEtapas[etapaIntro.dimension].mide}</p>
-          <p>{introEtapas[etapaIntro.dimension].comoResponder}</p>
-          <button onClick={handleContinuar}>Continuar</button>
+          {!esIntroInicial && (
+            <p className="font-medium text-amanecer">
+              <span aria-hidden="true">✓ </span>
+              Terminaste el bloque: {nombresAmigables[etapaActual.dimension]}
+            </p>
+          )}
+          <h2 className="mt-3 font-voz text-2xl leading-snug font-medium text-texto-claro">
+            Nuevo bloque: {nombresAmigables[etapaIntro.dimension]}
+          </h2>
+          <p className="mt-3 leading-relaxed text-texto-claro">
+            {introEtapas[etapaIntro.dimension].mide}
+          </p>
+          <div className="mt-4 rounded-lg border-2 border-l-4 border-texto-claro/50 border-l-amanecer px-4 py-3">
+            <p className="mb-1 text-sm font-medium text-amanecer">Cómo responder</p>
+            <p className="leading-relaxed text-texto-claro">
+              {introEtapas[etapaIntro.dimension].comoResponder}
+            </p>
+          </div>
+          <button
+            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+            onClick={handleContinuar}
+          >
+            Continuar
+            <span aria-hidden="true">→</span>
+          </button>
         </>
       ) : (
         <>
@@ -197,7 +218,12 @@ export default function TestVocacional() {
             {preguntaActual.texto}
           </h2>
           {campoPregunta}
-          <p>{error}</p>
+          {error && (
+            <p className="mt-4 font-medium text-error">
+              <span aria-hidden="true">⚠ </span>
+              {error}
+            </p>
+          )}
           <div className="mt-6 flex gap-2 justify-end">
             {currentIndex > 0 && <button
               className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
