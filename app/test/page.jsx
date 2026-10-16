@@ -63,7 +63,11 @@ export default function TestVocacional() {
   const [error, setError] = useState('');
 
   useEffect(() => {
-    const indiceGuardado = storage.get(storage.keys.INDICE) || 0;
+    const guardado = storage.get(storage.keys.INDICE);
+    const indiceGuardado =
+      Number.isInteger(guardado) && guardado >= 0 && guardado < preguntas.length
+        ? guardado
+        : 0;
     // eslint-disable-next-line react-hooks/set-state-in-effect
     setCurrentIndex(indiceGuardado);
     setMostrandoIntro(indiceGuardado === 0);
