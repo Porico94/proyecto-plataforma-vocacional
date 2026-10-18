@@ -36,7 +36,7 @@
       router.push('/test');
     };
 
-    if (indicePendiente) {
+    if (indicePendiente !== null) {
       return (
         <div>
           <h1>Falta completar la pregunta N° {indicePendiente + 1}</h1>
