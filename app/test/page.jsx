@@ -1,7 +1,7 @@
 'use client'
 
 import preguntas from '@/data/preguntas.json';
-import {useEffect, useState} from 'react';
+import {useEffect, useState, useRef} from 'react';
 import {storage} from '@/lib/storage';
 import {useRouter} from 'next/navigation';
 import PreguntaLikert from '@/components/test/PreguntaLikert';
@@ -56,6 +56,7 @@ const estilosParada = {
 
 export default function TestVocacional() {
   const router = useRouter();
+  const miRef = useRef(null);
   const [cargandoDatos, setCargandoDatos] = useState(true);
   const [mostrandoIntro, setMostrandoIntro] = useState(false);
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -74,6 +75,10 @@ export default function TestVocacional() {
     setRespuestas(storage.get(storage.keys.RESPUESTAS) || {});
     setCargandoDatos(false);
   }, []);
+
+  useEffect(() => {
+    miRef.current?.focus();
+  }, [mostrandoIntro, currentIndex]);
 
   const preguntaActual = preguntas[currentIndex];
   const etapaActual = etapas.find((etapa) => etapa.inicio <= currentIndex && etapa.fin >= currentIndex);
@@ -190,7 +195,7 @@ export default function TestVocacional() {
               Terminaste el bloque: {nombresAmigables[etapaActual.dimension]}
             </p>
           )}
-          <h2 className="mt-3 font-voz text-2xl leading-snug font-medium text-texto-claro">
+          <h2 ref={miRef} tabIndex={-1} className="mt-3 font-voz text-2xl leading-snug font-medium text-texto-claro">
             Nuevo bloque: {nombresAmigables[etapaIntro.dimension]}
           </h2>
           <p className="mt-3 leading-relaxed text-texto-claro">
@@ -218,7 +223,7 @@ export default function TestVocacional() {
           <p className="mt-1 text-sm text-texto-claro/80">
             Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}
           </p>
-          <h2 className="mt-4 mb-6 font-voz text-2xl leading-snug font-medium text-texto-claro">
+          <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-2xl leading-snug font-medium text-texto-claro">
             {preguntaActual.texto}
           </h2>
           {campoPregunta}

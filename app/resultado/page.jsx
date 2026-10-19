@@ -36,6 +36,12 @@
       router.push('/test');
     };
 
+    const handleReiniciar = () => {
+      storage.remove(storage.keys.RESPUESTAS);
+      storage.remove(storage.keys.INDICE);
+      router.push('/test');      
+    };
+
     if (indicePendiente !== null) {
       return (
         <div>
@@ -71,8 +77,9 @@
                   </ul>
                 </li>
               ))}
-            </ul>
+            </ul>            
           </section>
+          <button onClick={handleReiniciar}>Reiniciar test</button>
         </div>
       );
     }
