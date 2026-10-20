@@ -197,7 +197,7 @@ export default function TestVocacional() {
               Terminaste el bloque: {nombresAmigables[etapaActual.dimension]}
             </p>
           )}
-          <h2 ref={miRef} tabIndex={-1} className="mt-3 font-voz text-2xl leading-snug font-medium text-texto-claro">
+          <h2 ref={miRef} tabIndex={-1} className="mt-3 font-voz text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
             Nuevo bloque: {nombresAmigables[etapaIntro.dimension]}
           </h2>
           <p className="mt-3 leading-relaxed text-texto-claro">
@@ -225,7 +225,7 @@ export default function TestVocacional() {
           <p className="mt-1 text-sm text-texto-claro/80">
             Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}
           </p>
-          <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-2xl leading-snug font-medium text-texto-claro">
+          <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
             {preguntaActual.texto}
           </h2>
           {campoPregunta}
