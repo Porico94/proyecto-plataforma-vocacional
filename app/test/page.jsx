@@ -62,6 +62,7 @@ export default function TestVocacional() {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [respuestas, setRespuestas] = useState({});
   const [error, setError] = useState('');
+  const [intentosFallidos, setIntentosFallidos] = useState(0);
 
   useEffect(() => {
     const guardado = storage.get(storage.keys.INDICE);
@@ -114,6 +115,7 @@ export default function TestVocacional() {
   const handleSiguiente = () => {
     if (respuestas[preguntaActual.id] === undefined) {
       setError('Selecciona una respuesta para poder continuar.');
+      setIntentosFallidos(intentosFallidos + 1);
       return;
     }
     setError('');
@@ -228,7 +230,7 @@ export default function TestVocacional() {
           </h2>
           {campoPregunta}
           {error && (
-            <p className="mt-4 font-medium text-error">
+            <p key={intentosFallidos} role="alert" className="mt-4 font-medium text-error">
               <span aria-hidden="true">⚠ </span>
               {error}
             </p>
