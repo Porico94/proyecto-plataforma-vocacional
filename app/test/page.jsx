@@ -93,9 +93,12 @@ export default function TestVocacional() {
   const esIntroInicial = mostrandoIntro && currentIndex === 0;
   const etapaIntro = esIntroInicial ? etapaActual : etapaSiguiente;
 
+  const esIntroTransicion = mostrandoIntro && !esIntroInicial;
+  const indiceSendero = esIntroTransicion ? currentIndex + 1 : currentIndex;
+
   const estadoDeEtapa = (etapa) => {
-    if (currentIndex > etapa.fin) return 'hecha';
-    if (currentIndex >= etapa.inicio) return 'actual';
+    if (indiceSendero > etapa.fin) return 'hecha';
+    if (indiceSendero >= etapa.inicio) return 'actual';
     return 'pendiente';
   };
 
