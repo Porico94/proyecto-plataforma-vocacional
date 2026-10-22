@@ -186,7 +186,8 @@ export default function TestVocacional() {
                 {estado === 'hecha' ? '✓' : index + 1}
               </span>
               <span className="sr-only">
-                {nombresAmigables[etapa.dimension] ?? 'Etapa sin nombre'} ({estado})
+                {nombresAmigables[etapa.dimension] ?? 'Etapa sin nombre'}
+                {estado !== 'actual' && ` (${estado})`}
               </span>
             </li>
           );
