@@ -215,7 +215,7 @@ export default function TestVocacional() {
             </p>
           </div>
           <button
-            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
             onClick={handleContinuar}
           >
             Continuar
@@ -242,14 +242,14 @@ export default function TestVocacional() {
           )}
           <div className="mt-6 flex gap-2 justify-end">
             {currentIndex > 0 && <button
-              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
               onClick={handleAnterior}
               >
                 <span aria-hidden="true">←</span>
                 Anterior
               </button>}
             <button
-              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
               onClick={handleSiguiente}
             >
               {esUltimaPregunta ? 'Ver resultado' : 'Siguiente'}
