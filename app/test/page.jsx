@@ -161,9 +161,10 @@ export default function TestVocacional() {
     campoPregunta = <p>Tipo de pregunta desconocido {preguntaActual.tipo}</p>;
   }
 
-  if (cargandoDatos) {return <p>Cargando...</p>;}
+  if (cargandoDatos) {return <p>Cargando…</p>;}
   return (
     <div className="mx-auto w-full max-w-2xl px-4 py-8">
+      <h1 className="sr-only">Test vocacional</h1>
       <ol className="mb-6 flex items-center">
         {etapas.map((etapa, index) => {
           const estado = estadoDeEtapa(etapa);
