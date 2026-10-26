@@ -1,5 +1,9 @@
 @import "tailwindcss";
 
+html {
+  color-scheme: dark;
+}
+
 @theme {
   --color-noche: #14171f;
   --color-papel: #e8e2d3;
