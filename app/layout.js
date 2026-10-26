@@ -17,6 +17,10 @@ export const metadata = {
   robots: { index: false },
 };
 
+export const viewport = {
+  themeColor: '#14171F',
+};
+
 export default function RootLayout({ children }) {
   return (
     <html
