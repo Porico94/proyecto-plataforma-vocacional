@@ -202,7 +202,7 @@ export default function TestVocacional() {
               Terminaste el bloque: {nombresAmigables[etapaActual.dimension]}
             </p>
           )}
-          <h2 ref={miRef} tabIndex={-1} className="mt-3 font-voz text-pretty text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
+          <h2 ref={miRef} tabIndex={-1} className="mt-3 font-voz text-pretty text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
             Nuevo bloque: {nombresAmigables[etapaIntro.dimension]}
           </h2>
           <p className="mt-3 leading-relaxed text-texto-claro">
@@ -215,7 +215,7 @@ export default function TestVocacional() {
             </p>
           </div>
           <button
-            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
             onClick={handleContinuar}
           >
             Continuar
@@ -230,7 +230,7 @@ export default function TestVocacional() {
           <p className="mt-1 text-sm text-texto-claro/80">
             Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}
           </p>
-          <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-pretty text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
+          <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-pretty text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
             {preguntaActual.texto}
           </h2>
           {campoPregunta}
@@ -242,14 +242,14 @@ export default function TestVocacional() {
           )}
           <div className="mt-6 flex gap-2 justify-end">
             {currentIndex > 0 && <button
-              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
               onClick={handleAnterior}
               >
                 <span aria-hidden="true">←</span>
                 Anterior
               </button>}
             <button
-              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
               onClick={handleSiguiente}
             >
               {esUltimaPregunta ? 'Ver resultado' : 'Siguiente'}
