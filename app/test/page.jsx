@@ -215,7 +215,10 @@ export default function TestVocacional() {
             </p>
           </div>
           <button
-            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+            className="mt-6 flex w-full items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 relative isolate border-transparent text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche
+            before:absolute before:-inset-0.5 before:-z-10 before:rounded-lg before:bg-amanecer
+            before:content-[''] before:transition-[filter,scale] before:duration-150
+            before:ease-out hover:before:brightness-110 motion-safe:active:before:scale-[0.97]"
             onClick={handleContinuar}
           >
             Continuar
@@ -249,7 +252,7 @@ export default function TestVocacional() {
                 Anterior
               </button>}
             <button
-              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 bg-amanecer border-amanecer text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              className="relative isolate flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 border-transparent px-4 gap-2 text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche before:absolute before:-inset-0.5 before:-z-10 before:rounded-lg before:bg-amanecer before:content-[''] before:transition-[filter,scale] before:duration-150 before:ease-out hover:before:brightness-110 motion-safe:active:before:scale-[0.97]"
               onClick={handleSiguiente}
             >
               {esUltimaPregunta ? 'Ver resultado' : 'Siguiente'}
