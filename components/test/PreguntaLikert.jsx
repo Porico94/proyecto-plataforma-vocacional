@@ -10,7 +10,8 @@ export default function PreguntaLikert({pregunta, respuesta, onResponder}) {
         return (
           <label
             key={etiqueta}
-            className="flex w-full min-h-11.5 cursor-pointer touch-manipulation items-center gap-3 rounded-lg border-2 border-texto-claro/50 px-3 text-left text-texto-claro has-checked:border-amanecer has-checked:bg-amanecer has-checked:font-medium has-checked:text-texto-oscuro has-focus-visible:ring-2 has-focus-visible:ring-amanecer has-focus-visible:ring-offset-2 has-focus-visible:ring-offset-noche"
+            className="flex w-full min-h-11.5 cursor-pointer touch-manipulation items-center gap-3 rounded-lg border-2 border-texto-claro/50 px-3 text-left text-texto-claro has-checked:border-amanecer has-checked:bg-amanecer has-checked:font-medium has-checked:text-texto-oscuro has-focus-visible:ring-2 has-focus-visible:ring-amanecer has-focus-visible:ring-offset-2 has-focus-visible:ring-offset-noche
+            transition-[border-color,background-color] duration-150 ease-out not-has-checked:hover:border-texto-claro/80 not-has-checked:hover:bg-texto-claro/5 not-has-checked:active:bg-texto-claro/10"
           >
             <input
               type="radio"
