@@ -164,8 +164,8 @@ export default function TestVocacional() {
   if (cargandoDatos) {return <p>Cargando…</p>;}
   return (
     <main className="mx-auto w-full max-w-2xl px-4 py-8">
-      <h1 className="sr-only">Test vocacional</h1>
-      <ol className="mb-6 flex items-center">
+      <h1 className="sr-only">Test vocacional</h1>      
+      <ol className="mb-6 flex items-center">        
         {etapas.map((etapa, index) => {
           const estado = estadoDeEtapa(etapa);
           return (
@@ -227,16 +227,18 @@ export default function TestVocacional() {
         </>
       ) : (
         <>
-          <p className="text-sm font-medium text-amanecer">
-            Etapa {numeroEtapa} de {etapas.length} · {nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}
-          </p>
-          <p className="mt-1 text-sm text-texto-claro/80">
-            Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}
-          </p>
-          <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-pretty text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
-            {preguntaActual.texto}
-          </h2>
-          {campoPregunta}
+          <div key={currentIndex} className="animate-aparecer">
+            <p className="text-sm font-medium text-amanecer">
+              Etapa {numeroEtapa} de {etapas.length} · {nombresAmigables[etapaActual.dimension] ?? 'Etapa sin nombre'}
+            </p>
+            <p className="mt-1 text-sm text-texto-claro/80">
+              Pregunta {numeroPreguntaEnEtapa} de {totalPreguntasEnEtapa}
+            </p>
+            <h2 ref={miRef} tabIndex={-1} className="mt-4 mb-6 font-voz text-pretty text-2xl leading-snug font-medium text-texto-claro focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-4 focus-visible:ring-offset-noche rounded-md">
+              {preguntaActual.texto}
+            </h2>
+            {campoPregunta}
+          </div>
           {error && (
             <p key={intentosFallidos} role="alert" className="mt-4 font-medium text-error">
               <span aria-hidden="true">⚠ </span>
@@ -245,7 +247,7 @@ export default function TestVocacional() {
           )}
           <div className="mt-6 flex gap-2 justify-end">
             {currentIndex > 0 && <button
-              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche"
+              className="flex basis-1/2 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche transition-[border-color,background-color] duration-150 ease-out hover:border-texto-claro/80 hover:bg-texto-claro/5 active:bg-texto-claro/10"
               onClick={handleAnterior}
               >
                 <span aria-hidden="true">←</span>
