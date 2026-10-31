@@ -175,14 +175,17 @@ export default function TestVocacional() {
               className={index === 0 ? 'flex items-center' : 'flex flex-1 items-center'}
             >
               {index > 0 && (
-                <span
-                  aria-hidden="true"
-                  className={`h-0.5 flex-1 ${estado === 'pendiente' ? 'bg-texto-claro/35' : 'bg-amanecer'}`}
-                />
+                <span aria-hidden="true" className="relative h-0.5 flex-1 bg-texto-claro/35">
+                  <span
+                    className={`absolute inset-0 origin-left bg-amanecer motion-safe:transition-[scale] motion-safe:duration-300 motion-safe:ease-out ${
+                      estado === 'pendiente' ? 'scale-x-0' : 'scale-x-100'
+                    }`}
+                  />
+                </span>
               )}
               <span
                 aria-hidden="true"
-                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-sm font-medium ${estilosParada[estado]}`}
+                className={`flex h-8 w-8 shrink-0 items-center justify-center rounded-full border-2 text-sm font-medium ${estilosParada[estado]} transition-[background-color,border-color,color,box-shadow] duration-200 ease-out`}
               >
                 {estado === 'hecha' ? '✓' : index + 1}
               </span>
@@ -224,7 +227,7 @@ export default function TestVocacional() {
             Continuar
             <span aria-hidden="true">→</span>
           </button>
-        </div>      
+        </div>
       ) : (
         <>
           <div key={currentIndex} className="animate-aparecer">
