@@ -195,7 +195,7 @@ export default function TestVocacional() {
         })}
       </ol>
       {mostrandoIntro ? (
-        <>
+        <div className="animate-aparecer-lento motion-safe:animate-subir">
           {!esIntroInicial && (
             <p className="font-medium text-amanecer">
               <span aria-hidden="true">✓ </span>
@@ -224,7 +224,7 @@ export default function TestVocacional() {
             Continuar
             <span aria-hidden="true">→</span>
           </button>
-        </>
+        </div>      
       ) : (
         <>
           <div key={currentIndex} className="animate-aparecer">

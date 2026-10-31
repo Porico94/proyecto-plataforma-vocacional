@@ -26,6 +26,20 @@ html {
       opacity: 1;
     }
   }
+
+  --animate-aparecer-lento: aparecer 280ms ease-out;
+  --animate-subir: subir 280ms ease-out;
+
+  @keyframes subir {
+    from {
+      opacity: 0;
+      transform: translateY(12px);
+    }
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
 }
 
 body {
