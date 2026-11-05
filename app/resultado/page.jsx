@@ -39,7 +39,7 @@
     const handleReiniciar = () => {
       storage.remove(storage.keys.RESPUESTAS);
       storage.remove(storage.keys.INDICE);
-      router.push('/test');      
+      router.push('/test');
     };
 
     if (indicePendiente !== null) {
