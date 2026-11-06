@@ -164,3 +164,22 @@ test.describe('Botones y error en el test', () => {
     await expect(page.getByRole('button', { name: 'Siguiente' })).toHaveCount(0);
   });
 });
+
+test.describe('Foco en el título de cada pantalla', () => {
+  test('el foco cae en el h2 al cargar, tras Continuar y tras Siguiente', async ({ page }) => {
+    await page.goto('/test');
+    const titulo = page.getByRole('heading', { level: 2 });
+
+    await expect(titulo).toBeFocused();
+
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByText('Pregunta 1 de 25')).toBeVisible();
+    await expect(titulo).toBeFocused();
+
+    await page.locator('label').first().click();    
+    await expect(page.getByRole('radio').first()).toBeFocused();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(page.getByText('Pregunta 2 de 25')).toBeVisible();
+    await expect(titulo).toBeFocused();
+  });
+});
