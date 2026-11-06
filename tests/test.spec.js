@@ -183,3 +183,28 @@ test.describe('Foco en el título de cada pantalla', () => {
     await expect(titulo).toBeFocused();
   });
 });
+
+test.describe('Teclado', () => {
+  test('Tab desde la opción elegida llega a Siguiente', async ({ page }) => {
+    await page.goto('/test');
+    await page.getByRole('button', { name: 'Continuar' }).click();
+
+    await page.locator('label').first().click();
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Siguiente' })).toBeFocused();
+  });
+
+  test('en la pregunta 2, Tab pasa por Anterior y luego Siguiente', async ({ page }) => {
+    await page.goto('/test');
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await page.locator('label').first().click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(page.getByText('Pregunta 2 de 25')).toBeVisible();
+
+    await page.locator('label').first().click();
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Anterior' })).toBeFocused();
+    await page.keyboard.press('Tab');
+    await expect(page.getByRole('button', { name: 'Siguiente' })).toBeFocused();
+  });
+});
