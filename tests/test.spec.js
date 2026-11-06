@@ -208,3 +208,24 @@ test.describe('Teclado', () => {
     await expect(page.getByRole('button', { name: 'Siguiente' })).toBeFocused();
   });
 });
+
+test.describe('Estructura y responsive', () => {
+  test('un solo main y un h1 "Test vocacional"', async ({ page }) => {
+    await page.goto('/test');
+    await expect(page.getByRole('main')).toHaveCount(1);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveCount(1);
+    await expect(page.getByRole('heading', { level: 1 })).toHaveText('Test vocacional');
+  });
+
+  test('sin desborde horizontal a 320 px', async ({ page }) => {
+    await page.setViewportSize({ width: 320, height: 640 });
+    await page.goto('/test');
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByText('Pregunta 1 de 25')).toBeVisible();
+
+    const desborde = await page.evaluate(
+      () => document.documentElement.scrollWidth - document.documentElement.clientWidth
+    );
+    expect(desborde).toBe(0);
+  });
+});
