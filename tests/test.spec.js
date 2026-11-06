@@ -133,3 +133,34 @@ test.describe('Reiniciar test', () => {
     await expect(page.getByRole('radio', { checked: true })).toHaveCount(0);
   });
 });
+
+test.describe('Botones y error en el test', () => {
+  test('pregunta 1: sin Anterior, y el error aparece y desaparece', async ({ page }) => {
+    await page.goto('/test');
+    await page.getByRole('button', { name: 'Continuar' }).click();
+
+    await expect(page.getByRole('button', { name: 'Anterior' })).toHaveCount(0);
+
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(page.locator('p[role="alert"]')).toBeVisible();
+
+    await page.locator('label').first().click();
+    await expect(page.locator('p[role="alert"]')).toHaveCount(0);
+  });
+
+  test('última pregunta: Siguiente pasa a Ver resultado', async ({ page }) => {
+    const respuestas = Object.fromEntries(
+      preguntas.slice(0, 76).map((p) => [p.id, p.tipo === 'aptitud' ? p.opciones[0] : 3])
+    );
+
+    await page.goto('/test');
+    await page.evaluate((r) => {
+      sessionStorage.setItem('respuestas', JSON.stringify(r));
+      sessionStorage.setItem('indice', '76');
+    }, respuestas);
+    await page.reload();
+
+    await expect(page.getByRole('button', { name: 'Ver resultado' })).toBeVisible();
+    await expect(page.getByRole('button', { name: 'Siguiente' })).toHaveCount(0);
+  });
+});
