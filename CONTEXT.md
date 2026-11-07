@@ -70,7 +70,8 @@
   preguntas.json → ✅ 77 preguntas, 5 dimensiones activas, contiguas en este orden: personalidad 25 (0-24), riasec 18 (25-42), aptitudes 12 (43-54), inteligencias_multiples 16 (55-70), valores 6 (71-76). Solo `aptitudes` es tipo `aptitud` (4 opciones, UNA `respuestaCorrecta`, subdimensiones verbal/numérica/espacial/lógica); el resto `likert` con escala de acuerdo (5 etiquetas). `apt-espacial-02` y `apt-espacial-03` reemplazadas en P3 por versiones sin ambigüedad.
   carreras.json → 🔶 46 entradas. Array plano; `riasec`/`aptitudes`/`personalidad` como objetos `{subdimension: numero}` (Grupo A), `inteligencias_multiples`/`valores` como arrays de strings (Grupo B), más `universidades`, `sectoresEmpleo`. Campo opcional `notaCobertura` en 19/46 entradas. `sectoresEmpleo` es puramente informativo.
 /tests
-  landing.spec.js → ✅ 7 tests en 5 grupos (semántica h1 único, teclado Tab → CTA + anillo, responsive sin desborde, hover/reduced-motion solo escritorio, navegación CTA → `/test`). 2 proyectos → 14 tests: 12 pasan + 2 omitidos a propósito (hover en móvil).
+  landing.spec.js → ✅ 7 tests en 5 grupos (14 con 2 proyectos: 12 pasan + 2 omitidos a propósito).
+  test.spec.js → 🔶 (F8, en curso) 17 tests × 2 proyectos = 34, todos en verde. Flujos 1-12 hechos, cada aserción vista fallar con mutación. Lee `data/preguntas.json` con `readFileSync` para armar respuestas; usa `page.evaluate` (NO `addInitScript`) para escribir `sessionStorage` (claves `indice` y `respuestas`, valores en JSON) y luego `reload()`.
 /playwright.config.js → ✅ `testDir: './tests'`, `baseURL: http://localhost:3000`, `webServer` con `npm run dev` + `reuseExistingServer: !process.env.CI`, reporter html, proyectos `chromium` y `Mobile Chrome` (Pixel 5).
 /public
 ```
@@ -130,16 +131,13 @@
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
 - Feature: **Test**
-- Fase actual: **Fase 7 CERRADA** (checkpoint de comprensión y preguntas de entrevista aprobados). Siguiente: **Fase 8 (Testing con flujos con estado)**; luego 9 (Deploy). Fases 4, 5, 6 y 7 cerradas.
-- En lo que se trabajó en la última sesión (chat `Test · F7 · P1 — animaciones del test`), todo con lint, commit y push:
-  - Calentamiento sobre `set...`/efecto del foco, `return` anticipado y `color-scheme` vs `theme-color` (corregido: `theme-color` no crea variables y su etiqueta sale de `viewport` en `layout.js`).
-  - `outline-none` → `outline-hidden` en los 6 sitios (`fix(a11y): usar outline-hidden en los anillos de foco`), comprobado con `forced-colors`.
-  - Hover y press de filas (`PreguntaLikert` y `PreguntaOpciones`) y de los botones (`feat(test): hover y press en filas de opciones`, `... en botones Continuar y Siguiente`, `... en botón Anterior`).
-  - Fade entre preguntas (`feat(test): fade suave entre preguntas`) y entrada destacada de la intro (`feat(test): entrada destacada en el cambio de bloque`).
-  - Animación del sendero: círculos y línea (`feat(test): animar el sendero de progreso`).
-  - Cada decisión se tomó viendo 3 opciones renderizadas; cada cambio se verificó con predicción previa y mutación posterior.
-  - Checkpoint: aprobado tras repasar la intro (animación, no transición) y el uso de `motion-safe:`; preguntas de entrevista (transition vs animation, `key`, `opacity`/`scale` vs layout): Pool dijo "no sé" donde no sabía y las fijó con preguntas de repaso.
-- Conceptos que costaron y conviene repasar en entrevista: el array de dependencias decide si corre el efecto, NO si hay render (el render lo provoca el `set...`); un `set...` prepara el SIGUIENTE render, nunca cambia el actual; los efectos se ejecutan todos antes del siguiente render y cada uno solo ve los valores de su render; hooks por casillero y por qué un `return` anticipado va después de todos (el error es la diferencia ENTRE renders); un hook no es solo un state; devolver JSX ≠ pintar; `ref` (plano/casa) y por qué `tabIndex` y `.focus()` son piezas distintas; `key` para forzar un nodo nuevo y qué pierde lo de adentro; derivar un valor en lugar de modificar la fuente de verdad; `sr-only` vs `hidden`; por qué `aria-pressed` no sirve para selección única; `||` vs `??` con el `0`; `color-scheme` vs `theme-color`; **(F7) transición (nodo que persiste, necesita estado anterior) vs animación de keyframes (al montarse); cuándo lleva `motion-safe:` (movimiento o tamaño, no color ni opacidad); por qué `outline-hidden` y no `outline-none` (alto contraste, `box-shadow` desaparece); por qué se anima `opacity`/`scale` y no `width`/`top`; por qué un hover neutro no usa `amanecer`.**
+- Fase actual: **Fase 8 (Testing de flujos con estado), en curso.** Luego 9 (Deploy). Fases 4-7 cerradas.
+- Hecho en la última sesión (chat `Test · F8 · P1 — testing de flujos del test`), con commits y push:
+  - Calentamiento de la F7 (transition vs animation, `key`, `motion-safe:`), corregido y aprobado.
+  - Flujos 1-12 en `tests/test.spec.js`: recarga en pregunta 1 y 2, índice 24, cambio de etapa (26, no 27), índice inválido (999, -3, 2.5), `/resultado` vacío y con 30 respuestas, Reiniciar (con `RESPUESTAS` e `INDICE` atacados por separado), Anterior ausente, error `role="alert"` (A aparece, B desaparece), "Ver resultado" en la última, foco en el `<h2>` (con mutación de dependencias en las dos direcciones), Tab hasta Siguiente (mutación en `name` del radio y en `tabIndex`), un `<main>`, un `<h1>`, sin desborde a 320 px.
+  - Incidente: un apagón corrompió un objeto de `.git` (commit `052a2d4`). Se recuperó clonando desde GitHub y reemplazando `.git`. Decisión: mover el repo fuera de OneDrive (`C:\Users\poolr\Proyectos_React` o `~/proyectos` en WSL).
+- Pendiente de la Fase 8: Flujo 13 (sendero en la intro de transición), `role="alert"` que se reinserta en cada intento, F7 (animaciones con `reducedMotion`, `<ol>` sin recrearse, línea `scale-x`), una pregunta de aptitud (detectar variables inexistentes), árbol de accesibilidad del sendero. Luego checkpoint de comprensión y preguntas de entrevista de la Fase 8.
+- Conceptos a repasar: mutación = romper la app a propósito para ver el test fallar (y solo la línea que ataca); un `expect` de "no existe" solo vale si antes se comprobó que existía; un test con storage vacío no distingue "se borró" de "nunca hubo nada"; `evaluate` vs `addInitScript`; `getByText` con string busca subcadenas sin distinguir mayúsculas; `.check()` falla con un `<input>` `sr-only` (clic en el `<label>`); un `expect` sobre un número no reintenta.
 
 ## Features completados ✅
 
@@ -156,6 +154,7 @@
 - [x] Test — Fase 5 (Desarrollo) COMPLETA: validación del índice guardado, `/perfil` eliminada, `/resultado` con aviso de test incompleto + botón a la pregunta pendiente, botón "Reiniciar test" — Test, Fase 5, Parte 1.
 - [x] Test — Fase 6 (Responsive + Accesibilidad) COMPLETA: foco, alerta, sendero, radios nativos, `<h1>`, contrastes, responsive, `Cargando…`, `touch-manipulation`, `text-pretty`, `color-scheme`, `theme-color`, `<main>` y checkpoint aprobado — Test, Fase 6, Partes 1-2.
 - [x] Test — Fase 7 (Animaciones) COMPLETA: `outline-hidden`, hover y press de filas y botones (opción B), fade de pregunta + intro destacada (opción C), sendero con línea y círculos animados (opción B), checkpoint y preguntas de entrevista aprobados — Test, Fase 7, Parte 1. (El feature Test sigue abierto: faltan Fases 8-9.)
+- [ ] Test, Fase 8 en curso: 34 tests en verde (flujos 1-12).
 
 ## Reglas de negocio definidas
 
@@ -207,10 +206,34 @@
 - **(F7) Solo se anima `opacity` y `transform`/`scale`**, no `width`, `height`, `top` ni `margin`. Sin `transition: all`: siempre se nombra la propiedad (`transition-[scale]`, `transition-[border-color,background-color]`).
 - **(F7) Frecuencia manda:** lo que ocurre en cada pregunta (77 veces) es mínimo (fade de 120 ms, hover solo de color); lo raro (cambio de bloque, cambio de etapa del sendero) puede ser más destacado. Duraciones entre 120 y 300 ms con `ease-out`.
 - Se mantienen las reglas de Parte 13-14: comparación estudiante↔carrera dividida en dos grupos; un solo `<h1>` por página; toda dimensión del test debe tener razón de uso clara.
+- **(F8) Una mutación debe fallar solo la aserción que ataca.** Si falla todo, fue demasiado grande. Antes de cada flujo: `git status` limpio. Una mutación olvidada rompe tests que ya pasaban (pasó dos veces).
+- **(F8) Para ver el estado de la app tras una mutación:** `git diff <archivo>` (sin punto final) y `git status`. Cada atributo va como atributo, nunca dentro de `className` (pasó con `tabIndex`).
+- **(F8) Un test de "ya no está" va precedido de uno de "está"** (ejemplo: error visible, luego `toHaveCount(0)`).
+- **(F8) Para storage con datos usar `evaluate` + `reload()`**, no `addInitScript`, para no falsificar la restauración. Ante un índice a probar, dejar uno distinto de 0 (con 0 no se distingue de "storage vacío").
+- **(F8) El repo vive fuera de OneDrive.** Push frecuente: es el seguro contra cortes de luz.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo llamado **`Test · F8 · P1 — testing de flujos del test`**, pegar este CONTEXT.md y escribir "inicio sesión". Al inicio (2 minutos), responder con tus palabras: (1) ¿qué diferencia hay entre una `transition` y una `animation` de `@keyframes`, y cuál usa el sendero y cuál la pregunta?; (2) ¿qué pierde un componente cuando cambia su `key` y por qué aquí es seguro?; (3) ¿cuándo una clase lleva `motion-safe:` y cuándo no? Un ejemplo de cada una de tu código. Después, abrir la Fase 8: empezar por los flujos de la lista "Casos para la Fase 8 del Test" (incluidos los casos F6 y F7), un flujo a la vez, escribiendo cada predicción antes de correr y haciendo fallar el test a propósito antes de darlo por bueno. **Ojo:** la CI con GitHub Actions es stack nuevo; sigue pospuesta hasta estudiarla en Aprendizaje. La Fase 8 se hace en local con `npx playwright test`.
+Abrir un chat nuevo llamado **`Test · F8 · P2 — sendero, alert y animaciones`**, pegar este CONTEXT.md y escribir "inicio sesión". Primero confirmar que el repo nuevo da 34 pasados y que `git status` está limpio. Después el Flujo 13 (el código está debajo): predecir antes de correr y hacer la mutación (`estadoDeEtapa` con `currentIndex` en vez de `indiceSendero`).
+
+test del Flujo 13 (añadir a tests/test.spec.js):
+
+test.describe('Sendero de progreso', () => {
+test('en la intro de transición, la etapa 1 está hecha y la 2 es la actual', async ({ page }) => {
+await page.goto('/test');
+await page.evaluate(() => { sessionStorage.setItem('indice', '24'); });
+await page.reload();
+await page.locator('label').first().click();
+await page.getByRole('button', { name: 'Siguiente' }).click();
+await expect(page.getByText(/Terminaste el bloque/)).toBeVisible();
+const paradas = page.getByRole('listitem');
+await expect(paradas.nth(0)).toContainText('(hecha)');
+await expect(paradas.nth(1)).toHaveAttribute('aria-current', 'step');
+await expect(paradas.nth(2)).toContainText('(pendiente)');
+});
+});
+
+Predicciones a responder: (1) ¿pasa y por qué `aria-current` va en la parada 2 si el índice sigue en 24?; (2) qué línea falla y qué parada recibe `aria-current` con la mutación; (3) qué bug de la F6 detectaría (qué mostraría "Nuevo bloque" si `indiceSendero` valiera 25).
 
 ## Dudas o problemas pendientes
 
@@ -244,3 +267,6 @@ Abrir un chat nuevo llamado **`Test · F8 · P1 — testing de flujos del test`*
 - **Ideas futuras (post-MVP):** `ConsejoVocacional` dismissible con retraso inicial + imagen motivacional; modos de test "normal" vs. "preciso"; reemplazar el "top 10 fijo" por un umbral mínimo de compatibilidad; click en una carrera del resultado para ver más información, incluyendo `sectoresEmpleo`; **fondo del sendero que se acerca a `amanecer` según el avance (opción C de la F7, requiere medir contraste en los 5 tramos)**.
 - **Carreras candidatas restantes para seguir agregando:** Comunicación Audiovisual / Ciencias de la Comunicación; Gestión de Recursos Humanos; Logística y Comercio Exterior; Marketing Digital _(verificar si tiene el mismo problema que UI/UX antes de asumir que es carrera completa)_; Ingeniería Química; Agronomía / Ingeniería Agronómica; Medicina Veterinaria; Farmacia y Bioquímica; Trabajo Social; Turismo y Hotelería; Relaciones Internacionales / Ciencias Políticas; Traducción e Interpretación; Publicidad.
 - Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — fuera de alcance hasta después del MVP.
+- **(F8)** Mover el repo fuera de OneDrive y borrar `.git-roto`, `clone-temp` y el backup cuando todo esté verificado. Anotar el `Received` real del test de desborde (predicción: 280; no confirmada).
+- **(F8, opcional)** Segundo caso de desborde con una pregunta de aptitudes (índice 43) y con la intro. Mutación fina de `isInteger`: quitar solo `< preguntas.length` (debe fallar solo `999`).
+- **(F8)** El CONTEXT.md del repo quedó con el estado anterior a la Fase 8: pegar esta versión y hacer commit en la carpeta nueva.
