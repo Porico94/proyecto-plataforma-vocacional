@@ -244,3 +244,28 @@ test.describe('Sendero de progreso', () => {
     await expect(paradas.nth(2)).toContainText('(pendiente)');
   });
 });
+
+test.describe('Alerta de error', () => {
+  test('el error se reinserta en cada intento fallido', async ({ page }) => {
+    await page.goto('/test');
+
+    // Pregunta 1 con storage vacío: aparece la intro inicial
+    await page.getByRole('button', { name: 'Continuar' }).click();
+
+    // 1.er intento: Siguiente sin responder
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    const alerta = page.locator('p[role="alert"]');
+    await expect(alerta).toBeVisible();
+    await alerta.evaluate((nodo) => { nodo.marca = true; });
+
+    // Comprobamos que la marca quedó puesta (un "no está" solo vale si antes "estaba")
+    await expect.poll(() => alerta.evaluate((nodo) => nodo.marca)).toBe(true);
+
+    // 2.º intento: mismo texto de error
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(alerta).toBeVisible();
+
+    // Nodo nuevo = sin marca
+    await expect.poll(() => alerta.evaluate((nodo) => nodo.marca)).toBeUndefined();
+  });
+});
