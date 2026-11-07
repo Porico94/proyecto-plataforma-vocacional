@@ -229,3 +229,18 @@ test.describe('Estructura y responsive', () => {
     expect(desborde).toBe(0);
   });
 });
+
+test.describe('Sendero de progreso', () => {
+  test('en la intro de transición, la etapa 1 está hecha y la 2 es la actual', async ({ page }) => {
+    await page.goto('/test');
+    await page.evaluate(() => { sessionStorage.setItem('indice', '24'); });
+    await page.reload();
+    await page.locator('label').first().click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(page.getByText(/Terminaste el bloque/)).toBeVisible();
+    const paradas = page.getByRole('listitem');
+    await expect(paradas.nth(0)).toContainText('(hecha)');
+    await expect(paradas.nth(1)).toHaveAttribute('aria-current', 'step');
+    await expect(paradas.nth(2)).toContainText('(pendiente)');
+  });
+});
