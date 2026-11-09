@@ -287,3 +287,21 @@ test.describe('Animación de la intro', () => {
     await expect(page.locator('.animate-aparecer-lento')).toHaveCSS('animation-name', 'aparecer');
   });
 });
+
+test.describe('Sendero sin recrearse', () => {
+  test('el <ol> es el mismo nodo al avanzar de pregunta', async ({ page }) => {
+    await page.goto('/test');
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByText('Pregunta 1 de 25')).toBeVisible();
+
+    const sendero = page.locator('ol');
+    await sendero.evaluate((nodo) => { nodo.marca = true; });
+    await expect.poll(() => sendero.evaluate((nodo) => nodo.marca)).toBe(true);
+
+    await page.locator('label').first().click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(page.getByText('Pregunta 2 de 25')).toBeVisible();
+
+    await expect(sendero.evaluate((nodo) => nodo.marca)).resolves.toBe(true);
+  });
+});
