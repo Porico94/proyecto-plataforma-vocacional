@@ -269,3 +269,21 @@ test.describe('Alerta de error', () => {
     await expect.poll(() => alerta.evaluate((nodo) => nodo.marca)).toBeUndefined();
   });
 });
+
+test.describe('Animación de la intro', () => {
+  test('sin preferencia de movimiento, la intro sube (subir)', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'no-preference' });
+    await page.goto('/test');
+
+    await expect(page.getByRole('heading', { name: /Nuevo bloque/ })).toBeVisible();
+    await expect(page.locator('.animate-aparecer-lento')).toHaveCSS('animation-name', 'subir');
+  });
+
+  test('con reducir movimiento, la intro solo hace fade (aparecer)', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/test');
+
+    await expect(page.getByRole('heading', { name: /Nuevo bloque/ })).toBeVisible();
+    await expect(page.locator('.animate-aparecer-lento')).toHaveCSS('animation-name', 'aparecer');
+  });
+});
