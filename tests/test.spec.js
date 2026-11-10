@@ -324,3 +324,21 @@ test.describe('Línea del sendero', () => {
     await expect(linea).toHaveClass(/scale-x-100/);
   });
 });
+
+test.describe('Pregunta de aptitud', () => {
+  test('la pregunta 44 dibuja sus 4 opciones sin romper', async ({ page }) => {
+    const respuestas = Object.fromEntries(
+      preguntas.slice(0, 43).map((p) => [p.id, 3])
+    );
+
+    await page.goto('/test');
+    await page.evaluate((r) => {
+      sessionStorage.setItem('respuestas', JSON.stringify(r));
+      sessionStorage.setItem('indice', '43');
+    }, respuestas);
+    await page.reload();
+
+    await expect(page.getByText('Pregunta 1 de 12')).toBeVisible();
+    await expect(page.getByRole('radio')).toHaveCount(4);
+  });
+});
