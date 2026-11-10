@@ -305,3 +305,22 @@ test.describe('Sendero sin recrearse', () => {
     await expect(sendero.evaluate((nodo) => nodo.marca)).resolves.toBe(true);
   });
 });
+
+test.describe('Línea del sendero', () => {
+  test('la línea 1→2 se llena tras la intro de transición', async ({ page }) => {
+    await page.goto('/test');
+    await page.evaluate(() => { sessionStorage.setItem('indice', '24'); });
+    await page.reload();
+
+    // Antes de la intro: pregunta 25, la línea 1→2 está vacía
+    const linea = page.locator('.origin-left').nth(0);
+    await expect(page.getByText('Pregunta 25 de 25')).toBeVisible();
+    await expect(linea).toHaveClass(/scale-x-0/);
+
+    // Intro de transición: la línea se llena
+    await page.locator('label').first().click();
+    await page.getByRole('button', { name: 'Siguiente' }).click();
+    await expect(page.getByText(/Terminaste el bloque/)).toBeVisible();
+    await expect(linea).toHaveClass(/scale-x-100/);
+  });
+});
