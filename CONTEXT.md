@@ -71,7 +71,7 @@
   carreras.json → 🔶 46 entradas. Array plano; `riasec`/`aptitudes`/`personalidad` como objetos `{subdimension: numero}` (Grupo A), `inteligencias_multiples`/`valores` como arrays de strings (Grupo B), más `universidades`, `sectoresEmpleo`. Campo opcional `notaCobertura` en 19/46 entradas. `sectoresEmpleo` es puramente informativo.
 /tests
   landing.spec.js → ✅ 7 tests en 5 grupos (14 con 2 proyectos: 12 pasan + 2 omitidos a propósito).
-  test.spec.js → 🔶 (F8, en curso) 17 tests × 2 proyectos = 34, todos en verde. Flujos 1-12 hechos, cada aserción vista fallar con mutación. Lee `data/preguntas.json` con `readFileSync` para armar respuestas; usa `page.evaluate` (NO `addInitScript`) para escribir `sessionStorage` (claves `indice` y `respuestas`, valores en JSON) y luego `reload()`.
+  test.spec.js → ✅ (F8 COMPLETA) 25 tests × 2 proyectos = 50 corridas, todas en verde (suite total con `landing.spec.js`: 64 = 62 pasan + 2 omitidos a propósito). Flujos 1-13 y extras, cada aserción vista fallar con mutación fina. Lee `data/preguntas.json` con `readFileSync` para armar respuestas; usa `page.evaluate` (NO `addInitScript`) para escribir `sessionStorage` (claves `indice` y `respuestas`, valores en JSON) y luego `reload()`. Técnica del "post-it" (propiedad propia en el nodo vía `evaluate`) para probar si un nodo se reemplaza (alerta: marca ausente) o persiste (`<ol>`: marca presente). Locator de la alerta: `p[role="alert"]` (NO `getByRole('alert')`: Next.js añade su propio `__next-route-announcer__` con ese rol y rompe el modo estricto).
 /playwright.config.js → ✅ `testDir: './tests'`, `baseURL: http://localhost:3000`, `webServer` con `npm run dev` + `reuseExistingServer: !process.env.CI`, reporter html, proyectos `chromium` y `Mobile Chrome` (Pixel 5).
 /public
 ```
@@ -131,13 +131,18 @@
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
 - Feature: **Test**
-- Fase actual: **Fase 8 (Testing de flujos con estado), en curso.** Luego 9 (Deploy). Fases 4-7 cerradas.
-- Hecho en la última sesión (chat `Test · F8 · P1 — testing de flujos del test`), con commits y push:
-  - Calentamiento de la F7 (transition vs animation, `key`, `motion-safe:`), corregido y aprobado.
-  - Flujos 1-12 en `tests/test.spec.js`: recarga en pregunta 1 y 2, índice 24, cambio de etapa (26, no 27), índice inválido (999, -3, 2.5), `/resultado` vacío y con 30 respuestas, Reiniciar (con `RESPUESTAS` e `INDICE` atacados por separado), Anterior ausente, error `role="alert"` (A aparece, B desaparece), "Ver resultado" en la última, foco en el `<h2>` (con mutación de dependencias en las dos direcciones), Tab hasta Siguiente (mutación en `name` del radio y en `tabIndex`), un `<main>`, un `<h1>`, sin desborde a 320 px.
-  - Incidente: un apagón corrompió un objeto de `.git` (commit `052a2d4`). Se recuperó clonando desde GitHub y reemplazando `.git`. Decisión: mover el repo fuera de OneDrive (`C:\Users\poolr\Proyectos_React` o `~/proyectos` en WSL).
-- Pendiente de la Fase 8: Flujo 13 (sendero en la intro de transición), `role="alert"` que se reinserta en cada intento, F7 (animaciones con `reducedMotion`, `<ol>` sin recrearse, línea `scale-x`), una pregunta de aptitud (detectar variables inexistentes), árbol de accesibilidad del sendero. Luego checkpoint de comprensión y preguntas de entrevista de la Fase 8.
-- Conceptos a repasar: mutación = romper la app a propósito para ver el test fallar (y solo la línea que ataca); un `expect` de "no existe" solo vale si antes se comprobó que existía; un test con storage vacío no distingue "se borró" de "nunca hubo nada"; `evaluate` vs `addInitScript`; `getByText` con string busca subcadenas sin distinguir mayúsculas; `.check()` falla con un `<input>` `sr-only` (clic en el `<label>`); un `expect` sobre un número no reintenta.
+- Fase actual: **Fase 8 (Testing) COMPLETA** (checkpoint de comprensión aprobado). Siguiente: **Fase 9 (Deploy)**. Fases 4-8 cerradas.
+- Hecho en la última sesión (chat `Test · F8 · P2 — sendero, alert y animaciones`), con commits y push (último: `e4e1160`):
+  - Flujo 13: sendero en la intro de transición (etapa 1 `hecha`, 2 `actual` con `aria-current`, 3 `pendiente`); mutación con `currentIndex` en vez de `indiceSendero`. Falla solo ese test; el Flujo 4 (Continuar → pregunta 26) protege `currentIndex`.
+  - Alerta: `key={intentosFallidos}` reinserta el `<p role="alert">` (post-it ausente). Mutación: quitar la `key` (`Received: true`).
+  - Animación de la intro con `emulateMedia` ANTES de `goto`: sin preferencia `animation-name` = `subir`; con `reduce` = `aparecer`. Mutación: quitar `motion-safe:` (falla solo el de `reduce`). El test sin preferencia es el "está" que valida al otro.
+  - `<ol>` del sendero no se recrea al avanzar (post-it presente). Mutación: `key={currentIndex}` en el `<ol>`.
+  - Línea del sendero: `.origin-left` nth(0) pasa de `scale-x-0` a `scale-x-100` en la intro de transición. Mutación: ternario invertido. La suavidad NO se prueba (percepción, no aserción).
+  - Pregunta de aptitud (índice 43, `PreguntaOpciones`): `Pregunta 1 de 12` visible y 4 radios. Dos mutaciones: variable inexistente (falla el texto) y `slice(0, 3)` (falla `toHaveCount(4)`).
+  - Árbol de accesibilidad del sendero en la pregunta 1: 5 `ol > li`, parada 1 con `aria-current="step"`, parada 2 con `(pendiente)` y sin `aria-current`. Tres mutaciones, una por aserción.
+  - Checkpoint de comprensión de la F8 aprobado. Preguntas de entrevista: hechas las 2 primeras (valor de un test que nunca falló; por qué no basta el texto del error). **Pendientes para el siguiente chat las preguntas de entrevista restantes de la Fase 8.**
+- Pendiente (opcional, no bloquea el deploy): test de responder la pregunta 44 (clic + `toBeChecked()`); segundo caso de desborde con aptitudes (índice 43) y con la intro; mutación fina de `isInteger` (quitar solo `< preguntas.length`, debe fallar solo `999`); `forcedColors: 'active'` para el anillo con `outline-hidden`.
+- Conceptos a repasar: **renderizar ≠ montar** (React renderiza todo; solo monta de nuevo lo que cambia de `key`/tipo/posición; nodo reutilizado ≠ contenido idéntico); transición (nodo que persiste, necesita estado anterior) vs animación (se dispara al montar); `getByRole` incluye lo que el framework inserta; `aria-current={false}` escribe `"false"`, `undefined` no escribe nada; `-g` = `--grep` filtra por nombre; "Received: \"\"" en `toHaveAttribute` significa atributo ausente; una mutación simétrica falla en cadena y se lee solo el primer error; el "está" precede al "ya no está".
 
 ## Features completados ✅
 
@@ -154,7 +159,7 @@
 - [x] Test — Fase 5 (Desarrollo) COMPLETA: validación del índice guardado, `/perfil` eliminada, `/resultado` con aviso de test incompleto + botón a la pregunta pendiente, botón "Reiniciar test" — Test, Fase 5, Parte 1.
 - [x] Test — Fase 6 (Responsive + Accesibilidad) COMPLETA: foco, alerta, sendero, radios nativos, `<h1>`, contrastes, responsive, `Cargando…`, `touch-manipulation`, `text-pretty`, `color-scheme`, `theme-color`, `<main>` y checkpoint aprobado — Test, Fase 6, Partes 1-2.
 - [x] Test — Fase 7 (Animaciones) COMPLETA: `outline-hidden`, hover y press de filas y botones (opción B), fade de pregunta + intro destacada (opción C), sendero con línea y círculos animados (opción B), checkpoint y preguntas de entrevista aprobados — Test, Fase 7, Parte 1. (El feature Test sigue abierto: faltan Fases 8-9.)
-- [ ] Test, Fase 8 en curso: 34 tests en verde (flujos 1-12).
+- [x] Test — Fase 8 (Testing) COMPLETA: 25 tests × 2 proyectos en `test.spec.js` (suite total 64: 62 pasan, 2 omitidos a propósito), flujos con estado, sendero, alerta, `reducedMotion`, aptitud y árbol de accesibilidad, todo con mutación; checkpoint aprobado — Test, F8, Partes 1-2. (El feature Test sigue abierto: falta la Fase 9.)
 
 ## Reglas de negocio definidas
 
@@ -212,41 +217,27 @@
 - **(F8) Para storage con datos usar `evaluate` + `reload()`**, no `addInitScript`, para no falsificar la restauración. Ante un índice a probar, dejar uno distinto de 0 (con 0 no se distingue de "storage vacío").
 - **(F8) El repo vive fuera de OneDrive.** Push frecuente: es el seguro contra cortes de luz.
 
+- **(F8) Locators estrictos con roles genéricos:** `alert`, `status`, `region` pueden coincidir con elementos que añade el framework; usar `p[role="alert"]`, `ol > li`, `.origin-left` con `.nth()`.
+- **(F8) Para probar si un nodo se reemplaza o persiste:** poner una propiedad propia con `locator.evaluate` y releerla después; con `expect.poll` cuando el cambio es asíncrono. Marca ausente = nodo nuevo; marca presente = nodo reutilizado. Siempre precedido de un `.toBe(true)` que demuestre que la marca se puso.
+- **(F8) Mutar solo lo que ataca la aserción** y como atributo literal si es un atributo; revertir con `git checkout <archivo>` (el archivo correcto: `page.jsx` o el componente) y confirmar con `git status`. Si la mutación falla otra aserción, no atacó la prevista.
+- **(F8) Nombres de test honestos:** el título dice lo que el test hace de verdad (no prometer tramos que se dejaron fuera).
+- **(F8) Qué se prueba automático y qué no:** clases, atributos, nombres de animación, conteos; NO suavidad, fluidez ni "se ve bien" (eso se juzga a ojo y en móvil real).
+- **(F8) Conteo de tests:** anotar siempre corridas (tests × proyectos) y distinguir `test.spec.js` del suite completo.
+
 ## Próximo paso concreto
 
-Abrir un chat nuevo llamado **`Test · F8 · P2 — sendero, alert y animaciones`**, pegar este CONTEXT.md y escribir "inicio sesión". Primero confirmar que el repo nuevo da 34 pasados y que `git status` está limpio. Después el Flujo 13 (el código está debajo): predecir antes de correr y hacer la mutación (`estadoDeEtapa` con `currentIndex` en vez de `indiceSendero`).
-
-test del Flujo 13 (añadir a tests/test.spec.js):
-
-test.describe('Sendero de progreso', () => {
-test('en la intro de transición, la etapa 1 está hecha y la 2 es la actual', async ({ page }) => {
-await page.goto('/test');
-await page.evaluate(() => { sessionStorage.setItem('indice', '24'); });
-await page.reload();
-await page.locator('label').first().click();
-await page.getByRole('button', { name: 'Siguiente' }).click();
-await expect(page.getByText(/Terminaste el bloque/)).toBeVisible();
-const paradas = page.getByRole('listitem');
-await expect(paradas.nth(0)).toContainText('(hecha)');
-await expect(paradas.nth(1)).toHaveAttribute('aria-current', 'step');
-await expect(paradas.nth(2)).toContainText('(pendiente)');
-});
-});
-
-Predicciones a responder: (1) ¿pasa y por qué `aria-current` va en la parada 2 si el índice sigue en 24?; (2) qué línea falla y qué parada recibe `aria-current` con la mutación; (3) qué bug de la F6 detectaría (qué mostraría "Nuevo bloque" si `indiceSendero` valiera 25).
+Abrir un chat nuevo llamado **`Test · F9 · P1 — deploy del test`**, pegar este CONTEXT.md y escribir "inicio sesión". Primero: (1) guardar este CONTEXT.md en el repo (carpeta nueva fuera de OneDrive) y hacer commit; (2) retomar las preguntas de entrevista pendientes de la Fase 8; (3) abrir la Fase 9: `npm run build` + `npm run lint` + `npx playwright test` en local (esperado: 62 pasan, 2 omitidos) y push a `main` para el deploy en Vercel; luego probar el test en un móvil real desplegado (`active:`, `prefers-reduced-motion`, `touch-manipulation`, `theme-color`). GitHub Actions/CI sigue pospuesto hasta estudiarlo en Aprendizaje.
 
 ## Dudas o problemas pendientes
 
 - **(F6, cierre)** `color-scheme: dark` aparece en Computed pero la barra de scroll no cambió de color en el navegador de Pool (probable barra superpuesta o límite del sistema); probar en otro navegador si interesa. `theme-color` y `touch-manipulation` solo se confirman de verdad en un móvil real, ya desplegado en Vercel.
 - **(F7)** Los efectos `active:` (encogimiento de Siguiente/Continuar, fondo de las filas) y el modo `prefers-reduced-motion` solo se verificaron en el navegador de escritorio con emulación; probarlos en un móvil real desplegado en Vercel. El hover de las filas y de Anterior se confirmó con el mouse.
 - **(F7, a observar con beta testers)** La intro y el cambio de etapa del sendero ocurren a la vez (intro con subida de 12 px y línea/círculo cambiando); si se siente mucho junto, evaluar un `delay` en el círculo o en la línea. El fade de 120 ms entre preguntas es muy sutil por diseño: revisar si alguien lo nota o lo extraña.
-- **(Fase 8)** Añadir a los casos del Test: un solo `getByRole('main')` en `/test` y el `<h1>` "Test vocacional".
 - La demo de "casilleros de hooks" fue un widget dentro del chat y NO se publicó; publicarla como página reabrible si Pool quiere repasarla. Las demos de la F7 (hover, transición entre pantallas, sendero) tampoco se publicaron.
 - **Referencia de aprendizaje (demo interactiva):** orden de Tab con botones frente a radios nativos, con la tabla de lo que oye quien usa lector: https://claude.ai/artifact/N668HEeUkpw7RnREmyNcRa
 - **Lector de pantalla:** Pool no tiene Mac y no pudo probar VoiceOver. Lo que oye quien usa lector está inferido de la estructura (árbol de accesibilidad en DevTools), no probado. Alternativas a evaluar: NVDA (gratuito, en Windows) o TalkBack en Android.
 - **Avance para quien usa lector:** decidido dejar sin anunciar "Etapa X · Pregunta Y de Z" en cada pregunta (opción A). Alternativa B (texto `sr-only` dentro del `<h2>`, tipo "Pregunta 3 de 18.") solo si los beta testers con lector lo piden.
 - **Línea decorativa del sendero:** la pista fija es `bg-texto-claro/35` (~2.9:1 en cálculo propio, sin medir en WebAIM). Es decorativa; verificar y subir la opacidad si se quiere cumplir 3:1. El relleno `amanecer` sí cumple.
-- **Fase 8 del Test:** ver los casos nuevos en "Casos para la Fase 8 del Test" (F6 y F7). La medida de desborde se omitió sin mutación en la Fase 6: el test de Playwright la reemplaza.
 - Al probar `apt-espacial-03`, reiniciar el storage (una respuesta guardada con las opciones viejas no coincidiría con las nuevas).
 - Layout horizontal de las 5 opciones likert en escritorio: descartado por ahora; reevaluar si la lista vertical se siente larga.
 - **Fase 6 (a observar):** al aparecer/desaparecer el mensaje de error, los botones Anterior/Siguiente suben y bajan. A Pool no le molesta; revisar con beta testers o en móvil.
@@ -267,6 +258,6 @@ Predicciones a responder: (1) ¿pasa y por qué `aria-current` va en la parada 2
 - **Ideas futuras (post-MVP):** `ConsejoVocacional` dismissible con retraso inicial + imagen motivacional; modos de test "normal" vs. "preciso"; reemplazar el "top 10 fijo" por un umbral mínimo de compatibilidad; click en una carrera del resultado para ver más información, incluyendo `sectoresEmpleo`; **fondo del sendero que se acerca a `amanecer` según el avance (opción C de la F7, requiere medir contraste en los 5 tramos)**.
 - **Carreras candidatas restantes para seguir agregando:** Comunicación Audiovisual / Ciencias de la Comunicación; Gestión de Recursos Humanos; Logística y Comercio Exterior; Marketing Digital _(verificar si tiene el mismo problema que UI/UX antes de asumir que es carrera completa)_; Ingeniería Química; Agronomía / Ingeniería Agronómica; Medicina Veterinaria; Farmacia y Bioquímica; Trabajo Social; Turismo y Hotelería; Relaciones Internacionales / Ciencias Políticas; Traducción e Interpretación; Publicidad.
 - Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — fuera de alcance hasta después del MVP.
-- **(F8)** Mover el repo fuera de OneDrive y borrar `.git-roto`, `clone-temp` y el backup cuando todo esté verificado. Anotar el `Received` real del test de desborde (predicción: 280; no confirmada).
-- **(F8, opcional)** Segundo caso de desborde con una pregunta de aptitudes (índice 43) y con la intro. Mutación fina de `isInteger`: quitar solo `< preguntas.length` (debe fallar solo `999`).
-- **(F8)** El CONTEXT.md del repo quedó con el estado anterior a la Fase 8: pegar esta versión y hacer commit en la carpeta nueva.
+- **(F8)** El repo ya vive fuera de OneDrive (`C:\Users\poolr\Proyectos_React`). Borrar `.git-roto`, `clone-temp` y el backup cuando todo esté verificado. Anotar el `Received` real del test de desborde (predicción: 280; no confirmada).
+- **(F8, opcional)** Ver el bloque "Pendiente (opcional)" de Feature actual: responder la pregunta 44 con `toBeChecked()`, desborde en aptitudes e intro, mutación fina de `isInteger`.
+- **(F8)** Al abrir el siguiente chat, pegar ESTE CONTEXT.md en el repo y hacer commit (el del repo quedó con el estado anterior a la Fase 8).
