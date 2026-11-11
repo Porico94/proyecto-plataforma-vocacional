@@ -342,3 +342,21 @@ test.describe('Pregunta de aptitud', () => {
     await expect(page.getByRole('radio')).toHaveCount(4);
   });
 });
+
+test.describe('Árbol de accesibilidad del sendero', () => {
+  test('en la pregunta 1, la parada 1 es la actual y la 2 está pendiente', async ({ page }) => {
+    await page.goto('/test');
+    await page.getByRole('button', { name: 'Continuar' }).click();
+    await expect(page.getByText('Pregunta 1 de 25')).toBeVisible();
+
+    const paradas = page.locator('ol > li');
+    await expect(paradas).toHaveCount(5);
+
+    // "Está": la parada 1 lleva aria-current
+    await expect(paradas.nth(0)).toHaveAttribute('aria-current', 'step');
+    // El estado de la parada 2 va en el texto
+    await expect(paradas.nth(1)).toContainText('(pendiente)');
+    // "No está": la parada 2 NO lleva aria-current
+    await expect(paradas.nth(1)).not.toHaveAttribute('aria-current', 'step');
+  });
+});
