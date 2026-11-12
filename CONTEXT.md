@@ -28,7 +28,7 @@
   /layout.js → ✅ Completo: fuentes Literata (`--font-voz`) y Karla (`--font-cuerpo`) vía `next/font/google`, `lang="es"`. (Fase 9) `metadata` global con `robots: { index: false }` (aplica a todo el sitio mientras sea privado) y title por defecto "Encuentra tu carrera compatible". (F6) `export const viewport = { themeColor: '#14171F' }` como export APARTE de `metadata` (genera `<meta name="theme-color">`). El `<main>` NO va en el layout: lo pone cada página.
   /globals.css → ✅ Completo: tokens de marca en `@theme` (noche/papel/amanecer/musgo/texto-claro/texto-oscuro/**error**, fuentes voz/cuerpo). Sin modo claro/oscuro automático. El warning de editor "Unknown at rule @theme" es falso positivo. (P5) Se agregó `--color-error: #F28B82;` (genera `text-error`, `bg-error`, `border-error`). (F6) `html { color-scheme: dark; }` (en `html`, fuera de `@theme`). **(F7) Animaciones dentro de `@theme`:** `--animate-aparecer: aparecer 120ms ease-out;` (genera `animate-aparecer`), `--animate-aparecer-lento: aparecer 280ms ease-out;` (genera `animate-aparecer-lento`), `--animate-subir: subir 280ms ease-out;` (genera `animate-subir`), y los `@keyframes aparecer` (opacity 0 → 1) y `subir` (opacity 0 + `translateY(12px)` → opacity 1 + `transform: none`) también dentro del `@theme`.
   /perfil → ❌ ELIMINADA (Test, F5, P1). Nada la enlazaba y `region` ya no se usa. El nombre del estudiante se pedirá al final, en `/resultado` (ver Reglas de negocio). `/perfil` da 404.
-  /test/page.jsx → ✅ **Fase 4 COMPLETA**, **Fase 5 COMPLETA**, **Fase 6 (Responsive + Accesibilidad) COMPLETA**, **Fase 7 (Animaciones) COMPLETA**. Fases 8-9 pendientes. Hecho, probado a mano, con lint y subido a GitHub:
+  /test/page.jsx → ✅ **Fase 4 COMPLETA**, **Fase 5 COMPLETA**, **Fase 6 (Responsive + Accesibilidad) COMPLETA**, **Fase 7 (Animaciones) COMPLETA**, **Fase 8 (Testing) COMPLETA**, **Fase 9 (Deploy) COMPLETA**. Hecho, probado a mano, con lint y subido a GitHub:
     1. Pantalla de carga con `cargandoDatos` (inicia en `true`, pasa a `false` al final del `useEffect` de restauración; el `if (cargandoDatos) return ...` va DESPUÉS de todos los hooks). Es `<p>Cargando…</p>` (un solo carácter, F6).
     2. `etapas` con `reduce` FUERA del componente, agrupando `preguntas.json` por `dimension` → `[{dimension, inicio, fin}]`. Resultado real: personalidad 0-24, riasec 25-42, aptitudes 43-54, inteligencias_multiples 55-70, valores 71-76.
     3. `nombresAmigables`, `introEtapas` y `estilosParada` como objetos literales fuera del componente. `introEtapas[dimension] = { mide, comoResponder }` para las 5 dimensiones.
@@ -130,19 +130,16 @@
 
 ## Feature actual (Bloque B — cambia en cada ciclo)
 
-- Feature: **Test**
-- Fase actual: **Fase 8 (Testing) COMPLETA** (checkpoint de comprensión aprobado). Siguiente: **Fase 9 (Deploy)**. Fases 4-8 cerradas.
-- Hecho en la última sesión (chat `Test · F8 · P2 — sendero, alert y animaciones`), con commits y push (último: `e4e1160`):
-  - Flujo 13: sendero en la intro de transición (etapa 1 `hecha`, 2 `actual` con `aria-current`, 3 `pendiente`); mutación con `currentIndex` en vez de `indiceSendero`. Falla solo ese test; el Flujo 4 (Continuar → pregunta 26) protege `currentIndex`.
-  - Alerta: `key={intentosFallidos}` reinserta el `<p role="alert">` (post-it ausente). Mutación: quitar la `key` (`Received: true`).
-  - Animación de la intro con `emulateMedia` ANTES de `goto`: sin preferencia `animation-name` = `subir`; con `reduce` = `aparecer`. Mutación: quitar `motion-safe:` (falla solo el de `reduce`). El test sin preferencia es el "está" que valida al otro.
-  - `<ol>` del sendero no se recrea al avanzar (post-it presente). Mutación: `key={currentIndex}` en el `<ol>`.
-  - Línea del sendero: `.origin-left` nth(0) pasa de `scale-x-0` a `scale-x-100` en la intro de transición. Mutación: ternario invertido. La suavidad NO se prueba (percepción, no aserción).
-  - Pregunta de aptitud (índice 43, `PreguntaOpciones`): `Pregunta 1 de 12` visible y 4 radios. Dos mutaciones: variable inexistente (falla el texto) y `slice(0, 3)` (falla `toHaveCount(4)`).
-  - Árbol de accesibilidad del sendero en la pregunta 1: 5 `ol > li`, parada 1 con `aria-current="step"`, parada 2 con `(pendiente)` y sin `aria-current`. Tres mutaciones, una por aserción.
-  - Checkpoint de comprensión de la F8 aprobado. Preguntas de entrevista: hechas las 2 primeras (valor de un test que nunca falló; por qué no basta el texto del error). **Pendientes para el siguiente chat las preguntas de entrevista restantes de la Fase 8.**
-- Pendiente (opcional, no bloquea el deploy): test de responder la pregunta 44 (clic + `toBeChecked()`); segundo caso de desborde con aptitudes (índice 43) y con la intro; mutación fina de `isInteger` (quitar solo `< preguntas.length`, debe fallar solo `999`); `forcedColors: 'active'` para el anillo con `outline-hidden`.
-- Conceptos a repasar: **renderizar ≠ montar** (React renderiza todo; solo monta de nuevo lo que cambia de `key`/tipo/posición; nodo reutilizado ≠ contenido idéntico); transición (nodo que persiste, necesita estado anterior) vs animación (se dispara al montar); `getByRole` incluye lo que el framework inserta; `aria-current={false}` escribe `"false"`, `undefined` no escribe nada; `-g` = `--grep` filtra por nombre; "Received: \"\"" en `toHaveAttribute` significa atributo ausente; una mutación simétrica falla en cadena y se lee solo el primer error; el "está" precede al "ya no está".
+- Feature: **Test — CERRADO** (ciclo completo, Fases 4-9). Siguiente feature en cola: **Resultado** (no abierto todavía).
+- Fase actual: ninguna abierta. Antes de abrir Resultado hay que estudiar la **generación de PDF en el proyecto de Aprendizaje** (stack nuevo).
+- Hecho en la última sesión (chat `Test · F9 · P1 — deploy del test`):
+  - CONTEXT.md del repo actualizado y subido (commit `a128ce2`, `docs: actualiza CONTEXT.md al cierre de la fase 8 del test`).
+  - Preguntas de entrevista de la F8 cerradas (3 a 5): `evaluate` + `reload()` vs `addInitScript`; `Tab` vs `focus()`; qué es una mutación y qué problema resuelve.
+  - Fase 9: `npm run build` (rutas `/`, `/test`, `/resultado`, todas estáticas; `/perfil` ya no aparece), `npm run lint` (limpio) y `npx playwright test` (64 corridas: 62 pasan, 2 omitidos a propósito) en verde. `git status` limpio; Vercel en _Ready_ (el código de la F8 ya estaba desplegado desde `e4e1160`).
+  - Probado en móvil real desplegado: `active:` (Siguiente/Continuar se encogen), `prefers-reduced-motion` (quita animaciones), `touch-manipulation` (el doble toque no hace zoom) y `theme-color` (barra color `noche`).
+  - Checkpoint de comprensión de la F9 APROBADO tras corregir un punto: por qué la restauración va en `useEffect` (ver conceptos a repasar).
+- Conceptos a repasar: **dónde corre cada código y qué es hidratación** (costó dos vueltas). El HTML estático lo genera Node en `next build`, antes de que exista ningún estudiante: ahí `storage.get` devuelve `null` (`typeof window === 'undefined'`) y `null ?? 0` da la pregunta 1. El navegador sí tiene `sessionStorage`. Si el valor inicial de `useState` leyera el storage, el primer render del navegador (índice 30) NO coincidiría con el HTML (índice 0): error de hidratación. Regla: **el primer render del navegador debe ser idéntico al HTML de Node**; el storage se lee después de pintar, en `useEffect`, y un `set...` provoca un segundo render con el dato real. Pendiente: demo interactiva de este flujo (Node vs navegador, hidratación) si Pool quiere repasarlo. También repasar: **renderizar ≠ montar**; transición (nodo que persiste) vs animación (se dispara al montar); `getByRole` incluye lo que el framework inserta; `aria-current={false}` escribe `"false"`, `undefined` no escribe nada; una mutación simétrica falla en cadena y se lee solo el primer error; el "está" precede al "ya no está".
+- Pendiente (opcional, no bloquea nada): test de responder la pregunta 44 (clic + `toBeChecked()`); segundo caso de desborde con aptitudes (índice 43) y con la intro; mutación fina de `isInteger` (quitar solo `< preguntas.length`, debe fallar solo `999`); `forcedColors: 'active'` para el anillo con `outline-hidden`.
 
 ## Features completados ✅
 
@@ -159,7 +156,8 @@
 - [x] Test — Fase 5 (Desarrollo) COMPLETA: validación del índice guardado, `/perfil` eliminada, `/resultado` con aviso de test incompleto + botón a la pregunta pendiente, botón "Reiniciar test" — Test, Fase 5, Parte 1.
 - [x] Test — Fase 6 (Responsive + Accesibilidad) COMPLETA: foco, alerta, sendero, radios nativos, `<h1>`, contrastes, responsive, `Cargando…`, `touch-manipulation`, `text-pretty`, `color-scheme`, `theme-color`, `<main>` y checkpoint aprobado — Test, Fase 6, Partes 1-2.
 - [x] Test — Fase 7 (Animaciones) COMPLETA: `outline-hidden`, hover y press de filas y botones (opción B), fade de pregunta + intro destacada (opción C), sendero con línea y círculos animados (opción B), checkpoint y preguntas de entrevista aprobados — Test, Fase 7, Parte 1. (El feature Test sigue abierto: faltan Fases 8-9.)
-- [x] Test — Fase 8 (Testing) COMPLETA: 25 tests × 2 proyectos en `test.spec.js` (suite total 64: 62 pasan, 2 omitidos a propósito), flujos con estado, sendero, alerta, `reducedMotion`, aptitud y árbol de accesibilidad, todo con mutación; checkpoint aprobado — Test, F8, Partes 1-2. (El feature Test sigue abierto: falta la Fase 9.)
+- [x] Test — Fase 8 (Testing) COMPLETA: 25 tests × 2 proyectos en `test.spec.js` (suite total 64: 62 pasan, 2 omitidos a propósito), flujos con estado, sendero, alerta, `reducedMotion`, aptitud y árbol de accesibilidad, todo con mutación; checkpoint aprobado — Test, F8, Partes 1-2.
+- [x] Test — Fase 9 (Deploy) COMPLETA: build, lint y 62 tests en verde, Vercel _Ready_, probado en móvil real (`active:`, `prefers-reduced-motion`, `touch-manipulation`, `theme-color`), checkpoint aprobado — Test, F9, P1. **Feature Test CERRADO.**
 
 ## Reglas de negocio definidas
 
@@ -223,15 +221,19 @@
 - **(F8) Nombres de test honestos:** el título dice lo que el test hace de verdad (no prometer tramos que se dejaron fuera).
 - **(F8) Qué se prueba automático y qué no:** clases, atributos, nombres de animación, conteos; NO suavidad, fluidez ni "se ve bien" (eso se juzga a ojo y en móvil real).
 - **(F8) Conteo de tests:** anotar siempre corridas (tests × proyectos) y distinguir `test.spec.js` del suite completo.
+- **(F9) Antes de dar por cerrado un deploy:** build + lint + `npx playwright test` en local, `git status` limpio, Vercel en _Ready_ y prueba en un móvil real. Lo que solo se confirma en móvil (`active:`, `theme-color`, `touch-manipulation`, `reduced-motion`) no se da por bueno con emulación.
+- **(F9) `evaluate` + `reload()` en vez de `addInitScript` para storage con datos:** `addInitScript` corre antes que cualquier código de la página en CADA carga y navegación y reinyecta el valor, pisando lo que la app guardó (falso fallo en persistencia y falso éxito si la app dejara de guardar). `evaluate` escribe una sola vez y obliga a la app a leer ella misma. `addInitScript` solo si el storage debe existir antes del primer render.
+- **(F9) `keyboard.press('Tab')` en vez de `locator.focus()` para probar navegación:** `focus()` fuerza el foco sin comprobar que se pueda llegar por teclado; `Tab` prueba alcanzabilidad, orden y número de paradas. `focus()` sirve para preparar un estado, no para reemplazar la prueba.
+- **(F9) El primer render del navegador debe coincidir con el HTML generado en Node:** nada que dependa de `sessionStorage`/`localStorage` en el valor inicial de `useState` ni en el cuerpo del componente.
 
 ## Próximo paso concreto
 
-Abrir un chat nuevo llamado **`Test · F9 · P1 — deploy del test`**, pegar este CONTEXT.md y escribir "inicio sesión". Primero: (1) guardar este CONTEXT.md en el repo (carpeta nueva fuera de OneDrive) y hacer commit; (2) retomar las preguntas de entrevista pendientes de la Fase 8; (3) abrir la Fase 9: `npm run build` + `npm run lint` + `npx playwright test` en local (esperado: 62 pasan, 2 omitidos) y push a `main` para el deploy en Vercel; luego probar el test en un móvil real desplegado (`active:`, `prefers-reduced-motion`, `touch-manipulation`, `theme-color`). GitHub Actions/CI sigue pospuesto hasta estudiarlo en Aprendizaje.
+Abrir un chat nuevo en el proyecto de **Aprendizaje** llamado **`Aprendizaje · PDF — generar un PDF con nombre y fecha`** para estudiar la generación de PDF en el navegador (stack nuevo, requisito antes de abrir Resultado). Cuando esté aprendido, abrir un chat en este proyecto llamado **`Resultado · F4 · P1 — diseño de la pantalla de resultado`**, pegar este CONTEXT.md y escribir "inicio sesión". Entradas del feature Resultado: ver "Feature Resultado (en cola)" en Dudas.
 
 ## Dudas o problemas pendientes
 
-- **(F6, cierre)** `color-scheme: dark` aparece en Computed pero la barra de scroll no cambió de color en el navegador de Pool (probable barra superpuesta o límite del sistema); probar en otro navegador si interesa. `theme-color` y `touch-manipulation` solo se confirman de verdad en un móvil real, ya desplegado en Vercel.
-- **(F7)** Los efectos `active:` (encogimiento de Siguiente/Continuar, fondo de las filas) y el modo `prefers-reduced-motion` solo se verificaron en el navegador de escritorio con emulación; probarlos en un móvil real desplegado en Vercel. El hover de las filas y de Anterior se confirmó con el mouse.
+- **(F6, cierre)** `color-scheme: dark` aparece en Computed pero la barra de scroll no cambió de color en el navegador de escritorio de Pool (probable barra superpuesta); probar en otro navegador si interesa. `theme-color` y `touch-manipulation` CONFIRMADOS en móvil real (F9).
+- **(F7)** `active:` y `prefers-reduced-motion` CONFIRMADOS en móvil real (F9). El hover de las filas y de Anterior se confirmó con el mouse.
 - **(F7, a observar con beta testers)** La intro y el cambio de etapa del sendero ocurren a la vez (intro con subida de 12 px y línea/círculo cambiando); si se siente mucho junto, evaluar un `delay` en el círculo o en la línea. El fade de 120 ms entre preguntas es muy sutil por diseño: revisar si alguien lo nota o lo extraña.
 - La demo de "casilleros de hooks" fue un widget dentro del chat y NO se publicó; publicarla como página reabrible si Pool quiere repasarla. Las demos de la F7 (hover, transición entre pantallas, sendero) tampoco se publicaron.
 - **Referencia de aprendizaje (demo interactiva):** orden de Tab con botones frente a radios nativos, con la tabla de lo que oye quien usa lector: https://claude.ai/artifact/N668HEeUkpw7RnREmyNcRa
@@ -260,4 +262,4 @@ Abrir un chat nuevo llamado **`Test · F9 · P1 — deploy del test`**, pegar es
 - Diseño del sistema de filtros post-MVP para `ritmo_trabajo`, `esfuerzo_fisico` y `disponibilidad_viajar` — fuera de alcance hasta después del MVP.
 - **(F8)** El repo ya vive fuera de OneDrive (`C:\Users\poolr\Proyectos_React`). Borrar `.git-roto`, `clone-temp` y el backup cuando todo esté verificado. Anotar el `Received` real del test de desborde (predicción: 280; no confirmada).
 - **(F8, opcional)** Ver el bloque "Pendiente (opcional)" de Feature actual: responder la pregunta 44 con `toBeChecked()`, desborde en aptitudes e intro, mutación fina de `isInteger`.
-- **(F8)** Al abrir el siguiente chat, pegar ESTE CONTEXT.md en el repo y hacer commit (el del repo quedó con el estado anterior a la Fase 8).
+- **(F9)** Al abrir el siguiente chat, guardar este CONTEXT.md en el repo y hacer commit (el del repo queda con el estado de la F8).
