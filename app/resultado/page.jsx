@@ -44,22 +44,22 @@
 
     if (indicePendiente !== null) {
       return (
-        <div>
+        <main className="mx-auto w-full max-w-2xl px-4 py-8">
           <h1>Falta completar la pregunta N° {indicePendiente + 1}</h1>
           <button onClick={handleIrAlTest}>Ir al test</button>
-        </div>
+        </main>
       );
     } 
 
     if (!resultado) {
       return (
-        <div>
+        <main className="mx-auto w-full max-w-2xl px-4 py-8">
           <h1>Cargando resultados...</h1>
-        </div>
+        </main>
       );
     } else {
       return (  
-        <div>
+        <main className="mx-auto w-full max-w-2xl px-4 py-8">
           <ConsejoVocacional/>
           <section>
             <h2>Carreras recomendadas</h2>
@@ -86,7 +86,7 @@
             </ol>
           </section>
           <button onClick={handleReiniciar}>Reiniciar test</button>
-        </div>
+        </main>
       );
     }
   }
