@@ -63,21 +63,27 @@
           <ConsejoVocacional/>
           <section>
             <h2>Carreras recomendadas</h2>
-            <ul>
-              {top10.map((carrera) => (
+            <ol className="mt-6 flex flex-col gap-4">
+              {top10.map((carrera, index) => (
                 <li key={carrera.carreraId}>
-                  <h3>{carrera.nombre}</h3>
-                  <p>Compatibilidad: {carrera.total.toFixed(1)}%</p>
-                  <ul>
-                    {Object.entries(carrera.porDimension).map(([dimension, porcentaje]) => (
-                      <li key={dimension}>
-                      {dimension}: {porcentaje.toFixed(1)}%
-                      </li>
-                    ))}
-                  </ul>
+                  <div className="flex items-baseline justify-between gap-3">
+                    <h3 className="text-lg text-texto-claro">
+                      <span aria-hidden="true">{index + 1}. </span>
+                      {carrera.nombre}
+                    </h3>
+                    <p className="text-lg font-medium text-texto-claro">
+                      {Math.round(carrera.total)}%
+                    </p>
+                  </div>
+                  <div aria-hidden="true" className="mt-2 h-1.5 rounded-full bg-texto-claro/40">
+                    <div
+                      className="h-full rounded-full bg-amanecer"
+                      style={{ width: `${carrera.total}%` }}
+                    />
+                  </div>
                 </li>
               ))}
-            </ul>            
+            </ol>
           </section>
           <button onClick={handleReiniciar}>Reiniciar test</button>
         </div>
