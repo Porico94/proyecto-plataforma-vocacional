@@ -87,7 +87,8 @@
             </ol>
           </section>
           <ConsejoVocacional/>
-          <button onClick={handleReiniciar}>Reiniciar test</button>
+          <button className="flex mt-8 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche transition-[border-color,background-color] duration-150 ease-out hover:border-texto-claro/80 hover:bg-texto-claro/5 active:bg-texto-claro/10"
+          onClick={handleReiniciar}>Reiniciar test</button>
         </main>
       );
     }

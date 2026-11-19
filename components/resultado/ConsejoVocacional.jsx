@@ -1,28 +1,22 @@
 export default function ConsejoVocacional() {
   return (
-    <section>
+    <section className="mt-12 flex flex-col gap-4 text-texto-claro">
       <p>
-        Las carreras que ves aquí son las que mejor calzan con quién eres: tus
-        intereses, tus habilidades, tu forma de pensar.
+        Las carreras que ves aquí son las que mejor calzan con quién eres: tus intereses, tus habilidades y tu forma de pensar.
+      </p>
+      <p>
+        Eso sí, ten claro algo: ninguna carrera garantiza por sí sola estabilidad económica. Eso depende de varios factores, por ejemplo:
       </p>
 
-      <p>
-        Ninguna carrera garantiza por sí sola estabilidad económica — eso
-        depende de varios factores, por ejemplo:
-      </p>
-
-      <ul>
+      <ul className="flex list-disc flex-col gap-2 pl-5">
         <li>
-          <strong>Tu formación profesional</strong> — demuestra lo que sabes,
-          no solo el título que tienes.
+          <strong>Tu formación profesional:</strong> demuestra lo que sabes hacer, no te quedes solo con el título.
         </li>
         <li>
-          <strong>Las oportunidades que busques</strong> — nunca dejes de
-          buscarlas, no siempre llegan solas.
+          <strong>Las oportunidades que busques:</strong> nunca dejes de moverte, no siempre llegan solas.
         </li>
         <li>
-          <strong>Tu red de contactos</strong> — ser sociable y construir
-          relaciones puede abrirte muchas puertas.
+          <strong>Tu red de contactos:</strong> conectar con personas de tu rubro te abrirá muchas puertas.
         </li>
       </ul>
 
