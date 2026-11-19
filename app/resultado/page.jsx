@@ -59,18 +59,19 @@
       );
     } else {
       return (  
-        <main className="mx-auto w-full max-w-2xl px-4 py-8">
-          <ConsejoVocacional/>
+        <main className="mx-auto w-full max-w-2xl px-4 py-8">          
           <section>
-            <h2>Carreras recomendadas</h2>
-            <ol className="mt-6 flex flex-col gap-4">
+            <h1 className="mb-8 font-voz text-2xl leading-snug font-medium text-pretty text-texto-claro sm:text-3xl">
+              ¡Listo! Estas son las 10 carreras que mejor encajan contigo.
+            </h1>            
+            <ol className="flex flex-col gap-4">
               {top10.map((carrera, index) => (
                 <li key={carrera.carreraId}>
                   <div className="flex items-baseline justify-between gap-3">
-                    <h3 className="text-lg text-texto-claro">
+                    <p className="text-lg text-texto-claro">
                       <span aria-hidden="true">{index + 1}. </span>
                       {carrera.nombre}
-                    </h3>
+                    </p>
                     <p className="text-lg font-medium text-texto-claro">
                       {Math.round(carrera.total)}%
                     </p>
@@ -85,6 +86,7 @@
               ))}
             </ol>
           </section>
+          <ConsejoVocacional/>
           <button onClick={handleReiniciar}>Reiniciar test</button>
         </main>
       );
