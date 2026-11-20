@@ -1,6 +1,6 @@
   'use client'
 
-  import {useEffect, useState} from 'react';
+  import {useEffect, useState, useRef} from 'react';
   import {storage} from '@/lib/storage';
   import preguntas from '@/data/preguntas.json';
   import carreras from '@/data/carreras.json';
@@ -12,9 +12,11 @@
 
   export default function Resultado() {
     const router = useRouter();
+    const dialogRef = useRef(null);
     const [resultado, setResultado] = useState(null);
     const [top10, setTop10] = useState(null);
     const [indicePendiente, setIndicePendiente] = useState(null);
+    
 
     useEffect(() => {      
       const respuestas = storage.get(storage.keys.RESPUESTAS) || {};
@@ -40,6 +42,14 @@
       storage.remove(storage.keys.RESPUESTAS);
       storage.remove(storage.keys.INDICE);
       router.push('/test');
+    };
+
+    const handleAbrirDialogo = () => {
+      dialogRef.current.showModal();
+    };
+
+    const handleCerrarDialogo = () => {
+      dialogRef.current.close();
     };
 
     if (indicePendiente !== null) {
@@ -87,6 +97,16 @@
             </ol>
           </section>
           <ConsejoVocacional/>
+          <button onClick={handleAbrirDialogo}>Guardar en PDF</button>
+
+          <dialog ref={dialogRef}>
+            <h2>¿Quieres poner tu nombre?</h2>
+            <p>Es opcional. Si lo dejas vacío, el PDF sale sin nombre.</p>
+            <label htmlFor="nombre">Tu nombre</label>
+            <input id="nombre" type="text" />
+            <button type="button" onClick={handleCerrarDialogo}>Cancelar</button>
+            <button type="button">Descargar PDF</button>
+          </dialog>
           <button className="flex mt-8 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche transition-[border-color,background-color] duration-150 ease-out hover:border-texto-claro/80 hover:bg-texto-claro/5 active:bg-texto-claro/10"
           onClick={handleReiniciar}>Reiniciar test</button>
         </main>
