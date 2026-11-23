@@ -97,8 +97,19 @@
             </ol>
           </section>
           <ConsejoVocacional/>
-          <button onClick={handleAbrirDialogo}>Guardar en PDF</button>
-
+          <div className="mx-auto mt-8 flex flex-col gap-3 sm:max-w-md sm:flex-row">
+            <button
+              className="relative isolate flex sm:flex-1 items-center justify-center min-h-11.5 rounded-lg border-2 border-transparent px-4 gap-2 text-texto-oscuro font-medium touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche before:absolute before:-inset-0.5 before:-z-10 before:rounded-lg before:bg-amanecer before:content-[''] before:transition-[filter,scale] before:duration-150 before:ease-out hover:before:brightness-110 motion-safe:active:before:scale-[0.97]"
+              onClick={handleAbrirDialogo}>
+              Guardar en PDF
+            </button>
+            
+            <button
+              className="flex sm:flex-1 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche transition-[border-color,background-color] duration-150 ease-out hover:border-texto-claro/80 hover:bg-texto-claro/5 active:bg-texto-claro/10"
+              onClick={handleReiniciar}>
+              Reiniciar test
+            </button>
+          </div>
           <dialog
             ref={dialogRef}
             className="m-auto w-[calc(100%-2rem)] max-w-md rounded-xl border-2 border-texto-claro/50 bg-noche p-5 text-texto-claro backdrop:bg-black/65"
@@ -127,8 +138,6 @@
               </button>
             </div>
           </dialog>
-          <button className="flex mt-8 items-center justify-center min-h-11.5 rounded-lg border-2 px-4 gap-2 border-texto-claro/50 text-texto-claro touch-manipulation focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche transition-[border-color,background-color] duration-150 ease-out hover:border-texto-claro/80 hover:bg-texto-claro/5 active:bg-texto-claro/10"
-          onClick={handleReiniciar}>Reiniciar test</button>
         </main>
       );
     }
