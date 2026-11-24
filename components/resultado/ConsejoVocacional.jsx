@@ -117,9 +117,15 @@ export default function ConsejoVocacional() {
         ))}
       </ul>
 
-      <p>
-        Elegir una carrera no es firmar una sentencia para toda la vida; es elegir tu punto de partida. Ya tienes la información sobre la mesa y sabes en qué carreras encajas mejor. Ahora te toca investigar cada carrera, cuáles son sus áreas de trabajo, qué se hace en el día a día y así elegir tu carrera con criterio.
-      </p>
+      <div className="flex flex-col gap-3 rounded-xl bg-amanecer/12 p-4">
+        <p className="font-voz text-lg leading-snug font-medium text-pretty">
+          Elegir una carrera no es firmar una sentencia para toda la vida;{' '}
+          <strong className="text-amanecer">es elegir tu punto de partida</strong>.
+        </p>
+        <p>
+          Ya sabes en qué carreras encajas mejor. Ahora te toca investigar cada carrera, cuáles son sus áreas de trabajo, qué hacen el día a día y así elegir tu carrera con criterio.
+        </p>
+      </div>
     </section>
   );
 }
