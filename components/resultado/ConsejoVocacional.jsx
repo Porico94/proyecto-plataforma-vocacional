@@ -17,7 +17,7 @@ function Icono({ children, className }) {
 
 const consejos = [
   {
-    titulo: 'No te compares con el ritmo de los demás:',
+    titulo: 'No te compares con el ritmo de los demás',
     texto: 'Cada quien tiene tiempos distintos: algunos ingresan a la primera, otros cambian de carrera o se toman un año para ubicarse. Avanzar a tu ritmo no es quedarse atrás; es construir algo que sí tenga sentido para ti.',
     icono: (
       <>
@@ -27,7 +27,7 @@ const consejos = [
     ),
   },
   {
-    titulo: 'Investiga el día a día real de la carrera, no solo el nombre:',
+    titulo: 'Investiga el día a día real de la carrera, no solo el nombre',
     texto: 'A veces el nombre de una carrera suena increíble, pero el trabajo que se realiza en la vida real es muy distinto. Puedes buscar en internet, preguntar a la IA, o conversar con alguien que ya esté trabajando en ese rubro para ver si el día a día te convence.',
     icono: (
       <>
@@ -37,7 +37,7 @@ const consejos = [
     ),
   },
   {
-    titulo: 'No es solo estudiar:',
+    titulo: 'No es solo estudiar',
     texto: 'Hay estudiantes que saben un montón, pero les cuesta conseguir trabajo porque no saben comunicarse ni desenvolverse con otras personas. Aprender a hablar con confianza, hacer amistades y conectar con gente de tu rubro te abrirá muchas puertas laborales.',
     icono: (
       <>
@@ -49,7 +49,7 @@ const consejos = [
     ),
   },
   {
-    titulo: 'Define tu propio éxito:',
+    titulo: 'Define tu propio éxito',
     texto: 'El verdadero éxito no es solo ganar mucho dinero; hay quienes ganan bien pero detestan su trabajo. Define qué significa el éxito para ti, no para los demás: si lo que haces te motiva y te permite vivir tranquilo, ya ganaste.',
     icono: (
       <>
@@ -60,7 +60,7 @@ const consejos = [
     ),
   },
   {
-    titulo: 'Busca un equilibrio por tu salud mental:',
+    titulo: 'Busca un equilibrio por tu salud mental',
     texto: 'Durante y después de terminar tus estudios superiores, cuida el balance entre tu estudio, tu trabajo y tu vida personal. No todo es trabajar o estudiar; también es importante disfrutar, descansar y compartir tiempo con tu familia y amigos.',
     icono: (
       <>
@@ -69,7 +69,7 @@ const consejos = [
     ),
   },
   {
-    titulo: 'Aprende a usar herramientas actuales:',
+    titulo: 'Aprende a usar herramientas actuales',
     texto: 'En institutos y universidades a veces los sílabos van muy atrasados. Dominar herramientas digitales desde la universidad marca una diferencia enorme cuando buscas prácticas o trabajo. Por ejemplo, aprende a usar la IA es una herramienta potente para aprender y practicar sobre cualquier tema.',
     icono: (
       <>
@@ -95,19 +95,24 @@ export default function ConsejoVocacional() {
         Si llegaste hasta aquí es porque te tomas en serio esta nueva etapa. Para empezar con el pie derecho, ten presente estos consejos:
       </p>      
 
-      <ul className="flex flex-col gap-4">
-        {consejos.map((consejo) => (
-          <li key={consejo.titulo} className="flex items-start gap-3">
-            <span
-              aria-hidden="true"
-              className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-musgo/18 text-musgo"
-            >
-              <Icono className="size-6">{consejo.icono}</Icono>
-            </span>
-            <p>
-              <strong className="block">{consejo.titulo}</strong>
-              {consejo.texto}
-            </p>
+      <ul className="flex flex-col">
+        {consejos.map((consejo, index) => (
+          <li key={consejo.titulo} className="border-b border-texto-claro/20">
+            <details name="consejos" open={index === 0} className="group">
+              <summary className="flex min-h-11.5 cursor-pointer list-none items-center gap-3 rounded-lg px-1 py-3 touch-manipulation transition-[background-color] duration-150 ease-out hover:bg-texto-claro/5 focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-amanecer focus-visible:ring-offset-2 focus-visible:ring-offset-noche [&::-webkit-details-marker]:hidden">
+                <span
+                  aria-hidden="true"
+                  className="flex size-10 shrink-0 items-center justify-center rounded-xl bg-musgo/18 text-musgo"
+                >
+                  <Icono className="size-6">{consejo.icono}</Icono>
+                </span>
+                <span className="flex-1 font-bold">{consejo.titulo}</span>
+                <Icono className="size-5 shrink-0 text-texto-claro/70 group-open:rotate-180 motion-safe:transition-[rotate] motion-safe:duration-150 motion-safe:ease-out">
+                  <path d="m6 9 6 6 6-6" />
+                </Icono>
+              </summary>
+              <p className="pr-1 pb-4 pl-14">{consejo.texto}</p>
+            </details>
           </li>
         ))}
       </ul>
