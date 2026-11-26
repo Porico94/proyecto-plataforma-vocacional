@@ -14,6 +14,7 @@
   export default function Resultado() {
     const router = useRouter();
     const dialogRef = useRef(null);
+    const nombreRef = useRef(null);
     const [nombre, setNombre] = useState('');
     const [errorNombre, setErrorNombre] = useState('');
     const [intentosFallidos, setIntentosFallidos] = useState(0);
@@ -62,6 +63,7 @@
       if (!validacion.valido) {
         setErrorNombre(validacion.error);
         setIntentosFallidos(intentosFallidos + 1);
+        nombreRef.current.focus();
         return;
       }      
       handleCerrarDialogo();
@@ -143,6 +145,7 @@
               <input
                 id="nombre"
                 type="text"
+                ref={nombreRef}
                 autoComplete="name"
                 value={nombre}
                 onChange={(e) => {
